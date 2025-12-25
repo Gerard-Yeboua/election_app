@@ -1,0 +1,161 @@
+<!-- templates/geography/bureau_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}Bureau {{ bureau.code_bv }}{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900">Bureau {{ bureau.code_bv }}</h1>
+    <p class="mt-2 text-gray-600">{{ bureau.nom_bv }}</p>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- Informations principales -->
+    <div class="lg:col-span-2 space-y-6">
+        <!-- Statistiques -->
+        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Statistiques</h2>
+            
+            <div class="grid grid-cols-3 gap-4">
+                <div class="text-center p-4 bg-blue-50 rounded-lg">
+                    <p class="text-3xl font-bold text-blue-600">{{ bureau.nombre_inscrits }}</p>
+                    <p class="text-sm text-gray-600 mt-1">Inscrits</p>
+                </div>
+                
+                {% if stats_pv %}
+                <div class="text-center p-4 bg-green-50 rounded-lg">
+                    <p class="text-3xl font-bold text-green-600">{{ stats_pv.nombre_votants|default:"0" }}</p>
+                    <p class="text-sm text-gray-600 mt-1">Votants</p>
+                </div>
+                
+                <div class="text-center p-4 bg-purple-50 rounded-lg">
+                    <p class="text-3xl font-bold text-purple-600">{{ stats_pv.taux_participation|default:"0" }}%</p>
+                    <p class="text-sm text-gray-600 mt-1">Participation</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Derniers PV -->
+        {% if derniers_pv %}
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200">
+                <h2 class="text-xl font-semibold text-gray-900">Derniers PV</h2>
+            </div>
+            
+            <div class="divide-y divide-gray-200">
+                {% for pv in derniers_pv %}
+                <a href="{% url 'pv:detail' pv.id %}" 
+                   class="block p-4 hover:bg-gray-50 transition-colors">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="font-semibold text-gray-900">{{ pv.numero_reference }}</p>
+                            <p class="text-sm text-gray-600">{{ pv.date_soumission|date:"d/m/Y H:i" }}</p>
+                        </div>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-full
+                            {% if pv.statut == 'VALIDE' %}bg-green-100 text-green-800
+                            {% elif pv.statut == 'EN_ATTENTE' %}bg-yellow-100 text-yellow-800
+                            {% else %}bg-red-100 text-red-800{% endif %}">
+                            {{ pv.get_statut_display }}
+                        </span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        
+        <!-- Derniers incidents -->
+        {% if derniers_incidents %}
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200">
+                <h2 class="text-xl font-semibold text-gray-900">Derniers incidents</h2>
+            </div>
+            
+            <div class="divide-y divide-gray-200">
+                {% for incident in derniers_incidents %}
+                <a href="{% url 'incidents:detail' incident.id %}" 
+                   class="block p-4 hover:bg-gray-50 transition-colors">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <p class="font-semibold text-gray-900">{{ incident.titre|truncatewords:8 }}</p>
+                            <p class="text-sm text-gray-600">{{ incident.created_at|date:"d/m/Y H:i" }}</p>
+                        </div>
+                        <span class="ml-2 px-3 py-1 text-xs font-semibold rounded-full
+                            {% if incident.priorite == 'CRITIQUE' %}bg-red-100 text-red-800
+                            {% elif incident.priorite == 'URGENTE' %}bg-orange-100 text-orange-800
+                            {% else %}bg-yellow-100 text-yellow-800{% endif %}">
+                            {{ incident.get_priorite_display }}
+                        </span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    
+    <!-- Informations latérales -->
+    <div class="space-y-6">
+        <!-- Localisation -->
+        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Localisation</h3>
+            
+            <div class="space-y-3 text-sm">
+                <div>
+                    <p class="text-gray-600">Lieu de vote</p>
+                    <p class="font-medium text-gray-900">{{ bureau.lieu_vote.nom_lieu }}</p>
+                </div>
+                
+                <div class="border-t border-gray-200 pt-3">
+                    <p class="text-gray-600">Sous-préfecture</p>
+                    <p class="font-medium text-gray-900">{{ bureau.sous_prefecture.nom_sous_prefecture }}</p>
+                </div>
+                
+                <div class="border-t border-gray-200 pt-3">
+                    <p class="text-gray-600">Commune</p>
+                    <p class="font-medium text-gray-900">{{ bureau.commune.nom_commune }}</p>
+                </div>
+                
+                <div class="border-t border-gray-200 pt-3">
+                    <p class="text-gray-600">Département</p>
+                    <p class="font-medium text-gray-900">{{ bureau.departement.nom_departement }}</p>
+                </div>
+                
+                <div class="border-t border-gray-200 pt-3">
+                    <p class="text-gray-600">Région</p>
+                    <p class="font-medium text-gray-900">{{ bureau.region.nom_region }}</p>
+                </div>
+                
+                {% if bureau.latitude and bureau.longitude %}
+                <div class="border-t border-gray-200 pt-3">
+                    <p class="text-gray-600">Coordonnées GPS</p>
+                    <p class="font-medium text-gray-900 text-xs">
+                        {{ bureau.latitude }}, {{ bureau.longitude }}
+                    </p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Superviseur -->
+        {% if superviseur %}
+        <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Superviseur</h3>
+            
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+                    <span class="text-primary-700 font-bold">
+                        {{ superviseur.first_name.0 }}{{ superviseur.last_name.0 }}
+                    </span>
+                </div>
+                <div>
+                    <p class="font-semibold text-gray-900">{{ superviseur.nom_complet }}</p>
+                    <p class="text-sm text-gray-600">{{ superviseur.email }}</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,4 +1,4 @@
-# apps/statistics/urls.py
+# apps/statistic/urls.py
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from statistic.viewsets import (
@@ -12,7 +12,7 @@ from statistic.viewsets import (
     SnapshotQuotidienViewSet
 )
 
-app_name = 'statistics'
+app_name = 'statistic'
 
 router = DefaultRouter()
 router.register(r'cache', CacheStatistiqueViewSet, basename='cache')
@@ -26,4 +26,21 @@ router.register(r'snapshots', SnapshotQuotidienViewSet, basename='snapshots')
 
 urlpatterns = [
     path('', include(router.urls)),
+]
+
+# apps/statistics/urls.py - Ajouter aux URLs API existantes
+from django.urls import path
+from statistic import views
+
+
+
+# URLs pour les vues Django classiques
+urlpatterns_django = [
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('region/<uuid:region_id>/', views.stats_region, name='region'),
+    path('national/', views.stats_national, name='national'),
+    path('candidat/<uuid:candidat_id>/', views.stats_candidat, name='candidat'),
+    path('comparaison-candidats/', views.comparaison_candidats, name='comparaison_candidats'),
+    path('tendances/', views.tendances, name='tendances'),
+    path('refresh-cache/', views.refresh_cache, name='refresh_cache'),
 ]

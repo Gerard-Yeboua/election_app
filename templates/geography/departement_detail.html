@@ -1,0 +1,89 @@
+<!-- templates/geography/departement_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ departement.nom_departement }}{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <div class="flex items-center space-x-2 text-gray-600 mb-4">
+        <a href="{% url 'geography:region_list' %}" class="hover:text-primary-600">Régions</a>
+        <i class="fas fa-chevron-right text-sm"></i>
+        <a href="{% url 'geography:region_detail' departement.region.id %}" class="hover:text-primary-600">{{ departement.region.nom_region }}</a>
+        <i class="fas fa-chevron-right text-sm"></i>
+        <span class="text-gray-900">{{ departement.nom_departement }}</span>
+    </div>
+    
+    <h1 class="text-3xl font-bold text-gray-900">{{ departement.nom_departement }}</h1>
+    <p class="mt-2 text-gray-600">Code: {{ departement.code_departement }}</p>
+</div>
+
+<!-- Statistiques -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+    <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg p-6 text-white">
+        <p class="text-blue-100 text-sm">Bureaux</p>
+        <p class="text-3xl font-bold mt-2">{{ stats.total_bureaux }}</p>
+    </div>
+    
+    <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-xl shadow-lg p-6 text-white">
+        <p class="text-green-100 text-sm">PV Validés</p>
+        <p class="text-3xl font-bold mt-2">{{ stats_pv.valides }}</p>
+    </div>
+    
+    <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl shadow-lg p-6 text-white">
+        <p class="text-purple-100 text-sm">Participation</p>
+        <p class="text-3xl font-bold mt-2">{{ stats_participation.taux|floatformat:1 }}%</p>
+    </div>
+    
+    <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl shadow-lg p-6 text-white">
+        <p class="text-orange-100 text-sm">Incidents</p>
+        <p class="text-3xl font-bold mt-2">{{ stats_incidents.total }}</p>
+    </div>
+</div>
+
+<!-- Communes -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+    <div class="px-6 py-4 border-b border-gray-200">
+        <h2 class="text-xl font-semibold text-gray-900">Communes</h2>
+    </div>
+    
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Commune</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Code</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Bureaux</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">PV</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                {% for commune in communes %}
+                <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        {{ commune.nom_commune }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {{ commune.code_commune }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        {{ commune.nb_bureaux }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
+                            {{ commune.stats_pv.valides }} validés
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                        <a href="{% url 'geography:commune_detail' commune.id %}" 
+                           class="text-primary-600 hover:text-primary-900">
+                            <i class="fas fa-eye"></i> Voir
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

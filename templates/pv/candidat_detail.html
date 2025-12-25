@@ -1,0 +1,117 @@
+<!-- templates/pv/candidat_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ candidat.nom_complet }}{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto">
+    <!-- En-tête -->
+    <div class="mb-8 flex items-center space-x-6">
+        <div class="w-24 h-24 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
+            {% if candidat.photo %}
+            <img src="{{ candidat.photo.url }}" alt="{{ candidat.nom_complet }}" 
+                 class="w-24 h-24 rounded-full object-cover">
+            {% else %}
+            <span class="text-primary-700 font-bold text-4xl">{{ candidat.numero_ordre }}</span>
+            {% endif %}
+        </div>
+        
+        <div>
+            <h1 class="text-3xl font-bold text-gray-900">{{ candidat.nom_complet }}</h1>
+            <p class="mt-2 text-lg text-gray-600">{{ candidat.parti_politique }}</p>
+            <p class="mt-1 text-sm text-gray-500">Numéro d'ordre: {{ candidat.numero_ordre }}</p>
+        </div>
+    </div>
+    
+    <!-- Statistiques nationales -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg p-6 text-white">
+            <p class="text-blue-100 text-sm">Total voix</p>
+            <p class="text-3xl font-bold mt-2">{{ resultats_nationaux.total_voix|floatformat:0 }}</p>
+        </div>
+        
+        <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-xl shadow-lg p-6 text-white">
+            <p class="text-green-100 text-sm">Pourcentage</p>
+            <p class="text-3xl font-bold mt-2">{{ resultats_nationaux.pourcentage|floatformat:1 }}%</p>
+        </div>
+        
+        <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl shadow-lg p-6 text-white">
+            <p class="text-purple-100 text-sm">Bureaux</p>
+            <p class="text-3xl font-bold mt-2">{{ resultats_nationaux.nombre_bureaux }}</p>
+        </div>
+        
+        <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl shadow-lg p-6 text-white">
+            <p class="text-orange-100 text-sm">Position</p>
+            <p class="text-3xl font-bold mt-2">#{{ position }}</p>
+        </div>
+    </div>
+    
+    <!-- Résultats par région -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 mb-8">
+        <div class="px-6 py-4 border-b border-gray-200">
+            <h2 class="text-xl font-semibold text-gray-900">Résultats par région</h2>
+        </div>
+        
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Région</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Voix</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Pourcentage</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Position</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    {% for resultat in resultats_regions %}
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                            {{ resultat.region_nom }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                            {{ resultat.total_voix|floatformat:0 }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex items-center">
+                                <span class="text-sm text-gray-900 mr-2">{{ resultat.pourcentage|floatformat:1 }}%</span>
+                                <div class="flex-1 w-24 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-primary-600 h-2 rounded-full" 
+                                         style="width: {{ resultat.pourcentage }}%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            {{ resultat.position }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Meilleurs scores -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100">
+        <div class="px-6 py-4 border-b border-gray-200">
+            <h2 class="text-xl font-semibold text-gray-900">Top 10 Meilleurs scores</h2>
+        </div>
+        
+        <div class="p-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {% for score in meilleurs_scores %}
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div>
+                        <p class="font-semibold text-gray-900">{{ score.bureau_code }}</p>
+                        <p class="text-sm text-gray-600">{{ score.bureau_nom|truncatewords:5 }}</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-xl font-bold text-primary-600">{{ score.nombre_voix }}</p>
+                        <p class="text-sm text-gray-600">{{ score.pourcentage|floatformat:1 }}%</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,137 @@
+<!-- templates/pv/validation_queue.html -->
+{% extends 'base.html' %}
+
+{% block title %}File d'attente de validation{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900">File d'attente de validation</h1>
+    <p class="mt-2 text-gray-600">PV en attente de validation</p>
+</div>
+
+<!-- Statistiques -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-600">Total en attente</p>
+                <p class="text-3xl font-bold text-yellow-600 mt-2">{{ stats.total }}</p>
+            </div>
+            <div class="p-3 bg-yellow-100 rounded-full">
+                <i class="fas fa-clock text-2xl text-yellow-600"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-600">Avec incohérences</p>
+                <p class="text-3xl font-bold text-red-600 mt-2">{{ stats.avec_incoherence }}</p>
+            </div>
+            <div class="p-3 bg-red-100 rounded-full">
+                <i class="fas fa-exclamation-triangle text-2xl text-red-600"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-600">En retard (&gt;2h)</p>
+                <p class="text-3xl font-bold text-orange-600 mt-2">{{ stats.en_retard }}</p>
+            </div>
+            <div class="p-3 bg-orange-100 rounded-full">
+                <i class="fas fa-hourglass-end text-2xl text-orange-600"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Liste des PV -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Priorité</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">N° Référence</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Bureau</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Superviseur</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date soumission</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Délai</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Statut</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                {% for pv in pv_list %}
+                <tr class="hover:bg-gray-50 transition-colors {% if pv.has_incoherence %}bg-red-50{% elif pv.est_en_retard %}bg-orange-50{% endif %}">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {% if pv.has_incoherence %}
+                        <i class="fas fa-exclamation-circle text-2xl text-red-600" title="Incohérences détectées"></i>
+                        {% elif pv.est_en_retard %}
+                        <i class="fas fa-clock text-2xl text-orange-600" title="En retard"></i>
+                        {% else %}
+                        <i class="fas fa-check-circle text-2xl text-green-600" title="Normal"></i>
+                        {% endif %}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">{{ pv.numero_reference }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">{{ pv.bureau_vote.code_bv }}</div>
+                        <div class="text-sm text-gray-500">{{ pv.bureau_vote.nom_bv|truncatewords:5 }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">{{ pv.superviseur.nom_complet }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">{{ pv.date_soumission|date:"d/m/Y" }}</div>
+                        <div class="text-sm text-gray-500">{{ pv.date_soumission|date:"H:i" }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm {% if pv.est_en_retard %}text-red-600 font-semibold{% else %}text-gray-900{% endif %}">
+                            {{ pv.delai_validation|default:"0" }}h
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {% if pv.has_incoherence %}
+                        <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                            <i class="fas fa-exclamation-triangle mr-1"></i> Incohérence
+                        </span>
+                        {% elif pv.est_en_retard %}
+                        <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-orange-100 text-orange-800">
+                            <i class="fas fa-clock mr-1"></i> En retard
+                        </span>
+                        {% else %}
+                        <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                            <i class="fas fa-check mr-1"></i> OK
+                        </span>
+                        {% endif %}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                        <a href="{% url 'pv:detail' pv.id %}" 
+                           class="text-blue-600 hover:text-blue-900">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                        <a href="{% url 'pv:validate' pv.id %}" 
+                           class="text-green-600 hover:text-green-900">
+                            <i class="fas fa-check-circle"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="8" class="px-6 py-12 text-center text-gray-500">
+                        <i class="fas fa-check-circle text-6xl text-green-500 mb-3"></i>
+                        <p class="text-lg font-medium">Aucun PV en attente de validation</p>
+                        <p class="text-sm">Tous les PV ont été traités</p>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

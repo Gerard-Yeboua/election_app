@@ -1,0 +1,247 @@
+<!-- templates/incidents/traiter_incident.html -->
+{% extends 'base.html' %}
+
+{% block title %}Traiter incident - {{ incident.numero_ticket }}{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900">Traiter l'incident</h1>
+        <p class="mt-2 text-gray-600">{{ incident.numero_ticket }} - {{ incident.titre }}</p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Informations de l'incident -->
+        <div class="lg:col-span-1">
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100 sticky top-6">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Informations</h2>
+                
+                <div class="space-y-3 text-sm">
+                    <div>
+                        <p class="text-gray-600">Statut</p>
+                        <span class="inline-flex items-center px-3 py-1 mt-1 rounded-full text-xs font-semibold
+                            {% if incident.statut == 'OUVERT' %}bg-red-100 text-red-800
+                            {% elif incident.statut == 'EN_COURS' %}bg-yellow-100 text-yellow-800
+                            {% elif incident.statut == 'TRAITE' %}bg-green-100 text-green-800
+                            {% else %}bg-gray-100 text-gray-800{% endif %}">
+                            {{ incident.get_statut_display }}
+                        </span>
+                    </div>
+                    
+                    <div class="border-t border-gray-200 pt-3">
+                        <p class="text-gray-600">Priorité</p>
+                        <span class="inline-flex items-center px-3 py-1 mt-1 rounded-full text-xs font-semibold
+                            {% if incident.priorite == 'CRITIQUE' %}bg-red-100 text-red-800
+                            {% elif incident.priorite == 'URGENTE' %}bg-orange-100 text-orange-800
+                            {% else %}bg-yellow-100 text-yellow-800{% endif %}">
+                            {{ incident.get_priorite_display }}
+                        </span>
+                    </div>
+                    
+                    <div class="border-t border-gray-200 pt-3">
+                        <p class="text-gray-600">Bureau</p>
+                        <p class="font-medium text-gray-900">{{ incident.bureau_vote.code_bv }}</p>
+                    </div>
+                    
+                    <div class="border-t border-gray-200 pt-3">
+                        <p class="text-gray-600">Signalé par</p>
+                        <p class="font-medium text-gray-900">{{ incident.superviseur.nom_complet }}</p>
+                    </div>
+                    
+                    {% if incident.admin_responsable %}
+                    <div class="border-t border-gray-200 pt-3">
+                        <p class="text-gray-600">Responsable</p>
+                        <p class="font-medium text-gray-900">{{ incident.admin_responsable.nom_complet }}</p>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="border-t border-gray-200 pt-3">
+                        <p class="text-gray-600">Temps écoulé</p>
+                        <p class="font-medium text-gray-900">{{ incident.temps_ouvert_minutes }} min</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Formulaire de traitement -->
+        <div class="lg:col-span-2">
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h2 class="text-xl font-semibold text-gray-900 mb-6">Actions disponibles</h2>
+                
+                <form method="post" x-data="{ action: '' }">
+                    {% csrf_token %}
+                    
+                    <!-- Actions -->
+                    <div class="space-y-3 mb-6">
+                        {% if not incident.admin_responsable %}
+                        <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all"
+                               :class="action === 'attribuer' ? 'border-primary-500 bg-primary-50' : 'border-gray-200 hover:border-primary-300'">
+                            <input type="radio" name="action" value="attribuer" x-model="action" class="sr-only">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <i class="fas fa-user-plus text-2xl mr-3"
+                                       :class="action === 'attribuer' ? 'text-primary-600' : 'text-gray-400'"></i>
+                                    <div>
+                                        <p class="font-semibold" :class="action === 'attribuer' ? 'text-primary-900' : 'text-gray-900'">
+                                            M'attribuer cet incident
+                                        </p>
+                                        <p class="text-sm text-gray-600">Devenir responsable du traitement</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                        {% endif %}
+                        
+                        {% if incident.admin_responsable == user and incident.statut == 'OUVERT' %}
+                        <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all"
+                               :class="action === 'demarrer' ? 'border-yellow-500 bg-yellow-50' : 'border-gray-200 hover:border-yellow-300'">
+                            <input type="radio" name="action" value="demarrer" x-model="action" class="sr-only">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <i class="fas fa-play text-2xl mr-3"
+                                       :class="action === 'demarrer' ? 'text-yellow-600' : 'text-gray-400'"></i>
+                                    <div>
+                                        <p class="font-semibold" :class="action === 'demarrer' ? 'text-yellow-900' : 'text-gray-900'">
+                                            Démarrer le traitement
+                                        </p>
+                                        <p class="text-sm text-gray-600">Passer le statut à "En cours"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                        {% endif %}
+                        
+                        {% if incident.admin_responsable == user and incident.statut == 'EN_COURS' %}
+                        <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all"
+                               :class="action === 'resoudre' ? 'border-green-500 bg-green-50' : 'border-gray-200 hover:border-green-300'">
+                            <input type="radio" name="action" value="resoudre" x-model="action" class="sr-only">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-2xl mr-3"
+                                       :class="action === 'resoudre' ? 'text-green-600' : 'text-gray-400'"></i>
+                                    <div>
+                                        <p class="font-semibold" :class="action === 'resoudre' ? 'text-green-900' : 'text-gray-900'">
+                                            Résoudre l'incident
+                                        </p>
+                                        <p class="text-sm text-gray-600">Marquer comme résolu</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                        {% endif %}
+                        
+                        {% if incident.statut == 'TRAITE' %}
+                        <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all"
+                               :class="action === 'cloturer' ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-blue-300'">
+                            <input type="radio" name="action" value="cloturer" x-model="action" class="sr-only">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <i class="fas fa-times-circle text-2xl mr-3"
+                                       :class="action === 'cloturer' ? 'text-blue-600' : 'text-gray-400'"></i>
+                                    <div>
+                                        <p class="font-semibold" :class="action === 'cloturer' ? 'text-blue-900' : 'text-gray-900'">
+                                            Clôturer l'incident
+                                        </p>
+                                        <p class="text-sm text-gray-600">Fermer définitivement</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                        {% endif %}
+                        
+                        <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all"
+                               :class="action === 'escalader' ? 'border-red-500 bg-red-50' : 'border-gray-200 hover:border-red-300'">
+                            <input type="radio" name="action" value="escalader" x-model="action" class="sr-only">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <i class="fas fa-level-up-alt text-2xl mr-3"
+                                       :class="action === 'escalader' ? 'text-red-600' : 'text-gray-400'"></i>
+                                    <div>
+                                        <p class="font-semibold" :class="action === 'escalader' ? 'text-red-900' : 'text-gray-900'">
+                                            Escalader
+                                        </p>
+                                        <p class="text-sm text-gray-600">Transférer à un niveau supérieur</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <!-- Champs conditionnels -->
+                    <div x-show="action === 'resoudre'" x-cloak class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Solution <span class="text-red-500">*</span>
+                        </label>
+                        <textarea name="solution" rows="4"
+                                  class="w-full rounded-lg border-gray-300 focus:border-green-500 focus:ring-green-500"
+                                  placeholder="Décrivez la solution mise en œuvre..."></textarea>
+                        
+                        <label class="block text-sm font-medium text-gray-700 mb-2 mt-4">
+                            Actions menées
+                        </label>
+                        <textarea name="actions_menees" rows="3"
+                                  class="w-full rounded-lg border-gray-300 focus:border-green-500 focus:ring-green-500"
+                                  placeholder="Actions menées pour résoudre l'incident..."></textarea>
+                    </div>
+                    
+                    <div x-show="action === 'escalader'" x-cloak class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Escalader vers <span class="text-red-500">*</span>
+                        </label>
+                        <select name="escalade_vers"
+                                class="w-full rounded-lg border-gray-300 focus:border-red-500 focus:ring-red-500">
+                            <option value="">Sélectionner un administrateur</option>
+                            {% for admin in form.fields.escalade_vers.queryset %}
+                            <option value="{{ admin.id }}">{{ admin.nom_complet }}</option>
+                            {% endfor %}
+                        </select>
+                        
+                        <label class="block text-sm font-medium text-gray-700 mb-2 mt-4">
+                            Motif de l'escalade <span class="text-red-500">*</span>
+                        </label>
+                        <textarea name="motif_escalade" rows="3"
+                                  class="w-full rounded-lg border-gray-300 focus:border-red-500 focus:ring-red-500"
+                                  placeholder="Raison de l'escalade..."></textarea>
+                    </div>
+                    
+                    <!-- Boutons -->
+                    <div class="flex space-x-3">
+                        <a href="{% url 'incidents:detail' incident.id %}" 
+                           class="flex-1 px-4 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg text-center transition-colors">
+                            Annuler
+                        </a>
+                        <button type="submit" 
+                                class="flex-1 px-4 py-3 rounded-lg text-white transition-colors"
+                                :class="{
+                                    'bg-primary-600 hover:bg-primary-700': action === 'attribuer',
+                                    'bg-yellow-600 hover:bg-yellow-700': action === 'demarrer',
+                                    'bg-green-600 hover:bg-green-700': action === 'resoudre',
+                                    'bg-blue-600 hover:bg-blue-700': action === 'cloturer',
+                                    'bg-red-600 hover:bg-red-700': action === 'escalader',
+                                    'bg-gray-400 cursor-not-allowed': !action
+                                }"
+                                :disabled="!action">
+                            <i class="fas mr-2"
+                               :class="{
+                                   'fa-user-plus': action === 'attribuer',
+                                   'fa-play': action === 'demarrer',
+                                   'fa-check': action === 'resoudre',
+                                   'fa-times': action === 'cloturer',
+                                   'fa-level-up-alt': action === 'escalader'
+                               }"></i>
+                            <span x-text="
+                                action === 'attribuer' ? 'M\'attribuer' :
+                                action === 'demarrer' ? 'Démarrer' :
+                                action === 'resoudre' ? 'Résoudre' :
+                                action === 'cloturer' ? 'Clôturer' :
+                                action === 'escalader' ? 'Escalader' :
+                                'Valider'
+                            "></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

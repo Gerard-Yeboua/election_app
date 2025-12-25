@@ -1,0 +1,230 @@
+<!-- templates/pv/validate_pv.html -->
+{% extends 'base.html' %}
+
+{% block title %}Valider PV - {{ pv.numero_reference }}{% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto">
+    <!-- En-tête -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900">Validation du PV</h1>
+        <p class="mt-2 text-gray-600">{{ pv.numero_reference }} - Bureau {{ pv.bureau_vote.code_bv }}</p>
+    </div>
+    
+    <!-- Alertes -->
+    {% if pv.has_incoherence %}
+    <div class="mb-6 bg-red-50 border-l-4 border-red-400 p-4">
+        <div class="flex">
+            <i class="fas fa-exclamation-triangle text-red-400 text-xl"></i>
+            <div class="ml-3">
+                <h3 class="text-sm font-medium text-red-800">Incohérences détectées</h3>
+                <div class="mt-2 text-sm text-red-700">
+                    <ul class="list-disc list-inside space-y-1">
+                        {% for erreur in pv.erreurs_detectees %}
+                        <li>{{ erreur }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Données du PV -->
+        <div class="space-y-6">
+            <!-- Informations générales -->
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Données du scrutin</h2>
+                
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <span class="text-gray-600">Inscrits</span>
+                        <span class="text-lg font-semibold text-gray-900">{{ pv.nombre_inscrits }}</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <span class="text-gray-600">Votants</span>
+                        <span class="text-lg font-semibold text-gray-900">{{ pv.nombre_votants }}</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <span class="text-gray-600">Exprimés</span>
+                        <span class="text-lg font-semibold text-gray-900">{{ pv.suffrages_exprimes }}</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <span class="text-gray-600">Nuls</span>
+                        <span class="text-lg font-semibold text-gray-900">{{ pv.bulletins_nuls }}</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+                        <span class="text-gray-600">Blancs</span>
+                        <span class="text-lg font-semibold text-gray-900">{{ pv.bulletins_blancs }}</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-2">
+                        <span class="text-gray-600 font-semibold">Taux de participation</span>
+                        <span class="text-xl font-bold text-primary-600">{{ pv.taux_participation }}%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Résultats par candidat -->
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Résultats par candidat</h2>
+                
+                <div class="space-y-3">
+                    {% for resultat in resultats %}
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
+                                <span class="text-primary-700 font-bold">{{ resultat.candidat.numero_ordre }}</span>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900">{{ resultat.candidat.nom_complet }}</p>
+                                <p class="text-sm text-gray-600">{{ resultat.candidat.parti_politique }}</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xl font-bold text-gray-900">{{ resultat.nombre_voix }}</p>
+                            <p class="text-sm text-gray-600">{{ resultat.pourcentage_bureau }}%</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- Photos -->
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Photos</h2>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    {% if pv.photo_pv_officiel %}
+                    <div>
+                        <p class="text-sm text-gray-600 mb-2">PV Officiel</p>
+                        <a href="{{ pv.photo_pv_officiel.url }}" target="_blank">
+                            <img src="{{ pv.photo_pv_officiel.url }}" alt="PV Officiel" 
+                                 class="w-full h-40 object-cover rounded-lg border-2 border-gray-200 hover:border-primary-500">
+                        </a>
+                    </div>
+                    {% endif %}
+                    
+                    {% if pv.photo_tableau_resultats %}
+                    <div>
+                        <p class="text-sm text-gray-600 mb-2">Tableau résultats</p>
+                        <a href="{{ pv.photo_tableau_resultats.url }}" target="_blank">
+                            <img src="{{ pv.photo_tableau_resultats.url }}" alt="Tableau" 
+                                 class="w-full h-40 object-cover rounded-lg border-2 border-gray-200 hover:border-primary-500">
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Formulaire de validation -->
+        <div>
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100 sticky top-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-6">Décision de validation</h2>
+                
+                <form method="post" x-data="{ action: 'valider' }">
+                    {% csrf_token %}
+                    
+                    <!-- Actions -->
+                    <div class="space-y-3 mb-6">
+                        <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all"
+                               :class="action === 'valider' ? 'border-green-500 bg-green-50' : 'border-gray-200 hover:border-green-300'">
+                            <input type="radio" name="action" value="valider" x-model="action" class="sr-only">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-2xl mr-3"
+                                       :class="action === 'valider' ? 'text-green-600' : 'text-gray-400'"></i>
+                                    <div>
+                                        <p class="font-semibold" :class="action === 'valider' ? 'text-green-900' : 'text-gray-900'">
+                                            Valider
+                                        </p>
+                                        <p class="text-sm text-gray-600">Le PV est conforme et peut être validé</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                        
+                        <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all"
+                               :class="action === 'rejeter' ? 'border-red-500 bg-red-50' : 'border-gray-200 hover:border-red-300'">
+                            <input type="radio" name="action" value="rejeter" x-model="action" class="sr-only">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <i class="fas fa-times-circle text-2xl mr-3"
+                                       :class="action === 'rejeter' ? 'text-red-600' : 'text-gray-400'"></i>
+                                    <div>
+                                        <p class="font-semibold" :class="action === 'rejeter' ? 'text-red-900' : 'text-gray-900'">
+                                            Rejeter
+                                        </p>
+                                        <p class="text-sm text-gray-600">Le PV contient des erreurs graves</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                        
+                        <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all"
+                               :class="action === 'correction' ? 'border-yellow-500 bg-yellow-50' : 'border-gray-200 hover:border-yellow-300'">
+                            <input type="radio" name="action" value="correction" x-model="action" class="sr-only">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <i class="fas fa-edit text-2xl mr-3"
+                                       :class="action === 'correction' ? 'text-yellow-600' : 'text-gray-400'"></i>
+                                    <div>
+                                        <p class="font-semibold" :class="action === 'correction' ? 'text-yellow-900' : 'text-gray-900'">
+                                            Demander correction
+                                        </p>
+                                        <p class="text-sm text-gray-600">Des corrections mineures sont nécessaires</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <!-- Motif de rejet -->
+                    <div x-show="action === 'rejeter'" x-cloak class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Motif du rejet <span class="text-red-500">*</span>
+                        </label>
+                        <textarea name="motif_rejet" rows="4" required
+                                  class="w-full rounded-lg border-gray-300 focus:border-red-500 focus:ring-red-500"
+                                  placeholder="Expliquez les raisons du rejet..."></textarea>
+                    </div>
+                    
+                    <!-- Commentaires -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Commentaires
+                        </label>
+                        <textarea name="commentaires" rows="3"
+                                  class="w-full rounded-lg border-gray-300 focus:border-primary-500 focus:ring-primary-500"
+                                  placeholder="Commentaires additionnels (optionnel)..."></textarea>
+                    </div>
+                    
+                    <!-- Boutons -->
+                    <div class="flex space-x-3">
+                        <a href="{% url 'pv:validation_queue' %}" 
+                           class="flex-1 px-4 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg text-center transition-colors">
+                            Annuler
+                        </a>
+                        <button type="submit" 
+                                class="flex-1 px-4 py-3 rounded-lg text-white transition-colors"
+                                :class="{
+                                    'bg-green-600 hover:bg-green-700': action === 'valider',
+                                    'bg-red-600 hover:bg-red-700': action === 'rejeter',
+                                    'bg-yellow-600 hover:bg-yellow-700': action === 'correction'
+                                }">
+                            <i class="fas mr-2"
+                               :class="{
+                                   'fa-check': action === 'valider',
+                                   'fa-times': action === 'rejeter',
+                                   'fa-edit': action === 'correction'
+                               }"></i>
+                            <span x-text="action === 'valider' ? 'Valider' : action === 'rejeter' ? 'Rejeter' : 'Demander correction'"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

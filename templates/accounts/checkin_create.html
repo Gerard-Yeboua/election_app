@@ -1,0 +1,115 @@
+<!-- templates/accounts/checkin_create.html -->
+{% extends 'base.html' %}
+
+{% block title %}Check-in{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto">
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900">Effectuer le check-in</h1>
+        <p class="mt-2 text-gray-600">Bureau {{ bureau.code_bv }} - {{ bureau.nom_bv }}</p>
+    </div>
+    
+    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+        <div class="flex">
+            <i class="fas fa-info-circle text-blue-400 text-xl"></i>
+            <div class="ml-3">
+                <p class="text-sm text-blue-700">
+                    Le check-in confirme votre présence au bureau de vote. 
+                    Vous devez saisir exactement le nom du bureau et autoriser la géolocalisation.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <form method="post" x-data="checkinForm()">
+        {% csrf_token %}
+        
+        <div class="bg-white rounded-xl shadow-sm p-8 border border-gray-100 space-y-6">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                    Nom du bureau de vote <span class="text-red-500">*</span>
+                </label>
+                {{ form.nom_saisi }}
+                <p class="mt-1 text-sm text-gray-500">
+                    Saisissez exactement: <strong>{{ bureau.nom_bv }}</strong>
+                </p>
+            </div>
+            
+            <!-- Champs GPS cachés -->
+            {{ form.latitude }}
+            {{ form.longitude }}
+            {{ form.precision_gps }}
+            
+            <!-- Statut GPS -->
+            <div class="bg-gray-50 rounded-lg p-4">
+                <div class="flex items-center space-x-3">
+                    <div x-show="!gpsObtenu" class="flex items-center text-yellow-600">
+                        <i class="fas fa-spinner fa-spin text-xl mr-2"></i>
+                        <span class="text-sm font-medium">Obtention de la position GPS...</span>
+                    </div>
+                    
+                    <div x-show="gpsObtenu" x-cloak class="flex items-center text-green-600">
+                        <i class="fas fa-check-circle text-xl mr-2"></i>
+                        <span class="text-sm font-medium">Position GPS obtenue</span>
+                    </div>
+                </div>
+                
+                <div x-show="gpsError" x-cloak class="mt-2 text-sm text-red-600">
+                    <i class="fas fa-exclamation-triangle mr-1"></i>
+                    <span x-text="gpsError"></span>
+                </div>
+            </div>
+            
+            <div class="flex space-x-3 pt-4 border-t border-gray-200">
+                <a href="{% url 'dashboard:index' %}" 
+                   class="flex-1 px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg text-center transition-colors">
+                    Annuler
+                </a>
+                <button type="submit" 
+                        :disabled="!gpsObtenu"
+                        class="flex-1 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed">
+                    <i class="fas fa-map-marker-alt mr-2"></i> Valider le check-in
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+function checkinForm() {
+    return {
+        gpsObtenu: false,
+        gpsError: '',
+        
+        init() {
+            this.obtenirPosition();
+        },
+        
+        obtenirPosition() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        document.getElementById('id_latitude').value = position.coords.latitude;
+                        document.getElementById('id_longitude').value = position.coords.longitude;
+                        document.getElementById('id_precision_gps').value = position.coords.accuracy;
+                        this.gpsObtenu = true;
+                    },
+                    (error) => {
+                        this.gpsError = 'Impossible d\'obtenir votre position. Veuillez autoriser la géolocalisation.';
+                        console.error('Erreur GPS:', error);
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 10000,
+                        maximumAge: 0
+                    }
+                );
+            } else {
+                this.gpsError = 'La géolocalisation n\'est pas supportée par votre navigateur.';
+            }
+        }
+    }
+}
+</script>
+{% endblock %}

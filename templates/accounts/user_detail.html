@@ -1,0 +1,222 @@
+<!-- templates/accounts/user_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ viewed_user.nom_complet }}{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto">
+    <!-- En-tête -->
+    <div class="mb-8 flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            {% if viewed_user.photo %}
+            <img src="{{ viewed_user.photo.url }}" alt="{{ viewed_user.nom_complet }}" 
+                 class="w-20 h-20 rounded-full object-cover">
+            {% else %}
+            <div class="w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center">
+                <span class="text-primary-700 font-bold text-2xl">
+                    {{ viewed_user.first_name.0 }}{{ viewed_user.last_name.0 }}
+                </span>
+            </div>
+            {% endif %}
+            
+            <div>
+                <h1 class="text-3xl font-bold text-gray-900">{{ viewed_user.nom_complet }}</h1>
+                <p class="mt-1 text-gray-600">{{ viewed_user.get_role_display }}</p>
+            </div>
+        </div>
+        
+        {% if user.peut_creer_utilisateurs %}
+        <a href="{% url 'accounts:user_update' viewed_user.id %}" 
+           class="inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg">
+            <i class="fas fa-edit mr-2"></i> Modifier
+        </a>
+        {% endif %}
+    </div>
+    
+    <!-- Badges de statut -->
+    <div class="mb-6 flex items-center space-x-3">
+        {% if viewed_user.is_active %}
+        <span class="px-4 py-2 inline-flex text-sm font-semibold rounded-full bg-green-100 text-green-800">
+            <i class="fas fa-check-circle mr-2"></i> Actif
+        </span>
+        {% else %}
+        <span class="px-4 py-2 inline-flex text-sm font-semibold rounded-full bg-red-100 text-red-800">
+            <i class="fas fa-times-circle mr-2"></i> Inactif
+        </span>
+        {% endif %}
+        
+        <span class="px-4 py-2 inline-flex text-sm font-semibold rounded-full bg-blue-100 text-blue-800">
+            {{ viewed_user.get_role_display }}
+        </span>
+    </div>
+    
+    <!-- Grille principale -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Colonne principale -->
+        <div class="lg:col-span-2 space-y-6">
+            <!-- Informations personnelles -->
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Informations personnelles</h2>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <p class="text-sm text-gray-600">Email</p>
+                        <p class="font-medium text-gray-900">{{ viewed_user.email }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600">Téléphone</p>
+                        <p class="font-medium text-gray-900">{{ viewed_user.telephone|default:"-" }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600">Matricule</p>
+                        <p class="font-medium text-gray-900">{{ viewed_user.matricule|default:"-" }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600">Date d'inscription</p>
+                        <p class="font-medium text-gray-900">{{ viewed_user.date_joined|date:"d/m/Y" }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Affectation géographique -->
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Affectation géographique</h2>
+                
+                <div class="space-y-3">
+                    {% if viewed_user.region %}
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <span class="text-gray-600">Région</span>
+                        <span class="font-medium text-gray-900">{{ viewed_user.region.nom_region }}</span>
+                    </div>
+                    {% endif %}
+                    
+                    {% if viewed_user.departement %}
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <span class="text-gray-600">Département</span>
+                        <span class="font-medium text-gray-900">{{ viewed_user.departement.nom_departement }}</span>
+                    </div>
+                    {% endif %}
+                    
+                    {% if viewed_user.commune %}
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <span class="text-gray-600">Commune</span>
+                        <span class="font-medium text-gray-900">{{ viewed_user.commune.nom_commune }}</span>
+                    </div>
+                    {% endif %}
+                    
+                    {% if viewed_user.bureau_vote %}
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <span class="text-gray-600">Bureau de vote</span>
+                        <span class="font-medium text-gray-900">{{ viewed_user.bureau_vote.code_bv }} - {{ viewed_user.bureau_vote.nom_bv }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Statistiques de performance (Superviseur) -->
+            {% if stats %}
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Performance</h2>
+                
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                        <p class="text-3xl font-bold text-blue-600">{{ stats.total_pv }}</p>
+                        <p class="text-sm text-gray-600 mt-1">PV soumis</p>
+                    </div>
+                    <div class="text-center p-4 bg-green-50 rounded-lg">
+                        <p class="text-3xl font-bold text-green-600">{{ stats.pv_valides }}</p>
+                        <p class="text-sm text-gray-600 mt-1">PV validés</p>
+                    </div>
+                    <div class="text-center p-4 bg-orange-50 rounded-lg">
+                        <p class="text-3xl font-bold text-orange-600">{{ stats.total_incidents }}</p>
+                        <p class="text-sm text-gray-600 mt-1">Incidents signalés</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            
+            <!-- Activité récente -->
+            {% if recent_activity %}
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Activité récente</h2>
+                
+                <div class="space-y-3">
+                    {% for activity in recent_activity %}
+                    <div class="border-l-2 border-primary-300 pl-4">
+                        <p class="text-sm font-medium text-gray-900">{{ activity.get_action_display }}</p>
+                        <p class="text-xs text-gray-600">{{ activity.description }}</p>
+                        <p class="text-xs text-gray-500">{{ activity.timestamp|date:"d/m/Y H:i" }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        
+        <!-- Colonne latérale -->
+        <div class="space-y-6">
+            <!-- Statistiques connexion -->
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Connexions</h3>
+                
+                <div class="space-y-3">
+                    <div>
+                        <p class="text-sm text-gray-600">Dernière connexion</p>
+                        <p class="font-medium text-gray-900">{{ viewed_user.last_login|date:"d/m/Y H:i"|default:"-" }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600">Nombre de connexions</p>
+                        <p class="font-medium text-gray-900">{{ viewed_user.login_count }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600">Dernière IP</p>
+                        <p class="font-medium text-gray-900">{{ viewed_user.last_login_ip|default:"-" }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Actions -->
+            {% if user.peut_creer_utilisateurs and viewed_user != user %}
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Actions</h3>
+                
+                <div class="space-y-3">
+                    <button onclick="toggleActive()" 
+                            class="w-full px-4 py-2 {% if viewed_user.is_active %}bg-red-600 hover:bg-red-700{% else %}bg-green-600 hover:bg-green-700{% endif %} text-white rounded-lg transition-colors">
+                        <i class="fas {% if viewed_user.is_active %}fa-ban{% else %}fa-check{% endif %} mr-2"></i>
+                        {% if viewed_user.is_active %}Désactiver{% else %}Activer{% endif %}
+                    </button>
+                    
+                    <a href="{% url 'accounts:user_update' viewed_user.id %}" 
+                       class="block w-full px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg text-center transition-colors">
+                        <i class="fas fa-edit mr-2"></i> Modifier
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleActive() {
+    if (confirm('Êtes-vous sûr de vouloir changer le statut de cet utilisateur ?')) {
+        fetch('{% url "accounts:user_toggle_active" viewed_user.id %}', {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            } else {
+                alert('Erreur: ' + data.error);
+            }
+        });
+    }
+}
+</script>
+{% endblock %}

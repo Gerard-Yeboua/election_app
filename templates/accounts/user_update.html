@@ -1,0 +1,119 @@
+<!-- templates/accounts/user_update.html -->
+{% extends 'base.html' %}
+
+{% block title %}Modifier {{ viewed_user.nom_complet }}{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900">Modifier l'utilisateur</h1>
+        <p class="mt-2 text-gray-600">{{ viewed_user.nom_complet }}</p>
+    </div>
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="bg-white rounded-xl shadow-sm p-8 border border-gray-100 space-y-6">
+            <!-- Informations de base -->
+            <div>
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Informations de base</h2>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Prénom <span class="text-red-500">*</span>
+                        </label>
+                        {{ form.first_name }}
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Nom <span class="text-red-500">*</span>
+                        </label>
+                        {{ form.last_name }}
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Téléphone
+                        </label>
+                        {{ form.telephone }}
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Matricule
+                        </label>
+                        {{ form.matricule }}
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Rôle <span class="text-red-500">*</span>
+                        </label>
+                        {{ form.role }}
+                    </div>
+                    
+                    <div class="flex items-center pt-6">
+                        <label class="inline-flex items-center">
+                            {{ form.is_active }}
+                            <span class="ml-2 text-sm font-medium text-gray-700">Compte actif</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Affectation géographique -->
+            <div>
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Affectation géographique</h2>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Région</label>
+                        {{ form.region }}
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Département</label>
+                        {{ form.departement }}
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Commune</label>
+                        {{ form.commune }}
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Bureau de vote</label>
+                        {{ form.bureau_vote }}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Photo -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Photo de profil</label>
+                {% if viewed_user.photo %}
+                <div class="mb-4">
+                    <img src="{{ viewed_user.photo.url }}" alt="{{ viewed_user.nom_complet }}" 
+                         class="w-20 h-20 rounded-full object-cover">
+                </div>
+                {% endif %}
+                {{ form.photo }}
+            </div>
+            
+            <!-- Actions -->
+            <div class="flex justify-between pt-4 border-t border-gray-200">
+                <a href="{% url 'accounts:user_detail' viewed_user.id %}" 
+                   class="px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg transition-colors">
+                    Annuler
+                </a>
+                <button type="submit" 
+                        class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors">
+                    <i class="fas fa-save mr-2"></i> Enregistrer
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

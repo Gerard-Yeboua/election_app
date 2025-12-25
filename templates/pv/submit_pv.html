@@ -1,0 +1,186 @@
+<!-- templates/pv/submit_pv.html -->
+{% extends 'base.html' %}
+
+{% block title %}Soumettre un PV{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <!-- En-tête -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900">Soumettre un Procès-Verbal</h1>
+        <p class="mt-2 text-gray-600">Bureau {{ bureau.code_bv }} - {{ bureau.nom_bv }}</p>
+    </div>
+    
+    <!-- Formulaire -->
+    <form method="post" enctype="multipart/form-data" x-data="pvForm()">
+        {% csrf_token %}
+        
+        <!-- Étapes -->
+        <div class="mb-8">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center" :class="step >= 1 ? 'text-primary-600' : 'text-gray-400'">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center" 
+                         :class="step >= 1 ? 'bg-primary-600 text-white' : 'bg-gray-300'">
+                        1
+                    </div>
+                    <span class="ml-2 font-medium">Données générales</span>
+                </div>
+                <div class="flex-1 h-1 mx-4" :class="step >= 2 ? 'bg-primary-600' : 'bg-gray-300'"></div>
+                <div class="flex items-center" :class="step >= 2 ? 'text-primary-600' : 'text-gray-400'">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center"
+                         :class="step >= 2 ? 'bg-primary-600 text-white' : 'bg-gray-300'">
+                        2
+                    </div>
+                    <span class="ml-2 font-medium">Photos</span>
+                </div>
+                <div class="flex-1 h-1 mx-4" :class="step >= 3 ? 'bg-primary-600' : 'bg-gray-300'"></div>
+                <div class="flex items-center" :class="step >= 3 ? 'text-primary-600' : 'text-gray-400'">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center"
+                         :class="step >= 3 ? 'bg-primary-600 text-white' : 'bg-gray-300'">
+                        3
+                    </div>
+                    <span class="ml-2 font-medium">Validation</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Étape 1: Données générales -->
+        <div x-show="step === 1" class="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
+            <h2 class="text-xl font-semibold text-gray-900 mb-6">Données générales du scrutin</h2>
+            
+            <div class="grid grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Nombre d'inscrits <span class="text-red-500">*</span>
+                    </label>
+                    {{ form.nombre_inscrits }}
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Nombre de votants <span class="text-red-500">*</span>
+                    </label>
+                    {{ form.nombre_votants }}
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Suffrages exprimés <span class="text-red-500">*</span>
+                    </label>
+                    {{ form.suffrages_exprimes }}
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Bulletins nuls <span class="text-red-500">*</span>
+                    </label>
+                    {{ form.bulletins_nuls }}
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Bulletins blancs <span class="text-red-500">*</span>
+                    </label>
+                    {{ form.bulletins_blancs }}
+                </div>
+            </div>
+            
+            <div class="mt-6 flex justify-end">
+                <button type="button" @click="step = 2" 
+                        class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors">
+                    Suivant <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Étape 2: Photos -->
+        <div x-show="step === 2" class="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
+            <h2 class="text-xl font-semibold text-gray-900 mb-6">Photos du bureau</h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Photo du PV officiel <span class="text-red-500">*</span>
+                    </label>
+                    {{ form.photo_pv_officiel }}
+                    <p class="mt-1 text-sm text-gray-500">Photo du procès-verbal officiel signé</p>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Photo du tableau des résultats
+                    </label>
+                    {{ form.photo_tableau_resultats }}
+                    <p class="mt-1 text-sm text-gray-500">Photo du tableau d'affichage des résultats</p>
+                </div>
+            </div>
+            
+            <div class="mt-6 flex justify-between">
+                <button type="button" @click="step = 1" 
+                        class="px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i> Précédent
+                </button>
+                <button type="button" @click="step = 3" 
+                        class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors">
+                    Suivant <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Étape 3: Validation -->
+        <div x-show="step === 3" class="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
+            <h2 class="text-xl font-semibold text-gray-900 mb-6">Vérification finale</h2>
+            
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+                <div class="flex">
+                    <i class="fas fa-info-circle text-blue-400 mt-1"></i>
+                    <div class="ml-3">
+                        <p class="text-sm text-blue-700">
+                            Veuillez vérifier attentivement toutes les informations avant de soumettre le PV.
+                            Une fois soumis, le PV sera envoyé pour validation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Champs cachés pour géolocalisation -->
+            {{ form.latitude }}
+            {{ form.longitude }}
+            
+            <div class="mt-6 flex justify-between">
+                <button type="button" @click="step = 2" 
+                        class="px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i> Précédent
+                </button>
+                <button type="submit" 
+                        class="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors">
+                    <i class="fas fa-check mr-2"></i> Soumettre le PV
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+function pvForm() {
+    return {
+        step: 1,
+        
+        init() {
+            // Obtenir la géolocalisation
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        document.getElementById('id_latitude').value = position.coords.latitude;
+                        document.getElementById('id_longitude').value = position.coords.longitude;
+                    },
+                    (error) => {
+                        console.error('Erreur géolocalisation:', error);
+                    }
+                );
+            }
+        }
+    }
+}
+</script>
+{% endblock %}

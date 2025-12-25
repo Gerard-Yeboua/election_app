@@ -1,0 +1,144 @@
+<!-- templates/accounts/user_create.html -->
+{% extends 'base.html' %}
+
+{% block title %}Créer un utilisateur{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900">Créer un nouvel utilisateur</h1>
+        <p class="mt-2 text-gray-600">Remplissez les informations ci-dessous</p>
+    </div>
+    
+    <form method="post" enctype="multipart/form-data" x-data="userForm()">
+        {% csrf_token %}
+        
+        <div class="bg-white rounded-xl shadow-sm p-8 border border-gray-100 space-y-6">
+            <!-- Informations de base -->
+            <div>
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Informations de base</h2>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Prénom <span class="text-red-500">*</span>
+                        </label>
+                        {{ form.first_name }}
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Nom <span class="text-red-500">*</span>
+                        </label>
+                        {{ form.last_name }}
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Email <span class="text-red-500">*</span>
+                        </label>
+                        {{ form.email }}
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Téléphone
+                        </label>
+                        {{ form.telephone }}
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Matricule
+                        </label>
+                        {{ form.matricule }}
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Rôle <span class="text-red-500">*</span>
+                        </label>
+                        {{ form.role }}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mot de passe -->
+            <div>
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Mot de passe</h2>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Mot de passe <span class="text-red-500">*</span>
+                        </label>
+                        {{ form.password1 }}
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Confirmer le mot de passe <span class="text-red-500">*</span>
+                        </label>
+                        {{ form.password2 }}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Affectation géographique -->
+            <div>
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Affectation géographique</h2>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Région</label>
+                        {{ form.region }}
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Département</label>
+                        {{ form.departement }}
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Commune</label>
+                        {{ form.commune }}
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Bureau de vote</label>
+                        {{ form.bureau_vote }}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Photo -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Photo de profil</label>
+                {{ form.photo }}
+            </div>
+            
+            <!-- Actions -->
+            <div class="flex justify-between pt-4 border-t border-gray-200">
+                <a href="{% url 'accounts:user_list' %}" 
+                   class="px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg transition-colors">
+                    Annuler
+                </a>
+                <button type="submit" 
+                        class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors">
+                    <i class="fas fa-user-plus mr-2"></i> Créer l'utilisateur
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+function userForm() {
+    return {
+        init() {
+            // Gérer les champs dépendants (région -> département -> commune, etc.)
+        }
+    }
+}
+</script>
+{% endblock %}

@@ -1,0 +1,77 @@
+<!-- templates/geography/region_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Régions{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900">Régions de Côte d'Ivoire</h1>
+    <p class="mt-2 text-gray-600">Vue d'ensemble des régions électorales</p>
+</div>
+
+<!-- Recherche -->
+<div class="bg-white rounded-xl shadow-sm p-6 mb-6 border border-gray-100">
+    <form method="get" class="flex space-x-4">
+        <div class="flex-1">
+            <input type="text" name="search" value="{{ search_query|default:'' }}" 
+                   placeholder="Rechercher une région..."
+                   class="w-full rounded-lg border-gray-300 focus:border-primary-500 focus:ring-primary-500">
+        </div>
+        <button type="submit" 
+                class="px-6 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors">
+            <i class="fas fa-search mr-2"></i> Rechercher
+        </button>
+    </form>
+</div>
+
+<!-- Grille des régions -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for region in regions %}
+    <a href="{% url 'geography:region_detail' region.id %}" 
+       class="block bg-white rounded-xl shadow-sm p-6 border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+        <div class="flex items-center justify-between mb-4">
+            <div>
+                <h3 class="text-xl font-semibold text-gray-900">{{ region.nom_region }}</h3>
+                <p class="text-sm text-gray-600">{{ region.code_region }}</p>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+                <i class="fas fa-map-marked-alt text-primary-600 text-xl"></i>
+            </div>
+        </div>
+        
+        <div class="space-y-2">
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-600">Bureaux de vote</span>
+                <span class="font-semibold text-gray-900">{{ region.nb_bureaux|default:"0" }}</span>
+            </div>
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-600">Inscrits</span>
+                <span class="font-semibold text-gray-900">{{ region.stats_bureaux.total_inscrits|default:"0"|floatformat:0 }}</span>
+            </div>
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-600">PV validés</span>
+                <span class="font-semibold text-green-600">{{ region.stats_pv.valides|default:"0" }}</span>
+            </div>
+        </div>
+        
+        <div class="mt-4 pt-4 border-t border-gray-200">
+            <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-600">Progression</span>
+                <span class="text-sm font-semibold text-primary-600">
+                    {{ region.stats_pv.taux_soumission|default:"0" }}%
+                </span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                <div class="bg-primary-600 h-2 rounded-full" 
+                     style="width: {{ region.stats_pv.taux_soumission|default:0 }}%"></div>
+            </div>
+        </div>
+    </a>
+    {% empty %}
+    <div class="col-span-3 text-center py-12 text-gray-500">
+        <i class="fas fa-map text-6xl mb-4"></i>
+        <p class="text-lg">Aucune région trouvée</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

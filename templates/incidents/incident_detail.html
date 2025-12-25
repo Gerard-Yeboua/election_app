@@ -1,0 +1,261 @@
+<!-- templates/incidents/incident_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}Incident {{ incident.numero_ticket }}{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto">
+    <!-- En-tête -->
+    <div class="mb-6 flex items-center justify-between">
+        <div>
+            <h1 class="text-3xl font-bold text-gray-900">{{ incident.numero_ticket }}</h1>
+            <p class="mt-2 text-gray-600">{{ incident.titre }}</p>
+        </div>
+        {% if can_manage %}
+        <a href="{% url 'incidents:traiter' incident.id %}" 
+           class="inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg">
+            <i class="fas fa-cogs mr-2"></i> Gérer l'incident
+        </a>
+        {% endif %}
+    </div>
+    
+    <!-- Badges de statut -->
+    <div class="mb-6 flex items-center space-x-3">
+        <span class="px-4 py-2 inline-flex text-sm font-semibold rounded-full
+            {% if incident.statut == 'OUVERT' %}bg-red-100 text-red-800
+            {% elif incident.statut == 'EN_COURS' %}bg-yellow-100 text-yellow-800
+            {% elif incident.statut == 'TRAITE' %}bg-green-100 text-green-800
+            {% else %}bg-gray-100 text-gray-800{% endif %}">
+            <i class="fas fa-circle mr-2 text-xs"></i> {{ incident.get_statut_display }}
+        </span>
+        
+        <span class="px-4 py-2 inline-flex text-sm font-semibold rounded-full
+            {% if incident.priorite == 'CRITIQUE' %}bg-red-100 text-red-800
+            {% elif incident.priorite == 'URGENTE' %}bg-orange-100 text-orange-800
+            {% elif incident.priorite == 'HAUTE' %}bg-yellow-100 text-yellow-800
+            {% else %}bg-blue-100 text-blue-800{% endif %}">
+            <i class="fas fa-flag mr-2"></i> {{ incident.get_priorite_display }}
+        </span>
+        
+        <span class="px-4 py-2 inline-flex text-sm font-semibold rounded-full bg-purple-100 text-purple-800">
+            <i class="fas fa-tag mr-2"></i> {{ incident.get_categorie_display }}
+        </span>
+    </div>
+    
+    <!-- Grille principale -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Colonne principale -->
+        <div class="lg:col-span-2 space-y-6">
+            <!-- Description -->
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">
+                    <i class="fas fa-info-circle text-primary-500 mr-2"></i>
+                    Description
+                </h2>
+                <p class="text-gray-700 whitespace-pre-line">{{ incident.description }}</p>
+                
+                {% if incident.vote_affecte %}
+                <div class="mt-4 bg-red-50 border-l-4 border-red-400 p-4">
+                    <div class="flex">
+                        <i class="fas fa-exclamation-triangle text-red-400"></i>
+                        <div class="ml-3">
+                            <p class="text-sm text-red-700">
+                                Cet incident a affecté le vote. 
+                                {% if incident.nombre_electeurs_impactes %}
+                                {{ incident.nombre_electeurs_impactes }} électeurs impactés.
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            
+            <!-- Photos -->
+            {% if photos %}
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">
+                    <i class="fas fa-camera text-primary-500 mr-2"></i>
+                    Photos ({{ photos|length }})
+                </h2>
+                <div class="grid grid-cols-3 gap-4">
+                    {% for photo in photos %}
+                    <a href="{{ photo.photo.url }}" target="_blank" class="group">
+                        <img src="{{ photo.photo.url }}" alt="{{ photo.legende }}" 
+                             class="w-full h-32 object-cover rounded-lg border-2 border-gray-200 group-hover:border-primary-500 transition-colors">
+                        {% if photo.legende %}
+                        <p class="text-xs text-gray-600 mt-1">{{ photo.legende }}</p>
+                        {% endif %}
+                    </a>
+                    {% endfor %}
+                </div>
+                
+                {% if user.role == 'SUPERVISEUR' and user == incident.superviseur %}
+                <div class="mt-4">
+                    <a href="{% url 'incidents:add_photo' incident.id %}" 
+                       class="text-primary-600 hover:text-primary-700 text-sm font-medium">
+                        <i class="fas fa-plus mr-1"></i> Ajouter une photo
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+            
+            <!-- Messages / Discussion -->
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">
+                    <i class="fas fa-comments text-primary-500 mr-2"></i>
+                    Discussion ({{ messages|length }})
+                </h2>
+                
+                <!-- Liste des messages -->
+                <div class="space-y-4 mb-6">
+                    {% for msg in messages %}
+                    {% if not msg.est_interne or user.role in 'ADMIN,SUPER_ADMIN' %}
+                    <div class="flex space-x-3 {% if msg.auteur == user %}flex-row-reverse space-x-reverse{% endif %}">
+                        <div class="flex-shrink-0">
+                            <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
+                                <span class="text-primary-700 font-semibold">
+                                    {{ msg.auteur.first_name.0 }}{{ msg.auteur.last_name.0 }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="bg-gray-100 rounded-lg p-4 {% if msg.auteur == user %}bg-primary-100{% endif %}">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm font-semibold text-gray-900">{{ msg.auteur.nom_complet }}</span>
+                                    <span class="text-xs text-gray-500">{{ msg.created_at|date:"d/m/Y H:i" }}</span>
+                                </div>
+                                <p class="text-sm text-gray-700">{{ msg.message }}</p>
+                                {% if msg.est_interne %}
+                                <span class="inline-flex items-center px-2 py-1 mt-2 rounded text-xs font-medium bg-yellow-100 text-yellow-800">
+                                    <i class="fas fa-lock mr-1"></i> Interne
+                                </span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                
+                <!-- Formulaire nouveau message -->
+                <form method="post" class="border-t border-gray-200 pt-4">
+                    {% csrf_token %}
+                    <input type="hidden" name="message_submit" value="1">
+                    
+                    <div class="mb-4">
+                        <textarea name="message" rows="3" required
+                                  class="w-full rounded-lg border-gray-300 focus:border-primary-500 focus:ring-primary-500"
+                                  placeholder="Votre message..."></textarea>
+                    </div>
+                    
+                    {% if user.role in 'ADMIN,SUPER_ADMIN' %}
+                    <div class="mb-4">
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" name="est_interne" value="true" class="rounded border-gray-300 text-primary-600 focus:ring-primary-500">
+                            <span class="ml-2 text-sm text-gray-700">Message interne (non visible par le superviseur)</span>
+                        </label>
+                    </div>
+                    {% endif %}
+                    
+                    <button type="submit" 
+                            class="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors">
+                        <i class="fas fa-paper-plane mr-2"></i> Envoyer
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Colonne latérale -->
+        <div class="space-y-6">
+            <!-- Informations -->
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Informations</h3>
+                
+                <div class="space-y-3 text-sm">
+                    <div>
+                        <p class="text-gray-600">Bureau de vote</p>
+                        <p class="font-medium text-gray-900">{{ incident.bureau_vote.code_bv }}</p>
+                        <p class="text-gray-500">{{ incident.bureau_vote.nom_bv }}</p>
+                    </div>
+                    
+                    <div class="border-t border-gray-200 pt-3">
+                        <p class="text-gray-600">Signalé par</p>
+                        <p class="font-medium text-gray-900">{{ incident.superviseur.nom_complet }}</p>
+                        <p class="text-gray-500">{{ incident.superviseur.email }}</p>
+                    </div>
+                    
+                    {% if incident.admin_responsable %}
+                    <div class="border-t border-gray-200 pt-3">
+                        <p class="text-gray-600">Admin responsable</p>
+                        <p class="font-medium text-gray-900">{{ incident.admin_responsable.nom_complet }}</p>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="border-t border-gray-200 pt-3">
+                        <p class="text-gray-600">Date création</p>
+                        <p class="font-medium text-gray-900">{{ incident.created_at|date:"d/m/Y à H:i" }}</p>
+                    </div>
+                    
+                    {% if incident.heure_incident %}
+                    <div class="border-t border-gray-200 pt-3">
+                        <p class="text-gray-600">Heure de l'incident</p>
+                        <p class="font-medium text-gray-900">{{ incident.heure_incident|date:"H:i" }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- SLA -->
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">SLA</h3>
+                
+                <div class="space-y-3">
+                    <div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-600">Temps écoulé</span>
+                            <span class="font-medium">{{ incident.temps_ouvert_minutes }} min</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="{% if incident.est_en_retard %}bg-red-500{% else %}bg-green-500{% endif %} h-2 rounded-full" 
+                                 style="width: {{ incident.temps_ouvert_minutes|default:0|floatformat:0 }}%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-600">Délai cible résolution</span>
+                        <span class="font-medium">{{ incident.delai_resolution_cible }} min</span>
+                    </div>
+                    
+                    {% if incident.est_en_retard %}
+                    <div class="bg-red-50 border-l-4 border-red-400 p-3">
+                        <p class="text-sm text-red-700">
+                            <i class="fas fa-exclamation-triangle mr-1"></i>
+                            SLA dépassé
+                        </p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Historique -->
+            {% if historique %}
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Historique</h3>
+                
+                <div class="space-y-3">
+                    {% for entry in historique %}
+                    <div class="border-l-2 border-primary-300 pl-4">
+                        <p class="text-sm font-medium text-gray-900">{{ entry.get_action_display }}</p>
+                        <p class="text-xs text-gray-600">{{ entry.utilisateur.nom_complet }}</p>
+                        <p class="text-xs text-gray-500">{{ entry.date_action|date:"d/m/Y H:i" }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

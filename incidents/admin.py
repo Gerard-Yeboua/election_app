@@ -1,85 +1,153 @@
 from django.contrib import admin
-
-# Register your models here.
-# incidents/admin.py
-from django.contrib import admin
 from django.utils.html import format_html
+
 from .models import (
-    incidents, incidentsMessage, incidentsPhoto, 
-    incidentsHistorique, Modeleincidents
+    Incident,
+    IncidentMessage,
+    IncidentPhoto,
+    HistoriqueIncident,
+    ModeleIncident
 )
 
 
-class incidentsMessageInline(admin.TabularInline):
-    model = incidentsMessage
+# ============================================================
+# INLINE : MESSAGES
+# ============================================================
+
+class IncidentMessageInline(admin.TabularInline):
+    model = IncidentMessage
     extra = 0
     fields = ['auteur', 'type_message', 'message', 'est_interne', 'created_at']
     readonly_fields = ['created_at']
 
 
-class incidentsPhotoInline(admin.TabularInline):
-    model = incidentsPhoto
+# ============================================================
+# INLINE : PHOTOS
+# ============================================================
+
+class IncidentPhotoInline(admin.TabularInline):
+    model = IncidentPhoto
     extra = 0
     fields = ['photo', 'type_photo', 'legende', 'ordre']
 
 
-@admin.register(incidents)
-class incidentsAdmin(admin.ModelAdmin):
+# ============================================================
+# ADMIN : INCIDENT
+# ============================================================
+
+@admin.register(Incident)
+class IncidentAdmin(admin.ModelAdmin):
+
     list_display = [
-        'numero_ticket', 'bureau_vote', 'categorie', 'statut_badge', 
-        'priorite_badge', 'superviseur', 'admin_responsable', 'created_at', 'est_en_retard'
+        'numero_ticket',
+        'bureau_vote',
+        'categorie',
+        'statut_badge',
+        'priorite_badge',
+        'superviseur',
+        'admin_responsable',
+        'created_at',
+        'est_en_retard',
     ]
-    list_filter = ['statut', 'priorite', 'categorie', 'est_escalade', 'created_at']
-    search_fields = ['numero_ticket', 'titre', 'description', 'bureau_vote__code_bv']
+
+    list_filter = [
+        'statut',
+        'priorite',
+        'categorie',
+        'est_escalade',
+        'created_at',
+    ]
+
+    search_fields = [
+        'numero_ticket',
+        'titre',
+        'description',
+        'bureau_vote__code_bv',
+    ]
+
     ordering = ['-created_at']
+
     readonly_fields = [
-        'numero_ticket', 'created_at', 'updated_at', 
-        'delai_reponse_minutes', 'delai_resolution_minutes', 
-        'temps_ouvert_minutes', 'temps_restant_minutes'
+        'numero_ticket',
+        'created_at',
+        'updated_at',
+        'delai_reponse_minutes',
+        'delai_resolution_minutes',
+        'temps_ouvert_minutes',
+        'temps_restant_minutes',
     ]
-    inlines = [incidentsMessageInline, incidentsPhotoInline]
-    
+
+    inlines = [
+        IncidentMessageInline,
+        IncidentPhotoInline,
+    ]
+
     fieldsets = (
         ('Identification', {
             'fields': ('numero_ticket', 'bureau_vote', 'superviseur', 'checkin')
         }),
-        ('Détails de l\'incidents', {
+        ("Détails de l'incident", {
             'fields': (
-                'categorie', 'titre', 'description', 'heure_incidents',
-                'impact', 'vote_affecte', 'nombre_electeurs_impactes'
+                'categorie',
+                'titre',
+                'description',
+                'heure_incident',
+                'impact',
+                'vote_affecte',
+                'nombre_electeurs_impactes',
             )
         }),
         ('Gestion', {
             'fields': (
-                'statut', 'priorite', 'admin_responsable', 
-                'date_attribution', 'date_debut_traitement',
-                'date_resolution', 'date_cloture'
+                'statut',
+                'priorite',
+                'admin_responsable',
+                'date_attribution',
+                'date_debut_traitement',
+                'date_resolution',
+                'date_cloture',
             )
         }),
         ('Solution', {
-            'fields': ('solution', 'actions_menees', 'feedback_superviseur', 'satisfaction_superviseur'),
-            'classes': ('collapse',)
+            'fields': (
+                'solution',
+                'actions_menees',
+                'feedback_superviseur',
+                'satisfaction_superviseur',
+            ),
+            'classes': ('collapse',),
         }),
         ('Escalade', {
             'fields': (
-                'est_escalade', 'niveau_escalade', 'escalade_vers', 'motif_escalade'
+                'est_escalade',
+                'niveau_escalade',
+                'escalade_vers',
+                'motif_escalade',
             ),
-            'classes': ('collapse',)
+            'classes': ('collapse',),
         }),
         ('SLA', {
             'fields': (
-                'delai_reponse_cible', 'delai_resolution_cible', 'sla_respecte',
-                'delai_reponse_minutes', 'delai_resolution_minutes',
-                'temps_ouvert_minutes', 'temps_restant_minutes'
+                'delai_reponse_cible',
+                'delai_resolution_cible',
+                'sla_respecte',
+                'delai_reponse_minutes',
+                'delai_resolution_minutes',
+                'temps_ouvert_minutes',
+                'temps_restant_minutes',
             ),
-            'classes': ('collapse',)
+            'classes': ('collapse',),
         }),
         ('Géolocalisation', {
             'fields': ('latitude', 'longitude'),
-            'classes': ('collapse',)
+            'classes': ('collapse',),
         }),
     )
-    
+
+    # ============================
+    # BADGES
+    # ============================
+
     def statut_badge(self, obj):
         colors = {
             'OUVERT': '#dc3545',
@@ -90,12 +158,14 @@ class incidentsAdmin(admin.ModelAdmin):
         }
         color = colors.get(obj.statut, '#6c757d')
         return format_html(
-            '<span style="background-color: {}; color: white; padding: 3px 10px; border-radius: 3px; font-weight: bold;">{}</span>',
+            '<span style="background-color:{};color:white;padding:3px 10px;'
+            'border-radius:3px;font-weight:bold;">{}</span>',
             color,
             obj.get_statut_display()
         )
+
     statut_badge.short_description = 'Statut'
-    
+
     def priorite_badge(self, obj):
         colors = {
             'CRITIQUE': '#dc3545',
@@ -106,45 +176,117 @@ class incidentsAdmin(admin.ModelAdmin):
         }
         color = colors.get(obj.priorite, '#6c757d')
         return format_html(
-            '<span style="background-color: {}; color: white; padding: 3px 10px; border-radius: 3px; font-weight: bold;">{}</span>',
+            '<span style="background-color:{};color:white;padding:3px 10px;'
+            'border-radius:3px;font-weight:bold;">{}</span>',
             color,
             obj.get_priorite_display()
         )
+
     priorite_badge.short_description = 'Priorité'
 
 
-@admin.register(incidentsMessage)
-class incidentsMessageAdmin(admin.ModelAdmin):
-    list_display = ['incidents', 'auteur', 'type_message', 'message_court', 'est_interne', 'est_lu', 'created_at']
-    list_filter = ['type_message', 'est_interne', 'est_lu', 'created_at']
-    search_fields = ['incidents__numero_ticket', 'auteur__email', 'message']
+# ============================================================
+# ADMIN : MESSAGE INCIDENT
+# ============================================================
+
+@admin.register(IncidentMessage)
+class IncidentMessageAdmin(admin.ModelAdmin):
+
+    list_display = [
+        'incident',
+        'auteur',
+        'type_message',
+        'message_court',
+        'est_interne',
+        'est_lu',
+        'created_at',
+    ]
+
+    list_filter = [
+        'type_message',
+        'est_interne',
+        'est_lu',
+        'created_at',
+    ]
+
+    search_fields = [
+        'incident__numero_ticket',
+        'auteur__email',
+        'message',
+    ]
+
     ordering = ['-created_at']
-    
+
     def message_court(self, obj):
         return obj.message[:50] + '...' if len(obj.message) > 50 else obj.message
+
     message_court.short_description = 'Message'
 
 
-@admin.register(incidentsPhoto)
-class incidentsPhotoAdmin(admin.ModelAdmin):
-    list_display = ['incidents', 'type_photo', 'legende', 'ordre', 'prise_par', 'date_prise']
-    list_filter = ['type_photo', 'date_prise']
-    search_fields = ['incidents__numero_ticket', 'legende']
-    ordering = ['incidents', 'ordre']
+# ============================================================
+# ADMIN : PHOTO INCIDENT
+# ============================================================
+
+@admin.register(IncidentPhoto)
+class IncidentPhotoAdmin(admin.ModelAdmin):
+
+    list_display = [
+        'incident',
+        'type_photo',
+        'legende',
+        'ordre',
+        'prise_par',
+        'date_prise',
+    ]
+
+    list_filter = [
+        'type_photo',
+        'date_prise',
+    ]
+
+    search_fields = [
+        'incident__numero_ticket',
+        'legende',
+    ]
+
+    ordering = ['incident', 'ordre']
 
 
-@admin.register(incidentsHistorique)
-class incidentsHistoriqueAdmin(admin.ModelAdmin):
-    list_display = ['incidents', 'utilisateur', 'action', 'date_action']
+# ============================================================
+# ADMIN : HISTORIQUE INCIDENT
+# ============================================================
+
+@admin.register(HistoriqueIncident)
+class HistoriqueIncidentAdmin(admin.ModelAdmin):
+    list_display = ['action', 'utilisateur', 'date_action']
     list_filter = ['action', 'date_action']
-    search_fields = ['incidents__numero_ticket', 'utilisateur__email']
-    ordering = ['-date_action']
     readonly_fields = ['date_action']
 
+# ============================================================
+# ADMIN : MODÈLE INCIDENT
+# ============================================================
 
-@admin.register(Modeleincidents)
-class ModeleincidentsAdmin(admin.ModelAdmin):
-    list_display = ['nom', 'categorie', 'priorite_defaut', 'impact_defaut', 'est_actif', 'nombre_utilisations']
-    list_filter = ['categorie', 'priorite_defaut', 'est_actif']
-    search_fields = ['nom', 'titre_template']
+@admin.register(ModeleIncident)
+class ModeleIncidentAdmin(admin.ModelAdmin):
+
+    list_display = [
+        'nom',
+        'categorie',
+        'priorite_defaut',
+        'impact_defaut',
+        'est_actif',
+        'nombre_utilisations',
+    ]
+
+    list_filter = [
+        'categorie',
+        'priorite_defaut',
+        'est_actif',
+    ]
+
+    search_fields = [
+        'nom',
+        'titre_template',
+    ]
+
     ordering = ['nom']

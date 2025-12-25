@@ -1,0 +1,197 @@
+<!-- templates/incidents/incident_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Liste des incidents{% endblock %}
+
+{% block breadcrumb %}
+<nav class="flex mb-6" aria-label="Breadcrumb">
+    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+        <li><a href="{% url 'dashboard:index' %}" class="text-gray-700 hover:text-primary-600"><i class="fas fa-home mr-2"></i>Accueil</a></li>
+        <li><i class="fas fa-chevron-right text-gray-400 mx-2"></i></li>
+        <li><span class="text-gray-500">Incidents</span></li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<!-- En-tête -->
+<div class="mb-6 flex items-center justify-between">
+    <div>
+        <h1 class="text-3xl font-bold text-gray-900">Gestion des incidents</h1>
+        <p class="mt-2 text-gray-600">Suivi et traitement des incidents électoraux</p>
+    </div>
+</div>
+
+<!-- Statistiques Cards -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-600">Total</p>
+                <p class="text-2xl font-bold text-gray-900 mt-1">{{ stats.total }}</p>
+            </div>
+            <div class="p-3 bg-blue-100 rounded-full">
+                <i class="fas fa-exclamation-triangle text-xl text-blue-600"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-600">Ouverts</p>
+                <p class="text-2xl font-bold text-red-600 mt-1">{{ stats.ouverts }}</p>
+            </div>
+            <div class="p-3 bg-red-100 rounded-full">
+                <i class="fas fa-folder-open text-xl text-red-600"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-600">En cours</p>
+                <p class="text-2xl font-bold text-yellow-600 mt-1">{{ stats.en_cours }}</p>
+            </div>
+            <div class="p-3 bg-yellow-100 rounded-full">
+                <i class="fas fa-spinner text-xl text-yellow-600"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-600">Urgents</p>
+                <p class="text-2xl font-bold text-orange-600 mt-1">{{ stats.urgents }}</p>
+            </div>
+            <div class="p-3 bg-orange-100 rounded-full">
+                <i class="fas fa-bolt text-xl text-orange-600"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Filtres -->
+<div class="bg-white rounded-xl shadow-sm p-6 mb-6 border border-gray-100">
+    <form method="get" class="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Statut</label>
+            <select name="statut" class="w-full rounded-lg border-gray-300 focus:border-primary-500 focus:ring-primary-500">
+                <option value="">Tous</option>
+                <option value="OUVERT" {% if statut_filter == 'OUVERT' %}selected{% endif %}>Ouvert</option>
+                <option value="EN_COURS" {% if statut_filter == 'EN_COURS' %}selected{% endif %}>En cours</option>
+                <option value="TRAITE" {% if statut_filter == 'TRAITE' %}selected{% endif %}>Traité</option>
+                <option value="CLOS" {% if statut_filter == 'CLOS' %}selected{% endif %}>Clos</option>
+            </select>
+        </div>
+        
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Priorité</label>
+            <select name="priorite" class="w-full rounded-lg border-gray-300 focus:border-primary-500 focus:ring-primary-500">
+                <option value="">Toutes</option>
+                <option value="CRITIQUE" {% if priorite_filter == 'CRITIQUE' %}selected{% endif %}>Critique</option>
+                <option value="URGENTE" {% if priorite_filter == 'URGENTE' %}selected{% endif %}>Urgente</option>
+                <option value="HAUTE" {% if priorite_filter == 'HAUTE' %}selected{% endif %}>Haute</option>
+                <option value="MOYENNE" {% if priorite_filter == 'MOYENNE' %}selected{% endif %}>Moyenne</option>
+                <option value="BASSE" {% if priorite_filter == 'BASSE' %}selected{% endif %}>Basse</option>
+            </select>
+        </div>
+        
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Catégorie</label>
+            <select name="categorie" class="w-full rounded-lg border-gray-300 focus:border-primary-500 focus:ring-primary-500">
+                <option value="">Toutes</option>
+                <option value="ABSENCE_ASSESSEURS">Absence assesseurs</option>
+                <option value="MATERIEL_MANQUANT">Matériel manquant</option>
+                <option value="INCIDENT_SECURITAIRE">Incident sécuritaire</option>
+                <option value="FRAUDE_SUSPECTEE">Fraude suspectée</option>
+            </select>
+        </div>
+        
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Recherche</label>
+            <input type="text" name="search" value="{{ search_query|default:'' }}" 
+                   placeholder="N° ticket, bureau..."
+                   class="w-full rounded-lg border-gray-300 focus:border-primary-500 focus:ring-primary-500">
+        </div>
+        
+        <div class="flex items-end">
+            <button type="submit" 
+                    class="w-full px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors">
+                <i class="fas fa-search mr-2"></i> Filtrer
+            </button>
+        </div>
+    </form>
+</div>
+
+<!-- Liste des incidents -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">N° Ticket</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Titre</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Bureau</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Priorité</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Statut</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                {% for incident in incidents %}
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">{{ incident.numero_ticket }}</div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="text-sm font-medium text-gray-900">{{ incident.titre|truncatewords:10 }}</div>
+                        <div class="text-sm text-gray-500">{{ incident.get_categorie_display }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">{{ incident.bureau_vote.code_bv }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full
+                            {% if incident.priorite == 'CRITIQUE' %}bg-red-100 text-red-800
+                            {% elif incident.priorite == 'URGENTE' %}bg-orange-100 text-orange-800
+                            {% elif incident.priorite == 'HAUTE' %}bg-yellow-100 text-yellow-800
+                            {% elif incident.priorite == 'MOYENNE' %}bg-blue-100 text-blue-800
+                            {% else %}bg-gray-100 text-gray-800{% endif %}">
+                            {{ incident.get_priorite_display }}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full
+                            {% if incident.statut == 'OUVERT' %}bg-red-100 text-red-800
+                            {% elif incident.statut == 'EN_COURS' %}bg-yellow-100 text-yellow-800
+                            {% elif incident.statut == 'TRAITE' %}bg-green-100 text-green-800
+                            {% else %}bg-gray-100 text-gray-800{% endif %}">
+                            {{ incident.get_statut_display }}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {{ incident.created_at|date:"d/m/Y H:i" }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <a href="{% url 'incidents:detail' incident.id %}" class="text-primary-600 hover:text-primary-900">
+                            <i class="fas fa-eye"></i> Voir
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7" class="px-6 py-12 text-center text-gray-500">
+                        <i class="fas fa-inbox text-4xl mb-3"></i>
+                        <p>Aucun incident trouvé</p>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

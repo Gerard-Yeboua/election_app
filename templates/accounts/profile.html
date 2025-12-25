@@ -1,0 +1,181 @@
+<!-- templates/accounts/profile.html -->
+{% extends 'base.html' %}
+
+{% block title %}Mon profil{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <!-- En-tête -->
+    <div class="mb-8 flex items-center space-x-4">
+        {% if user.photo %}
+        <img src="{{ user.photo.url }}" alt="{{ user.nom_complet }}" 
+             class="w-20 h-20 rounded-full object-cover">
+        {% else %}
+        <div class="w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center">
+            <span class="text-primary-700 font-bold text-2xl">
+                {{ user.first_name.0 }}{{ user.last_name.0 }}
+            </span>
+        </div>
+        {% endif %}
+        
+        <div>
+            <h1 class="text-3xl font-bold text-gray-900">{{ user.nom_complet }}</h1>
+            <p class="mt-1 text-gray-600">{{ user.get_role_display }} - {{ user.email }}</p>
+        </div>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Informations principales -->
+        <div class="lg:col-span-2 space-y-6">
+            <!-- Modifier le profil -->
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Informations personnelles</h2>
+                
+                <form method="post" action="{% url 'accounts:profile_update' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Prénom</label>
+                                <input type="text" name="first_name" value="{{ user.first_name }}" 
+                                       class="w-full rounded-lg border-gray-300 focus:border-primary-500 focus:ring-primary-500">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nom</label>
+                                <input type="text" name="last_name" value="{{ user.last_name }}" 
+                                       class="w-full rounded-lg border-gray-300 focus:border-primary-500 focus:ring-primary-500">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Téléphone</label>
+                            <input type="text" name="telephone" value="{{ user.telephone|default:'' }}" 
+                                   class="w-full rounded-lg border-gray-300 focus:border-primary-500 focus:ring-primary-500">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Photo de profil</label>
+                            <input type="file" name="photo" accept="image/*"
+                                   class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100">
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <button type="submit" 
+                                class="px-6 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors">
+                            <i class="fas fa-save mr-2"></i> Enregistrer
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Changer le mot de passe -->
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Changer le mot de passe</h2>
+                
+                <form method="post" action="{% url 'accounts:change_password' %}">
+                    {% csrf_token %}
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Ancien mot de passe</label>
+                            <input type="password" name="old_password" required
+                                   class="w-full rounded-lg border-gray-300 focus:border-primary-500 focus:ring-primary-500">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nouveau mot de passe</label>
+                            <input type="password" name="new_password" required
+                                   class="w-full rounded-lg border-gray-300 focus:border-primary-500 focus:ring-primary-500">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Confirmer le nouveau mot de passe</label>
+                            <input type="password" name="confirm_password" required
+                                   class="w-full rounded-lg border-gray-300 focus:border-primary-500 focus:ring-primary-500">
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <button type="submit" 
+                                class="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors">
+                            <i class="fas fa-key mr-2"></i> Changer le mot de passe
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Performance (Superviseur) -->
+            {% if stats %}
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Ma performance</h2>
+                
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                        <p class="text-3xl font-bold text-blue-600">{{ stats.total_pv }}</p>
+                        <p class="text-sm text-gray-600 mt-1">PV soumis</p>
+                    </div>
+                    <div class="text-center p-4 bg-green-50 rounded-lg">
+                        <p class="text-3xl font-bold text-green-600">{{ stats.pv_valides }}</p>
+                        <p class="text-sm text-gray-600 mt-1">PV validés</p>
+                    </div>
+                    <div class="text-center p-4 bg-orange-50 rounded-lg">
+                        <p class="text-3xl font-bold text-orange-600">{{ stats.total_incidents }}</p>
+                        <p class="text-sm text-gray-600 mt-1">Incidents</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        
+        <!-- Informations complémentaires -->
+        <div class="space-y-6">
+            <!-- Informations du compte -->
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Informations du compte</h3>
+                
+                <div class="space-y-3">
+                    <div>
+                        <p class="text-sm text-gray-600">Rôle</p>
+                        <p class="font-medium text-gray-900">{{ user.get_role_display }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600">Matricule</p>
+                        <p class="font-medium text-gray-900">{{ user.matricule|default:"-" }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600">Date d'inscription</p>
+                        <p class="font-medium text-gray-900">{{ user.date_joined|date:"d/m/Y" }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600">Dernière connexion</p>
+                        <p class="font-medium text-gray-900">{{ user.last_login|date:"d/m/Y H:i"|default:"-" }}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600">Connexions totales</p>
+                        <p class="font-medium text-gray-900">{{ user.login_count }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dernières connexions -->
+            {% if recent_logins %}
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Dernières connexions</h3>
+                
+                <div class="space-y-3">
+                    {% for login in recent_logins|slice:":5" %}
+                    <div class="text-sm border-l-2 border-primary-300 pl-3">
+                        <p class="font-medium text-gray-900">{{ login.login_time|date:"d/m/Y H:i" }}</p>
+                        <p class="text-gray-600">{{ login.ip_address }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

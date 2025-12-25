@@ -1,0 +1,128 @@
+<!-- templates/pv/add_results.html -->
+{% extends 'base.html' %}
+
+{% block title %}Saisir les résultats{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900">Saisir les résultats par candidat</h1>
+        <p class="mt-2 text-gray-600">PV {{ pv.numero_reference }} - Bureau {{ pv.bureau_vote.code_bv }}</p>
+    </div>
+    
+    <!-- Récapitulatif PV -->
+    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+        <div class="flex">
+            <i class="fas fa-info-circle text-blue-400 text-xl"></i>
+            <div class="ml-3">
+                <h3 class="text-sm font-medium text-blue-800">Suffrages exprimés : {{ pv.suffrages_exprimes }}</h3>
+                <p class="text-sm text-blue-700 mt-1">
+                    La somme des voix de tous les candidats doit être égale à {{ pv.suffrages_exprimes }}
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <form method="post" x-data="resultsForm()">
+        {% csrf_token %}
+        
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="p-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-6">Nombre de voix par candidat</h2>
+                
+                <div class="space-y-4">
+                    {% for candidat in candidats %}
+                    <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-primary-300 transition-colors">
+                        <div class="flex items-center space-x-4 flex-1">
+                            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
+                                <span class="text-primary-700 font-bold text-lg">{{ candidat.numero_ordre }}</span>
+                            </div>
+                            
+                            {% if candidat.photo %}
+                            <img src="{{ candidat.photo.url }}" alt="{{ candidat.nom_complet }}" 
+                                 class="w-12 h-12 rounded-full object-cover">
+                            {% endif %}
+                            
+                            <div class="flex-1">
+                                <p class="font-semibold text-gray-900">{{ candidat.nom_complet }}</p>
+                                <p class="text-sm text-gray-600">{{ candidat.parti_politique }}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ml-4 w-32">
+                            <input type="number" 
+                                   name="voix_{{ candidat.id }}" 
+                                   min="0" 
+                                   required
+                                   x-model.number="voix[{{ forloop.counter0 }}]"
+                                   @input="calculateTotal()"
+                                   class="w-full rounded-lg border-gray-300 focus:border-primary-500 focus:ring-primary-500 text-center text-lg font-semibold"
+                                   placeholder="0">
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- Total et validation -->
+            <div class="bg-gray-50 px-6 py-4 border-t border-gray-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm text-gray-600">Total des voix</p>
+                        <p class="text-2xl font-bold" 
+                           :class="total === {{ pv.suffrages_exprimes }} ? 'text-green-600' : 'text-red-600'"
+                           x-text="total"></p>
+                    </div>
+                    
+                    <div class="text-right">
+                        <p class="text-sm text-gray-600">Attendu</p>
+                        <p class="text-2xl font-bold text-gray-900">{{ pv.suffrages_exprimes }}</p>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <template x-if="total === {{ pv.suffrages_exprimes }}">
+                            <div class="flex items-center text-green-600">
+                                <i class="fas fa-check-circle text-3xl mr-2"></i>
+                                <span class="font-semibold">Correct</span>
+                            </div>
+                        </template>
+                        
+                        <template x-if="total !== {{ pv.suffrages_exprimes }}">
+                            <div class="flex items-center text-red-600">
+                                <i class="fas fa-times-circle text-3xl mr-2"></i>
+                                <span class="font-semibold">Différence : <span x-text="Math.abs(total - {{ pv.suffrages_exprimes }})"></span></span>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Actions -->
+            <div class="px-6 py-4 bg-white border-t border-gray-200 flex justify-between">
+                <a href="{% url 'pv:detail' pv.id %}" 
+                   class="px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg transition-colors">
+                    Annuler
+                </a>
+                <button type="submit" 
+                        :disabled="total !== {{ pv.suffrages_exprimes }}"
+                        class="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed">
+                    <i class="fas fa-check mr-2"></i> Enregistrer les résultats
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+function resultsForm() {
+    return {
+        voix: Array({{ candidats|length }}).fill(0),
+        total: 0,
+        
+        calculateTotal() {
+            this.total = this.voix.reduce((sum, val) => sum + (parseInt(val) || 0), 0);
+        }
+    }
+}
+</script>
+{% endblock %}

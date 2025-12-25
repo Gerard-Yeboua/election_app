@@ -1,0 +1,149 @@
+<!-- templates/statistics/dashboard.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ titre }}{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900">{{ titre }}</h1>
+    <p class="mt-2 text-gray-600">Vue d'ensemble des statistiques électorales</p>
+</div>
+
+<!-- Statistiques principales -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+    <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg p-6 text-white">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-blue-100 text-sm">Bureaux de vote</p>
+                <p class="text-3xl font-bold mt-2">{{ data.total_bureaux|default:"0" }}</p>
+            </div>
+            <div class="p-3 bg-white bg-opacity-20 rounded-full">
+                <i class="fas fa-map-marker-alt text-2xl"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-xl shadow-lg p-6 text-white">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-green-100 text-sm">PV Validés</p>
+                <p class="text-3xl font-bold mt-2">{{ data.pv_valides|default:"0" }}</p>
+            </div>
+            <div class="p-3 bg-white bg-opacity-20 rounded-full">
+                <i class="fas fa-check-circle text-2xl"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl shadow-lg p-6 text-white">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-purple-100 text-sm">Taux de participation</p>
+                <p class="text-3xl font-bold mt-2">{{ data.taux_participation|default:"0" }}%</p>
+            </div>
+            <div class="p-3 bg-white bg-opacity-20 rounded-full">
+                <i class="fas fa-users text-2xl"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl shadow-lg p-6 text-white">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-orange-100 text-sm">Incidents</p>
+                <p class="text-3xl font-bold mt-2">{{ data.incidents.total|default:"0" }}</p>
+            </div>
+            <div class="p-3 bg-white bg-opacity-20 rounded-full">
+                <i class="fas fa-exclamation-triangle text-2xl"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Graphiques -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+    <!-- Évolution des soumissions -->
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Évolution des soumissions (7 jours)</h3>
+        <canvas id="evolutionChart" height="200"></canvas>
+    </div>
+    
+    <!-- Répartition des PV -->
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Répartition des PV</h3>
+        <canvas id="repartitionChart" height="200"></canvas>
+    </div>
+</div>
+
+<!-- Top candidats -->
+{% if data.top_candidats %}
+<div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4">Résultats provisoires</h3>
+    <div class="space-y-4">
+        {% for candidat in data.top_candidats %}
+        <div class="flex items-center justify-between border-b border-gray-200 pb-4 last:border-0">
+            <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+                    <span class="text-primary-700 font-bold text-lg">{{ forloop.counter }}</span>
+                </div>
+                <div>
+                    <p class="font-semibold text-gray-900">{{ candidat.candidat__nom_complet }}</p>
+                    <p class="text-sm text-gray-600">{{ candidat.candidat__parti_politique }}</p>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="text-2xl font-bold text-gray-900">{{ candidat.total_voix|floatformat:0 }}</p>
+                <p class="text-sm text-gray-600">voix</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<script>
+// Graphique évolution
+const ctxEvolution = document.getElementById('evolutionChart').getContext('2d');
+new Chart(ctxEvolution, {
+    type: 'line',
+    data: {
+        labels: {{ evolution|safe|default:"[]" }}.map(item => item.date),
+        datasets: [{
+            label: 'PV soumis',
+            data: {{ evolution|safe|default:"[]" }}.map(item => item.pv),
+            borderColor: '#ff7900',
+            backgroundColor: 'rgba(255, 121, 0, 0.1)',
+            tension: 0.4
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: false }
+        }
+    }
+});
+
+// Graphique répartition
+const ctxRepartition = document.getElementById('repartitionChart').getContext('2d');
+new Chart(ctxRepartition, {
+    type: 'doughnut',
+    data: {
+        labels: ['Validés', 'En attente', 'Rejetés'],
+        datasets: [{
+            data: [
+                {{ data.pv_valides|default:0 }},
+                {{ data.pv_en_attente|default:0 }},
+                {{ data.pv_rejetes|default:0 }}
+            ],
+            backgroundColor: ['#10b981', '#f59e0b', '#ef4444']
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false
+    }
+});
+</script>
+{% endblock %}

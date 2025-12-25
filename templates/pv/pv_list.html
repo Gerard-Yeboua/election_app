@@ -1,0 +1,258 @@
+<!-- templates/pv/pv_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Liste des PV{% endblock %}
+
+{% block breadcrumb %}
+<nav class="flex mb-6" aria-label="Breadcrumb">
+    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+        <li class="inline-flex items-center">
+            <a href="{% url 'dashboard:index' %}" class="text-gray-700 hover:text-primary-600">
+                <i class="fas fa-home mr-2"></i> Accueil
+            </a>
+        </li>
+        <li>
+            <div class="flex items-center">
+                <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                <span class="text-gray-500">Procès-Verbaux</span>
+            </div>
+        </li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<!-- En-tête -->
+<div class="mb-6 flex items-center justify-between">
+    <div>
+        <h1 class="text-3xl font-bold text-gray-900">Procès-Verbaux</h1>
+        <p class="mt-2 text-gray-600">Gestion et suivi des PV électoraux</p>
+    </div>
+    <a href="{% url 'pv:export' %}" 
+       class="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors">
+        <i class="fas fa-file-excel mr-2"></i>
+        Exporter Excel
+    </a>
+</div>
+
+<!-- Statistiques Cards -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-600">Total PV</p>
+                <p class="text-2xl font-bold text-gray-900 mt-1">{{ stats.total }}</p>
+            </div>
+            <div class="p-3 bg-blue-100 rounded-full">
+                <i class="fas fa-file-alt text-xl text-blue-600"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-600">Validés</p>
+                <p class="text-2xl font-bold text-green-600 mt-1">{{ stats.valides }}</p>
+            </div>
+            <div class="p-3 bg-green-100 rounded-full">
+                <i class="fas fa-check-circle text-xl text-green-600"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-600">En Attente</p>
+                <p class="text-2xl font-bold text-yellow-600 mt-1">{{ stats.en_attente }}</p>
+            </div>
+            <div class="p-3 bg-yellow-100 rounded-full">
+                <i class="fas fa-clock text-xl text-yellow-600"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-sm text-gray-600">Rejetés</p>
+                <p class="text-2xl font-bold text-red-600 mt-1">{{ stats.rejetes }}</p>
+            </div>
+            <div class="p-3 bg-red-100 rounded-full">
+                <i class="fas fa-times-circle text-xl text-red-600"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Filtres -->
+<div class="bg-white rounded-xl shadow-sm p-6 mb-6 border border-gray-100">
+    <form method="get" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Statut</label>
+            <select name="statut" class="w-full rounded-lg border-gray-300 focus:border-primary-500 focus:ring-primary-500">
+                <option value="">Tous les statuts</option>
+                <option value="EN_ATTENTE" {% if statut_filter == 'EN_ATTENTE' %}selected{% endif %}>En attente</option>
+                <option value="VALIDE" {% if statut_filter == 'VALIDE' %}selected{% endif %}>Validé</option>
+                <option value="REJETE" {% if statut_filter == 'REJETE' %}selected{% endif %}>Rejeté</option>
+            </select>
+        </div>
+        
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Recherche</label>
+            <input type="text" name="search" value="{{ search_query|default:'' }}" 
+                   placeholder="N° référence, bureau..."
+                   class="w-full rounded-lg border-gray-300 focus:border-primary-500 focus:ring-primary-500">
+        </div>
+        
+        <div class="flex items-end">
+            <button type="submit" 
+                    class="w-full px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors">
+                <i class="fas fa-search mr-2"></i> Filtrer
+            </button>
+        </div>
+        
+        <div class="flex items-end">
+            <a href="{% url 'pv:list' %}" 
+               class="w-full px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg text-center transition-colors">
+                <i class="fas fa-redo mr-2"></i> Réinitialiser
+            </a>
+        </div>
+    </form>
+</div>
+
+<!-- Liste des PV -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        N° Référence
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Bureau
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Superviseur
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Date Soumission
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Participation
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Statut
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                {% for pv in pv_list %}
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">{{ pv.numero_reference }}</div>
+                        {% if pv.has_incoherence %}
+                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800">
+                            <i class="fas fa-exclamation-triangle mr-1"></i> Incohérence
+                        </span>
+                        {% endif %}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">{{ pv.bureau_vote.code_bv }}</div>
+                        <div class="text-sm text-gray-500">{{ pv.bureau_vote.nom_bv }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">{{ pv.superviseur.nom_complet }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">{{ pv.date_soumission|date:"d/m/Y" }}</div>
+                        <div class="text-sm text-gray-500">{{ pv.date_soumission|date:"H:i" }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">{{ pv.nombre_votants|default:"0" }} / {{ pv.nombre_inscrits }}</div>
+                        <div class="text-sm text-gray-500">{{ pv.taux_participation }}%</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full
+                            {% if pv.statut == 'VALIDE' %}bg-green-100 text-green-800
+                            {% elif pv.statut == 'EN_ATTENTE' %}bg-yellow-100 text-yellow-800
+                            {% elif pv.statut == 'REJETE' %}bg-red-100 text-red-800
+                            {% else %}bg-gray-100 text-gray-800{% endif %}">
+                            {{ pv.get_statut_display }}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <a href="{% url 'pv:detail' pv.id %}" 
+                           class="text-primary-600 hover:text-primary-900 mr-3">
+                            <i class="fas fa-eye"></i> Voir
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7" class="px-6 py-12 text-center text-gray-500">
+                        <i class="fas fa-inbox text-4xl mb-3"></i>
+                        <p>Aucun PV trouvé</p>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Pagination -->
+    {% if pv_list.has_other_pages %}
+    <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+        <div class="flex-1 flex justify-between sm:hidden">
+            {% if pv_list.has_previous %}
+            <a href="?page={{ pv_list.previous_page_number }}" 
+               class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                Précédent
+            </a>
+            {% endif %}
+            {% if pv_list.has_next %}
+            <a href="?page={{ pv_list.next_page_number }}" 
+               class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                Suivant
+            </a>
+            {% endif %}
+        </div>
+        <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+            <div>
+                <p class="text-sm text-gray-700">
+                    Affichage <span class="font-medium">{{ pv_list.start_index }}</span> à 
+                    <span class="font-medium">{{ pv_list.end_index }}</span> sur 
+                    <span class="font-medium">{{ pv_list.paginator.count }}</span> résultats
+                </p>
+            </div>
+            <div>
+                <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+                    {% if pv_list.has_previous %}
+                    <a href="?page={{ pv_list.previous_page_number }}" 
+                       class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    {% endif %}
+                    
+                    <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
+                        Page {{ pv_list.number }} sur {{ pv_list.paginator.num_pages }}
+                    </span>
+                    
+                    {% if pv_list.has_next %}
+                    <a href="?page={{ pv_list.next_page_number }}" 
+                       class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                    {% endif %}
+                </nav>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

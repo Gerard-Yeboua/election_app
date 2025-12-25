@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 
 # Create your models here.
@@ -8,28 +9,35 @@ from accounts.models import User
 from geography.models import BureauVote
 import cloudinary.models
 
-class Candidat(models.Model):
-    """Candidat à l'élection"""
-    nom_complet = models.CharField(max_length=200)
-    parti_politique = models.CharField(max_length=200)
-    numero_ordre = models.IntegerField()
-    photo = cloudinary.models.CloudinaryField('candidat_photo', blank=True, null=True)
-    
-    # Peut être limité à certaines circonscriptions
-    regions = models.ManyToManyField('geography.Region', blank=True, related_name='candidats')
-    
-    is_active = models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+# pv/models.py
 
+class Candidat(models.Model):
+    """Modèle des candidats aux élections"""
+    
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    numero_ordre = models.PositiveIntegerField(unique=True, verbose_name="Numéro d'ordre")
+    nom_complet = models.CharField(max_length=200, verbose_name="Nom complet")
+    parti_politique = models.CharField(max_length=200, blank=True, verbose_name="Parti politique")
+    
+    # AJOUTER CES DEUX CHAMPS
+    est_independant = models.BooleanField(default=False, verbose_name="Candidat indépendant")
+    est_actif = models.BooleanField(default=True, verbose_name="Actif")
+    
+    photo = models.ImageField(
+        upload_to='candidats/',
+        blank=True,
+        null=True,
+        verbose_name="Photo"
+    )
+    
     class Meta:
-        db_table = 'candidats'
+        db_table = 'pv_candidat'
         ordering = ['numero_ordre']
         verbose_name = 'Candidat'
         verbose_name_plural = 'Candidats'
-
+    
     def __str__(self):
-        return f"{self.numero_ordre}. {self.nom_complet} ({self.parti_politique})"
-
+        return f"{self.numero_ordre} - {self.nom_complet}"
 
 class ProcesVerbal(models.Model):
     """Procès-verbal d'un bureau de vote"""
@@ -138,33 +146,93 @@ class ProcesVerbal(models.Model):
         return round((self.nombre_votants / self.nombre_inscrits) * 100, 2)
 
 
-class ResultatCandidat(models.Model):
-    """Résultat d'un candidat pour un PV donné"""
-    proces_verbal = models.ForeignKey(ProcesVerbal, on_delete=models.CASCADE, related_name='resultats')
-    candidat = models.ForeignKey(Candidat, on_delete=models.PROTECT)
-    nombre_voix = models.IntegerField(validators=[MinValueValidator(0)])
-    
-    created_at = models.DateTimeField(auto_now_add=True)
+# pv/models.py
 
+class ResultatCandidat(models.Model):
+    """Résultats d'un candidat dans un bureau"""
+    
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    
+    # VÉRIFIER QUE CE CHAMP EXISTE
+    pv = models.ForeignKey(
+        ProcesVerbal,
+        on_delete=models.CASCADE,
+        related_name='resultats'
+    )
+    
+    candidat = models.ForeignKey(
+        Candidat,
+        on_delete=models.CASCADE,
+        related_name='resultats'
+    )
+    
+    nombre_voix = models.PositiveIntegerField(
+        default=0,
+        validators=[MinValueValidator(0)],
+        verbose_name="Nombre de voix"
+    )
+    
     class Meta:
-        db_table = 'resultats_candidats'
-        unique_together = ['proces_verbal', 'candidat']
+        db_table = 'pv_resultat_candidat'
+        unique_together = ['pv', 'candidat']
+        ordering = ['-nombre_voix']
         verbose_name = 'Résultat candidat'
         verbose_name_plural = 'Résultats candidats'
-
+    
     def __str__(self):
-        return f"{self.candidat.nom_complet}: {self.nombre_voix} voix"
-
-
-class ValidationHistory(models.Model):
-    """Historique des validations d'un PV"""
-    proces_verbal = models.ForeignKey(ProcesVerbal, on_delete=models.CASCADE, related_name='historique_validations')
-    validateur = models.ForeignKey(User, on_delete=models.PROTECT)
-    action = models.CharField(max_length=20)  # VALIDE, REJETE, CORRECTION
-    commentaire = models.TextField(blank=True, null=True)
-    date_action = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        db_table = 'validation_history'
-        ordering = ['-date_action']
+        return f"{self.candidat.nom_complet} - {self.nombre_voix} voix"
+    
+    @property
+    def pourcentage_bureau(self):
+        """Calcul du pourcentage au bureau"""
+        if self.pv.suffrages_exprimes > 0:
+            return round((self.nombre_voix / self.pv.suffrages_exprimes) * 100, 2)
+        return 0
+    
+    @property
+    def position_bureau(self):
+        """Position du candidat dans ce bureau"""
+        resultats = ResultatCandidat.objects.filter(
+            pv=self.pv
+        ).order_by('-nombre_voix')
         
+        for index, resultat in enumerate(resultats, start=1):
+            if resultat.id == self.id:
+                return index
+        return None
+
+
+class HistoriqueValidation(models.Model):
+    """Historique des actions de validation sur un PV"""
+    
+    ACTION_CHOICES = [
+        ('VALIDER', 'Valider'),
+        ('REJETER', 'Rejeter'),
+        ('CORRECTION', 'Demander correction'),
+    ]
+    
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    pv = models.ForeignKey(
+        'ProcesVerbal',
+        on_delete=models.CASCADE,
+        related_name='historique_validations'
+    )
+    action = models.CharField(max_length=20, choices=ACTION_CHOICES)
+    validateur = models.ForeignKey(
+        'accounts.User',
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='validations_effectuees'
+    )
+    date_action = models.DateTimeField(auto_now_add=True)
+    commentaire = models.TextField(blank=True)
+    motif_rejet = models.TextField(blank=True)
+    
+    class Meta:
+        db_table = 'pv_historique_validation'
+        ordering = ['-date_action']
+        verbose_name = 'Historique de validation'
+        verbose_name_plural = 'Historiques de validation'
+    
+    def __str__(self):
+        return f"{self.get_action_display()} - {self.pv.numero_reference} - {self.date_action}"

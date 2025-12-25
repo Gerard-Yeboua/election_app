@@ -685,3 +685,5 @@ class SnapshotQuotidien(models.Model):
         )
         
         return snapshot
+    
+

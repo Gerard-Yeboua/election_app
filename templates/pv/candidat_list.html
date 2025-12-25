@@ -1,0 +1,48 @@
+<!-- templates/pv/candidat_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Candidats{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900">Liste des candidats</h1>
+    <p class="mt-2 text-gray-600">Candidats aux élections</p>
+</div>
+
+<!-- Grille des candidats -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for candidat in candidats %}
+    <a href="{% url 'pv:candidat_detail' candidat.id %}" 
+       class="block bg-white rounded-xl shadow-sm p-6 border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+        <div class="flex items-center space-x-4 mb-4">
+            <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
+                {% if candidat.photo %}
+                <img src="{{ candidat.photo.url }}" alt="{{ candidat.nom_complet }}" 
+                     class="w-16 h-16 rounded-full object-cover">
+                {% else %}
+                <span class="text-primary-700 font-bold text-2xl">{{ candidat.numero_ordre }}</span>
+                {% endif %}
+            </div>
+            
+            <div class="flex-1">
+                <h3 class="text-lg font-semibold text-gray-900">{{ candidat.nom_complet }}</h3>
+                <p class="text-sm text-gray-600">{{ candidat.parti_politique }}</p>
+            </div>
+        </div>
+        
+        {% if user.role in 'ADMIN,SUPER_ADMIN' %}
+        <div class="space-y-2 border-t border-gray-200 pt-4">
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-600">Total voix</span>
+                <span class="font-semibold text-gray-900">{{ candidat.total_voix|default:"0"|floatformat:0 }}</span>
+            </div>
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-600">Bureaux</span>
+                <span class="font-semibold text-gray-900">{{ candidat.nb_bureaux|default:"0" }}</span>
+            </div>
+        </div>
+        {% endif %}
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

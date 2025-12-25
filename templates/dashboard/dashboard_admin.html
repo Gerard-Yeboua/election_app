@@ -1,0 +1,290 @@
+<!-- templates/dashboard/dashboard_admin.html -->
+{% extends 'base.html' %}
+
+{% block title %}Tableau de bord - Admin{% endblock %}
+
+{% block content %}
+<!-- En-tête -->
+<div class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900">Tableau de bord</h1>
+    <p class="mt-2 text-gray-600">Vue d'ensemble 
+        {% if region %}de la région {{ region.nom_region }}{% else %}nationale{% endif %}
+    </p>
+</div>
+
+<!-- Statistiques principales -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg p-6 text-white">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-blue-100 text-sm">Bureaux de vote</p>
+                <p class="text-3xl font-bold mt-2">{{ stats.total_bureaux }}</p>
+                <p class="text-blue-100 text-xs mt-2">{{ stats.total_inscrits|floatformat:0 }} inscrits</p>
+            </div>
+            <div class="p-3 bg-white bg-opacity-20 rounded-full">
+                <i class="fas fa-map-marker-alt text-2xl"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-xl shadow-lg p-6 text-white">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-green-100 text-sm">PV Validés</p>
+                <p class="text-3xl font-bold mt-2">{{ stats.pv_valides }}</p>
+                <p class="text-green-100 text-xs mt-2">{{ stats.taux_validation }}% du total</p>
+            </div>
+            <div class="p-3 bg-white bg-opacity-20 rounded-full">
+                <i class="fas fa-check-circle text-2xl"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-xl shadow-lg p-6 text-white">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-yellow-100 text-sm">En Attente</p>
+                <p class="text-3xl font-bold mt-2">{{ stats.pv_en_attente }}</p>
+                <p class="text-yellow-100 text-xs mt-2">À valider</p>
+            </div>
+            <div class="p-3 bg-white bg-opacity-20 rounded-full">
+                <i class="fas fa-clock text-2xl"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl shadow-lg p-6 text-white">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-purple-100 text-sm">Participation</p>
+                <p class="text-3xl font-bold mt-2">{{ stats_participation.taux_participation }}%</p>
+                <p class="text-purple-100 text-xs mt-2">{{ stats_participation.total_votants|floatformat:0 }} votants</p>
+            </div>
+            <div class="p-3 bg-white bg-opacity-20 rounded-full">
+                <i class="fas fa-users text-2xl"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Alertes -->
+{% if alertes %}
+<div class="mb-8 space-y-3">
+    {% for alerte in alertes %}
+    <div class="bg-{% if alerte.type == 'danger' %}red{% elif alerte.type == 'warning' %}yellow{% else %}blue{% endif %}-50 border-l-4 border-{% if alerte.type == 'danger' %}red{% elif alerte.type == 'warning' %}yellow{% else %}blue{% endif %}-400 p-4">
+        <div class="flex items-center">
+            <i class="fas {{ alerte.icon }} text-{% if alerte.type == 'danger' %}red{% elif alerte.type == 'warning' %}yellow{% else %}blue{% endif %}-400 text-xl"></i>
+            <div class="ml-3 flex-1">
+                <p class="text-sm font-medium text-{% if alerte.type == 'danger' %}red{% elif alerte.type == 'warning' %}yellow{% else %}blue{% endif %}-800">
+                    {{ alerte.message }}
+                </p>
+            </div>
+            <a href="{{ alerte.link }}" 
+               class="text-{% if alerte.type == 'danger' %}red{% elif alerte.type == 'warning' %}yellow{% else %}blue{% endif %}-700 hover:text-{% if alerte.type == 'danger' %}red{% elif alerte.type == 'warning' %}yellow{% else %}blue{% endif %}-900">
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<!-- Graphiques et données -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+    <!-- Évolution des soumissions -->
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Évolution des soumissions (7 jours)</h3>
+        <canvas id="evolutionChart" height="250"></canvas>
+    </div>
+    
+    <!-- Répartition des PV -->
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Répartition des PV</h3>
+        <canvas id="repartitionChart" height="250"></canvas>
+    </div>
+</div>
+
+<!-- Top candidats et incidents -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+    <!-- Top candidats -->
+    {% if top_candidats %}
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Top 5 Candidats</h3>
+        <div class="space-y-3">
+            {% for candidat in top_candidats %}
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center">
+                        <span class="text-primary-700 font-bold text-sm">{{ forloop.counter }}</span>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-900 text-sm">{{ candidat.candidat__nom_complet }}</p>
+                        <p class="text-xs text-gray-600">{{ candidat.candidat__parti_politique }}</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-lg font-bold text-gray-900">{{ candidat.total_voix|floatformat:0 }}</p>
+                    <p class="text-xs text-gray-600">voix</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    
+    <!-- Incidents récents -->
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-gray-900">Incidents récents</h3>
+            <a href="{% url 'incidents:list' %}" class="text-primary-600 hover:text-primary-700 text-sm font-medium">
+                Voir tout <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+        </div>
+        
+        {% if incidents_recents %}
+        <div class="space-y-3">
+            {% for incident in incidents_recents|slice:":5" %}
+            <a href="{% url 'incidents:detail' incident.id %}" 
+               class="block p-3 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-all">
+                <div class="flex items-center justify-between">
+                    <div class="flex-1">
+                        <p class="font-semibold text-gray-900 text-sm">{{ incident.titre|truncatewords:8 }}</p>
+                        <p class="text-xs text-gray-600 mt-1">{{ incident.bureau_vote.code_bv }} - {{ incident.created_at|date:"d/m/Y H:i" }}</p>
+                    </div>
+                    <span class="ml-2 px-2 py-1 text-xs font-semibold rounded-full
+                        {% if incident.priorite == 'CRITIQUE' %}bg-red-100 text-red-800
+                        {% elif incident.priorite == 'URGENTE' %}bg-orange-100 text-orange-800
+                        {% else %}bg-yellow-100 text-yellow-800{% endif %}">
+                        {{ incident.get_priorite_display }}
+                    </span>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-center text-gray-500 py-8">Aucun incident récent</p>
+        {% endif %}
+    </div>
+</div>
+
+<!-- PV récents -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+    <div class="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
+        <h3 class="text-lg font-semibold text-gray-900">PV récents</h3>
+        <a href="{% url 'pv:list' %}" class="text-primary-600 hover:text-primary-700 text-sm font-medium">
+            Voir tout <i class="fas fa-arrow-right ml-1"></i>
+        </a>
+    </div>
+    
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">N° Référence</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Bureau</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Superviseur</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Statut</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                {% for pv in pv_recents|slice:":10" %}
+                <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        {{ pv.numero_reference }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {{ pv.bureau_vote.code_bv }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {{ pv.superviseur.nom_complet }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {{ pv.date_soumission|date:"d/m/Y H:i" }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-3 py-1 text-xs font-semibold rounded-full
+                            {% if pv.statut == 'VALIDE' %}bg-green-100 text-green-800
+                            {% elif pv.statut == 'EN_ATTENTE' %}bg-yellow-100 text-yellow-800
+                            {% else %}bg-red-100 text-red-800{% endif %}">
+                            {{ pv.get_statut_display }}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                        <a href="{% url 'pv:detail' pv.id %}" class="text-primary-600 hover:text-primary-900">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="px-6 py-8 text-center text-gray-500">
+                        Aucun PV récent
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+// Graphique évolution
+const ctxEvolution = document.getElementById('evolutionChart').getContext('2d');
+new Chart(ctxEvolution, {
+    type: 'line',
+    data: {
+        labels: {{ evolution_soumissions|safe }}.map(item => item.date),
+        datasets: [{
+            label: 'PV soumis',
+            data: {{ evolution_soumissions|safe }}.map(item => item.count),
+            borderColor: '#ff7900',
+            backgroundColor: 'rgba(255, 121, 0, 0.1)',
+            tension: 0.4,
+            fill: true
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: false }
+        },
+        scales: {
+            y: { beginAtZero: true }
+        }
+    }
+});
+
+// Graphique répartition
+const ctxRepartition = document.getElementById('repartitionChart').getContext('2d');
+new Chart(ctxRepartition, {
+    type: 'doughnut',
+    data: {
+        labels: {{ repartition_pv|safe }}.map(item => item.label),
+        datasets: [{
+            data: {{ repartition_pv|safe }}.map(item => item.value),
+            backgroundColor: {{ repartition_pv|safe }}.map(item => item.color)
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { position: 'bottom' }
+        }
+    }
+});
+
+// Auto-refresh stats toutes les 30 secondes
+setInterval(() => {
+    fetch('{% url "dashboard:stats_temps_reel" %}')
+        .then(response => response.json())
+        .then(data => {
+            // Mettre à jour les badges de notification si nécessaire
+            console.log('Stats updated:', data);
+        });
+}, 30000);
+</script>
+{% endblock %}
