@@ -1,0 +1,2725 @@
+[
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "UserAdmin",
+        "importPath": "django.contrib.auth.admin",
+        "description": "django.contrib.auth.admin",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.admin",
+        "documentation": {}
+    },
+    {
+        "label": "format_html",
+        "importPath": "django.utils.html",
+        "description": "django.utils.html",
+        "isExtraImport": true,
+        "detail": "django.utils.html",
+        "documentation": {}
+    },
+    {
+        "label": "format_html",
+        "importPath": "django.utils.html",
+        "description": "django.utils.html",
+        "isExtraImport": true,
+        "detail": "django.utils.html",
+        "documentation": {}
+    },
+    {
+        "label": "format_html",
+        "importPath": "django.utils.html",
+        "description": "django.utils.html",
+        "isExtraImport": true,
+        "detail": "django.utils.html",
+        "documentation": {}
+    },
+    {
+        "label": "format_html",
+        "importPath": "django.utils.html",
+        "description": "django.utils.html",
+        "isExtraImport": true,
+        "detail": "django.utils.html",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "transaction",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "AbstractUser",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "BaseUserManager",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "RegexValidator",
+        "importPath": "django.core.validators",
+        "description": "django.core.validators",
+        "isExtraImport": true,
+        "detail": "django.core.validators",
+        "documentation": {}
+    },
+    {
+        "label": "RegexValidator",
+        "importPath": "django.core.validators",
+        "description": "django.core.validators",
+        "isExtraImport": true,
+        "detail": "django.core.validators",
+        "documentation": {}
+    },
+    {
+        "label": "MinValueValidator",
+        "importPath": "django.core.validators",
+        "description": "django.core.validators",
+        "isExtraImport": true,
+        "detail": "django.core.validators",
+        "documentation": {}
+    },
+    {
+        "label": "MaxValueValidator",
+        "importPath": "django.core.validators",
+        "description": "django.core.validators",
+        "isExtraImport": true,
+        "detail": "django.core.validators",
+        "documentation": {}
+    },
+    {
+        "label": "MinValueValidator",
+        "importPath": "django.core.validators",
+        "description": "django.core.validators",
+        "isExtraImport": true,
+        "detail": "django.core.validators",
+        "documentation": {}
+    },
+    {
+        "label": "ValidationError",
+        "importPath": "django.core.exceptions",
+        "description": "django.core.exceptions",
+        "isExtraImport": true,
+        "detail": "django.core.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "ValidationError",
+        "importPath": "django.core.exceptions",
+        "description": "django.core.exceptions",
+        "isExtraImport": true,
+        "detail": "django.core.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Count",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Sum",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Count",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Avg",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "F",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Sum",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Count",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Avg",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "F",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Sum",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Count",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Avg",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "F",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "create_client",
+        "importPath": "supabase",
+        "description": "supabase",
+        "isExtraImport": true,
+        "detail": "supabase",
+        "documentation": {}
+    },
+    {
+        "label": "Client",
+        "importPath": "supabase",
+        "description": "supabase",
+        "isExtraImport": true,
+        "detail": "supabase",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "get_asgi_application",
+        "importPath": "django.core.asgi",
+        "description": "django.core.asgi",
+        "isExtraImport": true,
+        "detail": "django.core.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "cloudinary",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cloudinary",
+        "description": "cloudinary",
+        "detail": "cloudinary",
+        "documentation": {}
+    },
+    {
+        "label": "cloudinary.uploader",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cloudinary.uploader",
+        "description": "cloudinary.uploader",
+        "detail": "cloudinary.uploader",
+        "documentation": {}
+    },
+    {
+        "label": "cloudinary.api",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cloudinary.api",
+        "description": "cloudinary.api",
+        "detail": "cloudinary.api",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "reverse",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "get_wsgi_application",
+        "importPath": "django.core.wsgi",
+        "description": "django.core.wsgi",
+        "isExtraImport": true,
+        "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "isExtraImport": true,
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "isExtraImport": true,
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "isExtraImport": true,
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "BureauVote",
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "isExtraImport": true,
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "Region",
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "isExtraImport": true,
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "Departement",
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "isExtraImport": true,
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "Commune",
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "isExtraImport": true,
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "BureauVote",
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "isExtraImport": true,
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "Region",
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "isExtraImport": true,
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "BureauVote",
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "isExtraImport": true,
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "Region",
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "isExtraImport": true,
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "BureauVote",
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "isExtraImport": true,
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "cloudinary.models",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cloudinary.models",
+        "description": "cloudinary.models",
+        "detail": "cloudinary.models",
+        "documentation": {}
+    },
+    {
+        "label": "rest_framework",
+        "importPath": "django_filters",
+        "description": "django_filters",
+        "isExtraImport": true,
+        "detail": "django_filters",
+        "documentation": {}
+    },
+    {
+        "label": "CacheStatistique",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueTimeline",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "SnapshotQuotidien",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "CacheStatistique",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueRegion",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueBureau",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueCandidat",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueTimeline",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiquePerformance",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "SnapshotQuotidien",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "CacheStatistique",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueRegion",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueBureau",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueCandidat",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueTimeline",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiquePerformance",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "LogRefreshStatistique",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "CacheStatistique",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "SnapshotQuotidien",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "CacheStatistique",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueRegion",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueBureau",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueCandidat",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueTimeline",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiquePerformance",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "SnapshotQuotidien",
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "isExtraImport": true,
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "cache",
+        "importPath": "django.core.cache",
+        "description": "django.core.cache",
+        "isExtraImport": true,
+        "detail": "django.core.cache",
+        "documentation": {}
+    },
+    {
+        "label": "CacheStatistiqueManager",
+        "importPath": "statistic.managers",
+        "description": "statistic.managers",
+        "isExtraImport": true,
+        "detail": "statistic.managers",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueTimelineManager",
+        "importPath": "statistic.managers",
+        "description": "statistic.managers",
+        "isExtraImport": true,
+        "detail": "statistic.managers",
+        "documentation": {}
+    },
+    {
+        "label": "permissions",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "viewsets",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "Candidat",
+        "importPath": "pv.models",
+        "description": "pv.models",
+        "isExtraImport": true,
+        "detail": "pv.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProcesVerbal",
+        "importPath": "pv.models",
+        "description": "pv.models",
+        "isExtraImport": true,
+        "detail": "pv.models",
+        "documentation": {}
+    },
+    {
+        "label": "Candidat",
+        "importPath": "pv.models",
+        "description": "pv.models",
+        "isExtraImport": true,
+        "detail": "pv.models",
+        "documentation": {}
+    },
+    {
+        "label": "ResultatCandidat",
+        "importPath": "pv.models",
+        "description": "pv.models",
+        "isExtraImport": true,
+        "detail": "pv.models",
+        "documentation": {}
+    },
+    {
+        "label": "Candidat",
+        "importPath": "pv.models",
+        "description": "pv.models",
+        "isExtraImport": true,
+        "detail": "pv.models",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "Incident",
+        "importPath": "incidents.models",
+        "description": "incidents.models",
+        "isExtraImport": true,
+        "detail": "incidents.models",
+        "documentation": {}
+    },
+    {
+        "label": "shared_task",
+        "importPath": "celery",
+        "description": "celery",
+        "isExtraImport": true,
+        "detail": "celery",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueService",
+        "importPath": "statistic.services",
+        "description": "statistic.services",
+        "isExtraImport": true,
+        "detail": "statistic.services",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueService",
+        "importPath": "statistic.services",
+        "description": "statistic.services",
+        "isExtraImport": true,
+        "detail": "statistic.services",
+        "documentation": {}
+    },
+    {
+        "label": "DefaultRouter",
+        "importPath": "rest_framework.routers",
+        "description": "rest_framework.routers",
+        "isExtraImport": true,
+        "detail": "rest_framework.routers",
+        "documentation": {}
+    },
+    {
+        "label": "CacheStatistiqueViewSet",
+        "importPath": "statistic.viewsets",
+        "description": "statistic.viewsets",
+        "isExtraImport": true,
+        "detail": "statistic.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueViewSet",
+        "importPath": "statistic.viewsets",
+        "description": "statistic.viewsets",
+        "isExtraImport": true,
+        "detail": "statistic.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueRegionViewSet",
+        "importPath": "statistic.viewsets",
+        "description": "statistic.viewsets",
+        "isExtraImport": true,
+        "detail": "statistic.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueBureauViewSet",
+        "importPath": "statistic.viewsets",
+        "description": "statistic.viewsets",
+        "isExtraImport": true,
+        "detail": "statistic.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueCandidatViewSet",
+        "importPath": "statistic.viewsets",
+        "description": "statistic.viewsets",
+        "isExtraImport": true,
+        "detail": "statistic.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueTimelineViewSet",
+        "importPath": "statistic.viewsets",
+        "description": "statistic.viewsets",
+        "isExtraImport": true,
+        "detail": "statistic.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiquePerformanceViewSet",
+        "importPath": "statistic.viewsets",
+        "description": "statistic.viewsets",
+        "isExtraImport": true,
+        "detail": "statistic.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "SnapshotQuotidienViewSet",
+        "importPath": "statistic.viewsets",
+        "description": "statistic.viewsets",
+        "isExtraImport": true,
+        "detail": "statistic.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "CacheStatistiqueFilter",
+        "importPath": "statistic.filters",
+        "description": "statistic.filters",
+        "isExtraImport": true,
+        "detail": "statistic.filters",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueTimelineFilter",
+        "importPath": "statistic.filters",
+        "description": "statistic.filters",
+        "isExtraImport": true,
+        "detail": "statistic.filters",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "statistic.filters",
+        "description": "statistic.filters",
+        "isExtraImport": true,
+        "detail": "statistic.filters",
+        "documentation": {}
+    },
+    {
+        "label": "CanManageCache",
+        "importPath": "statistic.permissions",
+        "description": "statistic.permissions",
+        "isExtraImport": true,
+        "detail": "statistic.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "CanRefreshCache",
+        "importPath": "statistic.permissions",
+        "description": "statistic.permissions",
+        "isExtraImport": true,
+        "detail": "statistic.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "CanViewStatistics",
+        "importPath": "statistic.permissions",
+        "description": "statistic.permissions",
+        "isExtraImport": true,
+        "detail": "statistic.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "statistic.permissions",
+        "description": "statistic.permissions",
+        "isExtraImport": true,
+        "detail": "statistic.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "BureauVoteSerializer",
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "isExtraImport": true,
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "CacheStatistiqueSerializer",
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "isExtraImport": true,
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ComparaisonRegionsSerializer",
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "isExtraImport": true,
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "SnapshotQuotidienSerializer",
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "isExtraImport": true,
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueBureauSerializer",
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "isExtraImport": true,
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueCandidatSerializer",
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "isExtraImport": true,
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiquePerformanceSerializer",
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "isExtraImport": true,
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueRegionSerializer",
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "isExtraImport": true,
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueTimelineSerializer",
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "isExtraImport": true,
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "StatsRegionDetailSerializer",
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "isExtraImport": true,
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "isExtraImport": true,
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "action",
+        "importPath": "rest_framework.decorators",
+        "description": "rest_framework.decorators",
+        "isExtraImport": true,
+        "detail": "rest_framework.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "DjangoFilterBackend",
+        "importPath": "django_filters.rest_framework",
+        "description": "django_filters.rest_framework",
+        "isExtraImport": true,
+        "detail": "django_filters.rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "UserAdmin",
+        "kind": 6,
+        "importPath": "accounts.admin",
+        "description": "accounts.admin",
+        "peekOfCode": "class UserAdmin(BaseUserAdmin):\n    list_display = ['email', 'nom_complet', 'role', 'perimetre_badge', 'is_active', 'date_joined']\n    list_filter = ['role', 'is_active', 'region', 'date_joined']\n    search_fields = ['email', 'first_name', 'last_name', 'matricule']\n    ordering = ['-date_joined']\n    fieldsets = (\n        ('Authentification', {\n            'fields': ('email', 'password')\n        }),\n        ('Informations personnelles', {",
+        "detail": "accounts.admin",
+        "documentation": {}
+    },
+    {
+        "label": "CheckInAdmin",
+        "kind": 6,
+        "importPath": "accounts.admin",
+        "description": "accounts.admin",
+        "peekOfCode": "class CheckInAdmin(admin.ModelAdmin):\n    list_display = ['superviseur', 'bureau_vote', 'checkin_time', 'checkout_time', 'duree', 'is_active', 'distance_bureau']\n    list_filter = ['is_active', 'checkin_time', 'nom_valide']\n    search_fields = ['superviseur__email', 'bureau_vote__code_bv']\n    ordering = ['-checkin_time']\n    readonly_fields = ['checkin_time', 'distance_bureau']\n    def duree(self, obj):\n        if obj.duree_presence:\n            heures = int(obj.duree_presence // 60)\n            minutes = int(obj.duree_presence % 60)",
+        "detail": "accounts.admin",
+        "documentation": {}
+    },
+    {
+        "label": "PermissionAdmin",
+        "kind": 6,
+        "importPath": "accounts.admin",
+        "description": "accounts.admin",
+        "peekOfCode": "class PermissionAdmin(admin.ModelAdmin):\n    list_display = ['user', 'permission_code', 'region', 'is_active', 'expires_at', 'granted_by']\n    list_filter = ['permission_code', 'is_active', 'granted_at']\n    search_fields = ['user__email', 'permission_code']\n    ordering = ['-granted_at']\n@admin.register(LoginHistory)\nclass LoginHistoryAdmin(admin.ModelAdmin):\n    list_display = ['user', 'login_time', 'logout_time', 'duree_session', 'ip_address', 'success']\n    list_filter = ['success', 'login_time']\n    search_fields = ['user__email', 'ip_address']",
+        "detail": "accounts.admin",
+        "documentation": {}
+    },
+    {
+        "label": "LoginHistoryAdmin",
+        "kind": 6,
+        "importPath": "accounts.admin",
+        "description": "accounts.admin",
+        "peekOfCode": "class LoginHistoryAdmin(admin.ModelAdmin):\n    list_display = ['user', 'login_time', 'logout_time', 'duree_session', 'ip_address', 'success']\n    list_filter = ['success', 'login_time']\n    search_fields = ['user__email', 'ip_address']\n    ordering = ['-login_time']\n    readonly_fields = ['login_time', 'logout_time', 'user_agent']\n@admin.register(AuditLog)\nclass AuditLogAdmin(admin.ModelAdmin):\n    list_display = ['user', 'action', 'description_courte', 'target_model', 'timestamp', 'ip_address']\n    list_filter = ['action', 'timestamp', 'target_model']",
+        "detail": "accounts.admin",
+        "documentation": {}
+    },
+    {
+        "label": "AuditLogAdmin",
+        "kind": 6,
+        "importPath": "accounts.admin",
+        "description": "accounts.admin",
+        "peekOfCode": "class AuditLogAdmin(admin.ModelAdmin):\n    list_display = ['user', 'action', 'description_courte', 'target_model', 'timestamp', 'ip_address']\n    list_filter = ['action', 'timestamp', 'target_model']\n    search_fields = ['user__email', 'description', 'target_id']\n    ordering = ['-timestamp']\n    readonly_fields = ['timestamp', 'details']\n    def description_courte(self, obj):\n        return obj.description[:50] + '...' if len(obj.description) > 50 else obj.description\n    description_courte.short_description = 'Description'",
+        "detail": "accounts.admin",
+        "documentation": {}
+    },
+    {
+        "label": "AccountsConfig",
+        "kind": 6,
+        "importPath": "accounts.apps",
+        "description": "accounts.apps",
+        "peekOfCode": "class AccountsConfig(AppConfig):\n    name = 'accounts'",
+        "detail": "accounts.apps",
+        "documentation": {}
+    },
+    {
+        "label": "UserManager",
+        "kind": 6,
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "peekOfCode": "class UserManager(BaseUserManager):\n    \"\"\"Manager personnalisé pour le modèle User\"\"\"\n    def create_user(self, email, password=None, **extra_fields):\n        \"\"\"Créer et sauvegarder un utilisateur normal\"\"\"\n        if not email:\n            raise ValueError(\"L'email est obligatoire\")\n        email = self.normalize_email(email)\n        user = self.model(email=email, **extra_fields)\n        user.set_password(password)\n        user.save(using=self._db)",
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "peekOfCode": "class User(AbstractUser):\n    \"\"\"\n    Utilisateur personnalisé avec système de rôles hiérarchiques\n    et affectations géographiques granulaires\n    \"\"\"\n    # Choix de rôles\n    ROLE_CHOICES = [\n        ('SUPER_ADMIN', 'Super Administrateur'),\n        ('ADMIN', 'Administrateur'),\n        ('SUPERVISEUR', 'Superviseur'),",
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "CheckIn",
+        "kind": 6,
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "peekOfCode": "class CheckIn(models.Model):\n    \"\"\"\n    Historique des check-ins des superviseurs sur les bureaux de vote\n    Permet de tracer la présence et l'activité terrain\n    \"\"\"\n    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)\n    superviseur = models.ForeignKey(\n        User,\n        on_delete=models.CASCADE,\n        related_name='checkins',",
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "Permission",
+        "kind": 6,
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "peekOfCode": "class Permission(models.Model):\n    \"\"\"\n    Permissions granulaires pour les utilisateurs\n    Permet de gérer des autorisations spécifiques au-delà des rôles\n    \"\"\"\n    PERMISSION_CHOICES = [\n        # Gestion des utilisateurs\n        ('create_user', 'Créer des utilisateurs'),\n        ('edit_user', 'Modifier des utilisateurs'),\n        ('delete_user', 'Supprimer des utilisateurs'),",
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "LoginHistory",
+        "kind": 6,
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "peekOfCode": "class LoginHistory(models.Model):\n    \"\"\"Historique des connexions des utilisateurs\"\"\"\n    user = models.ForeignKey(\n        User,\n        on_delete=models.CASCADE,\n        related_name='login_history'\n    )\n    login_time = models.DateTimeField(auto_now_add=True)\n    logout_time = models.DateTimeField(null=True, blank=True)\n    ip_address = models.GenericIPAddressField()",
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "AuditLog",
+        "kind": 6,
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "peekOfCode": "class AuditLog(models.Model):\n    \"\"\"\n    Log d'audit pour tracer toutes les actions importantes\n    dans le système\n    \"\"\"\n    ACTION_CHOICES = [\n        ('USER_CREATE', 'Création utilisateur'),\n        ('USER_UPDATE', 'Modification utilisateur'),\n        ('USER_DELETE', 'Suppression utilisateur'),\n        ('PV_SUBMIT', 'Soumission PV'),",
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "NotificationService",
+        "kind": 6,
+        "importPath": "common.services.notification_service",
+        "description": "common.services.notification_service",
+        "peekOfCode": "class NotificationService:\n    \"\"\"Service pour envoyer des notifications en temps réel\"\"\"\n    def __init__(self):\n        self.supabase: Client = create_client(\n            settings.SUPABASE_URL,\n            settings.SUPABASE_KEY\n        )\n    def notifier_nouveau_pv(self, pv):\n        \"\"\"Notifie les admins d'un nouveau PV\"\"\"\n        notification = {",
+        "detail": "common.services.notification_service",
+        "documentation": {}
+    },
+    {
+        "label": "notification_service",
+        "kind": 5,
+        "importPath": "common.services.notification_service",
+        "description": "common.services.notification_service",
+        "peekOfCode": "notification_service = NotificationService()",
+        "detail": "common.services.notification_service",
+        "documentation": {}
+    },
+    {
+        "label": "CommonConfig",
+        "kind": 6,
+        "importPath": "common.apps",
+        "description": "common.apps",
+        "peekOfCode": "class CommonConfig(AppConfig):\n    name = 'common'",
+        "detail": "common.apps",
+        "documentation": {}
+    },
+    {
+        "label": "DashboardConfig",
+        "kind": 6,
+        "importPath": "dashboard.apps",
+        "description": "dashboard.apps",
+        "peekOfCode": "class DashboardConfig(AppConfig):\n    name = 'dashboard'",
+        "detail": "dashboard.apps",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "election_app.asgi",
+        "description": "election_app.asgi",
+        "peekOfCode": "application = get_asgi_application()",
+        "detail": "election_app.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-yx0q(9yvg(h4x-9k1(-wgk6!s=%$rko$*6yh0_9m818g_*(njd'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-yx0q(9yvg(h4x-9k1(-wgk6!s=%$rko$*6yh0_9m818g_*(njd'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    # Third party",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INSTALLED_APPS",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    # Third party\n    'cloudinary',\n    'cloudinary_storage',",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'election_app.urls'",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_URLCONF",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "ROOT_URLCONF = 'election_app.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',\n                'django.contrib.messages.context_processors.messages',",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "WSGI_APPLICATION",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "WSGI_APPLICATION = 'election_app.wsgi.application'\nDEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'\n# Database\n# https://docs.djangoproject.com/en/6.0/ref/settings/#databases\nAUTH_USER_MODEL = 'accounts.User'\n# PostgreSQL\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': 'postgres',  # ou le nom affiché sur Supabase",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_FILE_STORAGE",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'\n# Database\n# https://docs.djangoproject.com/en/6.0/ref/settings/#databases\nAUTH_USER_MODEL = 'accounts.User'\n# PostgreSQL\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': 'postgres',  # ou le nom affiché sur Supabase\n        'USER': 'postgres',",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_USER_MODEL",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "AUTH_USER_MODEL = 'accounts.User'\n# PostgreSQL\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': 'postgres',  # ou le nom affiché sur Supabase\n        'USER': 'postgres',\n        'PASSWORD': 'Supabase@election_PV#2025%',\n        'HOST': 'db.hgouhzyzdmqwhpalvwtp.supabase.co',\n        'PORT': '5432',",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASES",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': 'postgres',  # ou le nom affiché sur Supabase\n        'USER': 'postgres',\n        'PASSWORD': 'Supabase@election_PV#2025%',\n        'HOST': 'db.hgouhzyzdmqwhpalvwtp.supabase.co',\n        'PORT': '5432',\n        'OPTIONS': {\n            'sslmode': 'require',",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CLOUDINARY_STORAGE",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "CLOUDINARY_STORAGE = {\n    'CLOUD_NAME': 'dozqhnige',\n    'API_KEY': '785463917335123',\n    'API_SECRET': 'BgtTNpzsf2ZKLgldmcjMsZ7mUXI',\n}\ncloudinary.config(\n  cloud_name = \"dozqhnige\",\n  api_key = \"785463917335123\",\n  api_secret = \"BgtTNpzsf2ZKLgldmcjMsZ7mUXI\"\n)",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_FILE_STORAGE",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'\n# Supabase (pour Realtime notifications)\nSUPABASE_URL = 'https://hgouhzyzdmqwhpalvwtp.supabase.co'\nSUPABASE_KEY = 'sb_publishable_rkgqqAMV3_r__CO1rMSXbw_TyTuZX6l'\n# Password validation\n# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SUPABASE_URL",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "SUPABASE_URL = 'https://hgouhzyzdmqwhpalvwtp.supabase.co'\nSUPABASE_KEY = 'sb_publishable_rkgqqAMV3_r__CO1rMSXbw_TyTuZX6l'\n# Password validation\n# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SUPABASE_KEY",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "SUPABASE_KEY = 'sb_publishable_rkgqqAMV3_r__CO1rMSXbw_TyTuZX6l'\n# Password validation\n# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_PASSWORD_VALIDATORS",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGE_CODE",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ZONE",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_I18N",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_TZ",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "STATIC_URL = 'static/'",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "election_app.urls",
+        "description": "election_app.urls",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n]",
+        "detail": "election_app.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "election_app.wsgi",
+        "description": "election_app.wsgi",
+        "peekOfCode": "application = get_wsgi_application()",
+        "detail": "election_app.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "RegionAdmin",
+        "kind": 6,
+        "importPath": "geography.admin",
+        "description": "geography.admin",
+        "peekOfCode": "class RegionAdmin(admin.ModelAdmin):\n    list_display = ['code_region', 'nom_region', 'nb_departements', 'nb_bureaux', 'population']\n    search_fields = ['code_region', 'nom_region']\n    list_filter = ['created_at']\n    ordering = ['nom_region']\n    def nb_departements(self, obj):\n        return obj.departements.count()\n    nb_departements.short_description = 'Départements'\n    def nb_bureaux(self, obj):\n        return obj.stats_bureaux['total']",
+        "detail": "geography.admin",
+        "documentation": {}
+    },
+    {
+        "label": "DepartementAdmin",
+        "kind": 6,
+        "importPath": "geography.admin",
+        "description": "geography.admin",
+        "peekOfCode": "class DepartementAdmin(admin.ModelAdmin):\n    list_display = ['code_departement', 'nom_departement', 'region', 'chef_lieu', 'nb_communes']\n    search_fields = ['code_departement', 'nom_departement', 'chef_lieu']\n    list_filter = ['region']\n    ordering = ['nom_departement']\n    def nb_communes(self, obj):\n        return obj.communes.count()\n    nb_communes.short_description = 'Communes'\n@admin.register(Commune)\nclass CommuneAdmin(admin.ModelAdmin):",
+        "detail": "geography.admin",
+        "documentation": {}
+    },
+    {
+        "label": "CommuneAdmin",
+        "kind": 6,
+        "importPath": "geography.admin",
+        "description": "geography.admin",
+        "peekOfCode": "class CommuneAdmin(admin.ModelAdmin):\n    list_display = ['code_commune', 'nom_commune', 'departement', 'type_commune', 'population']\n    search_fields = ['code_commune', 'nom_commune']\n    list_filter = ['departement', 'type_commune']\n    ordering = ['nom_commune']\n@admin.register(SousPrefecture)\nclass SousPrefectureAdmin(admin.ModelAdmin):\n    list_display = ['code_sous_prefecture', 'nom_sous_prefecture', 'commune', 'population']\n    search_fields = ['code_sous_prefecture', 'nom_sous_prefecture']\n    list_filter = ['commune']",
+        "detail": "geography.admin",
+        "documentation": {}
+    },
+    {
+        "label": "SousPrefectureAdmin",
+        "kind": 6,
+        "importPath": "geography.admin",
+        "description": "geography.admin",
+        "peekOfCode": "class SousPrefectureAdmin(admin.ModelAdmin):\n    list_display = ['code_sous_prefecture', 'nom_sous_prefecture', 'commune', 'population']\n    search_fields = ['code_sous_prefecture', 'nom_sous_prefecture']\n    list_filter = ['commune']\n    ordering = ['nom_sous_prefecture']\n@admin.register(LieuVote)\nclass LieuVoteAdmin(admin.ModelAdmin):\n    list_display = ['code_lv', 'nom_lv', 'sous_prefecture', 'type_lieu', 'nb_bureaux', 'est_accessible_pmr']\n    search_fields = ['code_lv', 'nom_lv']\n    list_filter = ['sous_prefecture', 'type_lieu', 'est_accessible_pmr']",
+        "detail": "geography.admin",
+        "documentation": {}
+    },
+    {
+        "label": "LieuVoteAdmin",
+        "kind": 6,
+        "importPath": "geography.admin",
+        "description": "geography.admin",
+        "peekOfCode": "class LieuVoteAdmin(admin.ModelAdmin):\n    list_display = ['code_lv', 'nom_lv', 'sous_prefecture', 'type_lieu', 'nb_bureaux', 'est_accessible_pmr']\n    search_fields = ['code_lv', 'nom_lv']\n    list_filter = ['sous_prefecture', 'type_lieu', 'est_accessible_pmr']\n    ordering = ['code_lv']\n    fieldsets = (\n        ('Informations de base', {\n            'fields': ('code_lv', 'nom_lv', 'sous_prefecture', 'type_lieu')\n        }),\n        ('Localisation', {",
+        "detail": "geography.admin",
+        "documentation": {}
+    },
+    {
+        "label": "BureauVoteAdmin",
+        "kind": 6,
+        "importPath": "geography.admin",
+        "description": "geography.admin",
+        "peekOfCode": "class BureauVoteAdmin(admin.ModelAdmin):\n    list_display = ['code_bv', 'nom_bv', 'lieu_vote', 'nombre_inscrits', 'numero_ordre', 'est_actif', 'statut_pv']\n    search_fields = ['code_bv', 'nom_bv']\n    list_filter = ['lieu_vote__sous_prefecture', 'est_actif']\n    ordering = ['code_bv']\n    fieldsets = (\n        ('Informations de base', {\n            'fields': ('code_bv', 'nom_bv', 'lieu_vote')\n        }),\n        ('Organisation', {",
+        "detail": "geography.admin",
+        "documentation": {}
+    },
+    {
+        "label": "GeographyConfig",
+        "kind": 6,
+        "importPath": "geography.apps",
+        "description": "geography.apps",
+        "peekOfCode": "class GeographyConfig(AppConfig):\n    name = 'geography'",
+        "detail": "geography.apps",
+        "documentation": {}
+    },
+    {
+        "label": "BaseGeoModel",
+        "kind": 6,
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "peekOfCode": "class BaseGeoModel(models.Model):\n    \"\"\"Modèle abstrait de base pour les entités géographiques\"\"\"\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    class Meta:\n        abstract = True\nclass Region(BaseGeoModel):\n    \"\"\"Région administrative - Niveau 1\"\"\"\n    code_region = models.CharField(\n        max_length=10, ",
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "Region",
+        "kind": 6,
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "peekOfCode": "class Region(BaseGeoModel):\n    \"\"\"Région administrative - Niveau 1\"\"\"\n    code_region = models.CharField(\n        max_length=10, \n        unique=True,\n        validators=[RegexValidator(r'^[A-Z0-9_-]+$', 'Code invalide')]\n    )\n    nom_region = models.CharField(max_length=200)\n    # Métadonnées\n    population = models.IntegerField(default=0, help_text=\"Population totale de la région\")",
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "Departement",
+        "kind": 6,
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "peekOfCode": "class Departement(BaseGeoModel):\n    \"\"\"Département - Niveau 2\"\"\"\n    region = models.ForeignKey(\n        Region, \n        on_delete=models.CASCADE, \n        related_name='departements'\n    )\n    code_departement = models.CharField(\n        max_length=10, \n        unique=True,",
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "Commune",
+        "kind": 6,
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "peekOfCode": "class Commune(BaseGeoModel):\n    \"\"\"Commune - Niveau 3\"\"\"\n    departement = models.ForeignKey(\n        Departement, \n        on_delete=models.CASCADE, \n        related_name='communes'\n    )\n    code_commune = models.CharField(\n        max_length=10, \n        unique=True,",
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "SousPrefecture",
+        "kind": 6,
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "peekOfCode": "class SousPrefecture(BaseGeoModel):\n    \"\"\"Sous-préfecture - Niveau 4\"\"\"\n    commune = models.ForeignKey(\n        Commune, \n        on_delete=models.CASCADE, \n        related_name='sous_prefectures'\n    )\n    code_sous_prefecture = models.CharField(\n        max_length=10, \n        unique=True,",
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "LieuVote",
+        "kind": 6,
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "peekOfCode": "class LieuVote(BaseGeoModel):\n    \"\"\"Lieu de vote - Niveau 5\"\"\"\n    sous_prefecture = models.ForeignKey(\n        SousPrefecture, \n        on_delete=models.CASCADE, \n        related_name='lieux_vote'\n    )\n    code_lv = models.CharField(\n        max_length=20, \n        unique=True,",
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "BureauVote",
+        "kind": 6,
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "peekOfCode": "class BureauVote(BaseGeoModel):\n    \"\"\"Bureau de vote - Niveau 6 (Final)\"\"\"\n    lieu_vote = models.ForeignKey(\n        LieuVote, \n        on_delete=models.CASCADE, \n        related_name='bureaux_vote'\n    )\n    code_bv = models.CharField(\n        max_length=30, \n        unique=True,",
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "incidentsMessageInline",
+        "kind": 6,
+        "importPath": "incidents.admin",
+        "description": "incidents.admin",
+        "peekOfCode": "class incidentsMessageInline(admin.TabularInline):\n    model = incidentsMessage\n    extra = 0\n    fields = ['auteur', 'type_message', 'message', 'est_interne', 'created_at']\n    readonly_fields = ['created_at']\nclass incidentsPhotoInline(admin.TabularInline):\n    model = incidentsPhoto\n    extra = 0\n    fields = ['photo', 'type_photo', 'legende', 'ordre']\n@admin.register(incidents)",
+        "detail": "incidents.admin",
+        "documentation": {}
+    },
+    {
+        "label": "incidentsPhotoInline",
+        "kind": 6,
+        "importPath": "incidents.admin",
+        "description": "incidents.admin",
+        "peekOfCode": "class incidentsPhotoInline(admin.TabularInline):\n    model = incidentsPhoto\n    extra = 0\n    fields = ['photo', 'type_photo', 'legende', 'ordre']\n@admin.register(incidents)\nclass incidentsAdmin(admin.ModelAdmin):\n    list_display = [\n        'numero_ticket', 'bureau_vote', 'categorie', 'statut_badge', \n        'priorite_badge', 'superviseur', 'admin_responsable', 'created_at', 'est_en_retard'\n    ]",
+        "detail": "incidents.admin",
+        "documentation": {}
+    },
+    {
+        "label": "incidentsAdmin",
+        "kind": 6,
+        "importPath": "incidents.admin",
+        "description": "incidents.admin",
+        "peekOfCode": "class incidentsAdmin(admin.ModelAdmin):\n    list_display = [\n        'numero_ticket', 'bureau_vote', 'categorie', 'statut_badge', \n        'priorite_badge', 'superviseur', 'admin_responsable', 'created_at', 'est_en_retard'\n    ]\n    list_filter = ['statut', 'priorite', 'categorie', 'est_escalade', 'created_at']\n    search_fields = ['numero_ticket', 'titre', 'description', 'bureau_vote__code_bv']\n    ordering = ['-created_at']\n    readonly_fields = [\n        'numero_ticket', 'created_at', 'updated_at', ",
+        "detail": "incidents.admin",
+        "documentation": {}
+    },
+    {
+        "label": "incidentsMessageAdmin",
+        "kind": 6,
+        "importPath": "incidents.admin",
+        "description": "incidents.admin",
+        "peekOfCode": "class incidentsMessageAdmin(admin.ModelAdmin):\n    list_display = ['incidents', 'auteur', 'type_message', 'message_court', 'est_interne', 'est_lu', 'created_at']\n    list_filter = ['type_message', 'est_interne', 'est_lu', 'created_at']\n    search_fields = ['incidents__numero_ticket', 'auteur__email', 'message']\n    ordering = ['-created_at']\n    def message_court(self, obj):\n        return obj.message[:50] + '...' if len(obj.message) > 50 else obj.message\n    message_court.short_description = 'Message'\n@admin.register(incidentsPhoto)\nclass incidentsPhotoAdmin(admin.ModelAdmin):",
+        "detail": "incidents.admin",
+        "documentation": {}
+    },
+    {
+        "label": "incidentsPhotoAdmin",
+        "kind": 6,
+        "importPath": "incidents.admin",
+        "description": "incidents.admin",
+        "peekOfCode": "class incidentsPhotoAdmin(admin.ModelAdmin):\n    list_display = ['incidents', 'type_photo', 'legende', 'ordre', 'prise_par', 'date_prise']\n    list_filter = ['type_photo', 'date_prise']\n    search_fields = ['incidents__numero_ticket', 'legende']\n    ordering = ['incidents', 'ordre']\n@admin.register(incidentsHistorique)\nclass incidentsHistoriqueAdmin(admin.ModelAdmin):\n    list_display = ['incidents', 'utilisateur', 'action', 'date_action']\n    list_filter = ['action', 'date_action']\n    search_fields = ['incidents__numero_ticket', 'utilisateur__email']",
+        "detail": "incidents.admin",
+        "documentation": {}
+    },
+    {
+        "label": "incidentsHistoriqueAdmin",
+        "kind": 6,
+        "importPath": "incidents.admin",
+        "description": "incidents.admin",
+        "peekOfCode": "class incidentsHistoriqueAdmin(admin.ModelAdmin):\n    list_display = ['incidents', 'utilisateur', 'action', 'date_action']\n    list_filter = ['action', 'date_action']\n    search_fields = ['incidents__numero_ticket', 'utilisateur__email']\n    ordering = ['-date_action']\n    readonly_fields = ['date_action']\n@admin.register(Modeleincidents)\nclass ModeleincidentsAdmin(admin.ModelAdmin):\n    list_display = ['nom', 'categorie', 'priorite_defaut', 'impact_defaut', 'est_actif', 'nombre_utilisations']\n    list_filter = ['categorie', 'priorite_defaut', 'est_actif']",
+        "detail": "incidents.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ModeleincidentsAdmin",
+        "kind": 6,
+        "importPath": "incidents.admin",
+        "description": "incidents.admin",
+        "peekOfCode": "class ModeleincidentsAdmin(admin.ModelAdmin):\n    list_display = ['nom', 'categorie', 'priorite_defaut', 'impact_defaut', 'est_actif', 'nombre_utilisations']\n    list_filter = ['categorie', 'priorite_defaut', 'est_actif']\n    search_fields = ['nom', 'titre_template']\n    ordering = ['nom']",
+        "detail": "incidents.admin",
+        "documentation": {}
+    },
+    {
+        "label": "IncidentsConfig",
+        "kind": 6,
+        "importPath": "incidents.apps",
+        "description": "incidents.apps",
+        "peekOfCode": "class IncidentsConfig(AppConfig):\n    name = 'incidents'",
+        "detail": "incidents.apps",
+        "documentation": {}
+    },
+    {
+        "label": "CandidatAdmin",
+        "kind": 6,
+        "importPath": "pv.admin",
+        "description": "pv.admin",
+        "peekOfCode": "class CandidatAdmin(admin.ModelAdmin):\n    list_display = ['numero_ordre', 'nom_complet', 'parti_politique', 'is_active', 'est_independant', 'total_voix']\n    list_filter = ['is_active', 'est_independant', 'parti_politique']\n    search_fields = ['nom_complet', 'parti_politique']\n    ordering = ['numero_ordre']\n    filter_horizontal = ['regions']\n    fieldsets = (\n        ('Informations de base', {\n            'fields': ('numero_ordre', 'nom_complet', 'prenom', 'nom')\n        }),",
+        "detail": "pv.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ResultatCandidatInline",
+        "kind": 6,
+        "importPath": "pv.admin",
+        "description": "pv.admin",
+        "peekOfCode": "class ResultatCandidatInline(admin.TabularInline):\n    model = ResultatCandidat\n    extra = 0\n    fields = ['candidat', 'nombre_voix', 'pourcentage_bureau']\n    readonly_fields = ['pourcentage_bureau']\n@admin.register(ProcesVerbal)\nclass ProcesVerbalAdmin(admin.ModelAdmin):\n    list_display = [\n        'numero_reference', 'bureau_vote', 'superviseur', 'statut_badge', \n        'date_soumission', 'nombre_votants', 'taux_participation', 'has_incoherence'",
+        "detail": "pv.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ProcesVerbalAdmin",
+        "kind": 6,
+        "importPath": "pv.admin",
+        "description": "pv.admin",
+        "peekOfCode": "class ProcesVerbalAdmin(admin.ModelAdmin):\n    list_display = [\n        'numero_reference', 'bureau_vote', 'superviseur', 'statut_badge', \n        'date_soumission', 'nombre_votants', 'taux_participation', 'has_incoherence'\n    ]\n    list_filter = ['statut', 'has_incoherence', 'date_soumission', 'bureau_vote__lieu_vote__sous_prefecture']\n    search_fields = ['numero_reference', 'bureau_vote__code_bv', 'superviseur__email']\n    ordering = ['-date_soumission']\n    readonly_fields = [\n        'numero_reference', 'date_soumission', 'taux_participation', ",
+        "detail": "pv.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ResultatCandidatAdmin",
+        "kind": 6,
+        "importPath": "pv.admin",
+        "description": "pv.admin",
+        "peekOfCode": "class ResultatCandidatAdmin(admin.ModelAdmin):\n    list_display = ['candidat', 'proces_verbal', 'nombre_voix', 'pourcentage_bureau', 'position_bureau']\n    list_filter = ['candidat', 'proces_verbal__statut']\n    search_fields = ['candidat__nom_complet', 'proces_verbal__numero_reference']\n    ordering = ['-nombre_voix']\n@admin.register(ValidationHistory)\nclass ValidationHistoryAdmin(admin.ModelAdmin):\n    list_display = ['proces_verbal', 'validateur', 'action', 'date_action']\n    list_filter = ['action', 'date_action']\n    search_fields = ['proces_verbal__numero_reference', 'validateur__email']",
+        "detail": "pv.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ValidationHistoryAdmin",
+        "kind": 6,
+        "importPath": "pv.admin",
+        "description": "pv.admin",
+        "peekOfCode": "class ValidationHistoryAdmin(admin.ModelAdmin):\n    list_display = ['proces_verbal', 'validateur', 'action', 'date_action']\n    list_filter = ['action', 'date_action']\n    search_fields = ['proces_verbal__numero_reference', 'validateur__email']\n    ordering = ['-date_action']\n    readonly_fields = ['date_action']",
+        "detail": "pv.admin",
+        "documentation": {}
+    },
+    {
+        "label": "PvConfig",
+        "kind": 6,
+        "importPath": "pv.apps",
+        "description": "pv.apps",
+        "peekOfCode": "class PvConfig(AppConfig):\n    name = 'pv'",
+        "detail": "pv.apps",
+        "documentation": {}
+    },
+    {
+        "label": "Candidat",
+        "kind": 6,
+        "importPath": "pv.models",
+        "description": "pv.models",
+        "peekOfCode": "class Candidat(models.Model):\n    \"\"\"Candidat à l'élection\"\"\"\n    nom_complet = models.CharField(max_length=200)\n    parti_politique = models.CharField(max_length=200)\n    numero_ordre = models.IntegerField()\n    photo = cloudinary.models.CloudinaryField('candidat_photo', blank=True, null=True)\n    # Peut être limité à certaines circonscriptions\n    regions = models.ManyToManyField('geography.Region', blank=True, related_name='candidats')\n    is_active = models.BooleanField(default=True)\n    created_at = models.DateTimeField(auto_now_add=True)",
+        "detail": "pv.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProcesVerbal",
+        "kind": 6,
+        "importPath": "pv.models",
+        "description": "pv.models",
+        "peekOfCode": "class ProcesVerbal(models.Model):\n    \"\"\"Procès-verbal d'un bureau de vote\"\"\"\n    STATUT_CHOICES = [\n        ('EN_ATTENTE', 'En attente de validation'),\n        ('VALIDE', 'Validé'),\n        ('REJETE', 'Rejeté'),\n        ('CORRECTION', 'En correction'),\n    ]\n    # Identification\n    numero_reference = models.CharField(max_length=50, unique=True, editable=False)",
+        "detail": "pv.models",
+        "documentation": {}
+    },
+    {
+        "label": "ResultatCandidat",
+        "kind": 6,
+        "importPath": "pv.models",
+        "description": "pv.models",
+        "peekOfCode": "class ResultatCandidat(models.Model):\n    \"\"\"Résultat d'un candidat pour un PV donné\"\"\"\n    proces_verbal = models.ForeignKey(ProcesVerbal, on_delete=models.CASCADE, related_name='resultats')\n    candidat = models.ForeignKey(Candidat, on_delete=models.PROTECT)\n    nombre_voix = models.IntegerField(validators=[MinValueValidator(0)])\n    created_at = models.DateTimeField(auto_now_add=True)\n    class Meta:\n        db_table = 'resultats_candidats'\n        unique_together = ['proces_verbal', 'candidat']\n        verbose_name = 'Résultat candidat'",
+        "detail": "pv.models",
+        "documentation": {}
+    },
+    {
+        "label": "ValidationHistory",
+        "kind": 6,
+        "importPath": "pv.models",
+        "description": "pv.models",
+        "peekOfCode": "class ValidationHistory(models.Model):\n    \"\"\"Historique des validations d'un PV\"\"\"\n    proces_verbal = models.ForeignKey(ProcesVerbal, on_delete=models.CASCADE, related_name='historique_validations')\n    validateur = models.ForeignKey(User, on_delete=models.PROTECT)\n    action = models.CharField(max_length=20)  # VALIDE, REJETE, CORRECTION\n    commentaire = models.TextField(blank=True, null=True)\n    date_action = models.DateTimeField(auto_now_add=True)\n    class Meta:\n        db_table = 'validation_history'\n        ordering = ['-date_action']",
+        "detail": "pv.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatisticConfig",
+        "kind": 6,
+        "importPath": "statistic.apps",
+        "description": "statistic.apps",
+        "peekOfCode": "class StatisticConfig(AppConfig):\n    name = 'statistic'",
+        "detail": "statistic.apps",
+        "documentation": {}
+    },
+    {
+        "label": "CacheStatistiqueFilter",
+        "kind": 6,
+        "importPath": "statistic.filters",
+        "description": "statistic.filters",
+        "peekOfCode": "class CacheStatistiqueFilter(filters.FilterSet):\n    \"\"\"Filtres pour CacheStatistique\"\"\"\n    type_entite = filters.ChoiceFilter(choices=CacheStatistique.TYPE_ENTITE_CHOICES)\n    type_statistique = filters.ChoiceFilter(choices=CacheStatistique.TYPE_STATISTIQUE_CHOICES)\n    is_valid = filters.BooleanFilter()\n    date_calcul_after = filters.DateTimeFilter(field_name='date_calcul', lookup_expr='gte')\n    date_calcul_before = filters.DateTimeFilter(field_name='date_calcul', lookup_expr='lte')\n    class Meta:\n        model = CacheStatistique\n        fields = ['type_entite', 'type_statistique', 'is_valid']",
+        "detail": "statistic.filters",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueTimelineFilter",
+        "kind": 6,
+        "importPath": "statistic.filters",
+        "description": "statistic.filters",
+        "peekOfCode": "class StatistiqueTimelineFilter(filters.FilterSet):\n    \"\"\"Filtres pour StatistiqueTimeline\"\"\"\n    type_timeline = filters.ChoiceFilter(choices=StatistiqueTimeline.TYPE_CHOICES)\n    granularite = filters.ChoiceFilter(choices=StatistiqueTimeline.GRANULARITE_CHOICES)\n    date_debut_after = filters.DateTimeFilter(field_name='date_debut', lookup_expr='gte')\n    date_fin_before = filters.DateTimeFilter(field_name='date_fin', lookup_expr='lte')\n    class Meta:\n        model = StatistiqueTimeline\n        fields = ['type_timeline', 'granularite', 'region']\nclass SnapshotQuotidienFilter(filters.FilterSet):",
+        "detail": "statistic.filters",
+        "documentation": {}
+    },
+    {
+        "label": "SnapshotQuotidienFilter",
+        "kind": 6,
+        "importPath": "statistic.filters",
+        "description": "statistic.filters",
+        "peekOfCode": "class SnapshotQuotidienFilter(filters.FilterSet):\n    \"\"\"Filtres pour SnapshotQuotidien\"\"\"\n    date_after = filters.DateFilter(field_name='date', lookup_expr='gte')\n    date_before = filters.DateFilter(field_name='date', lookup_expr='lte')\n    class Meta:\n        model = SnapshotQuotidien\n        fields = ['date']",
+        "detail": "statistic.filters",
+        "documentation": {}
+    },
+    {
+        "label": "CacheStatistiqueManager",
+        "kind": 6,
+        "importPath": "statistic.managers",
+        "description": "statistic.managers",
+        "peekOfCode": "class CacheStatistiqueManager(models.Manager):\n    \"\"\"Manager pour CacheStatistique\"\"\"\n    def valides(self):\n        \"\"\"Retourne les caches valides\"\"\"\n        return self.filter(\n            is_valid=True,\n            date_expiration__gt=timezone.now(),\n            force_refresh=False\n        )\n    def expires(self):",
+        "detail": "statistic.managers",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueTimelineManager",
+        "kind": 6,
+        "importPath": "statistic.managers",
+        "description": "statistic.managers",
+        "peekOfCode": "class StatistiqueTimelineManager(models.Manager):\n    \"\"\"Manager pour StatistiqueTimeline\"\"\"\n    def pour_periode(self, date_debut, date_fin):\n        \"\"\"Timeline pour une période donnée\"\"\"\n        return self.filter(\n            date_debut__gte=date_debut,\n            date_fin__lte=date_fin\n        )\n    def par_region(self, region):\n        \"\"\"Timeline pour une région\"\"\"",
+        "detail": "statistic.managers",
+        "documentation": {}
+    },
+    {
+        "label": "CacheStatistique",
+        "kind": 6,
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "peekOfCode": "class CacheStatistique(models.Model):\n    \"\"\"\n    Modèle principal de cache pour toutes les statistiques\n    Système générique avec TTL et invalidation intelligente\n    \"\"\"\n    TYPE_ENTITE_CHOICES = [\n        ('NATIONAL', 'National'),\n        ('REGION', 'Région'),\n        ('DEPARTEMENT', 'Département'),\n        ('COMMUNE', 'Commune'),",
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueRegion",
+        "kind": 6,
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "peekOfCode": "class StatistiqueRegion(models.Model):\n    \"\"\"\n    Cache optimisé pour les statistiques régionales\n    Pré-calculées et dénormalisées pour performance maximale\n    \"\"\"\n    region = models.OneToOneField(\n        'geography.Region',\n        on_delete=models.CASCADE,\n        related_name='statistiques'\n    )",
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueBureau",
+        "kind": 6,
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "peekOfCode": "class StatistiqueBureau(models.Model):\n    \"\"\"\n    Cache pour les statistiques d'un bureau de vote\n    \"\"\"\n    bureau = models.OneToOneField(\n        'geography.BureauVote',\n        on_delete=models.CASCADE,\n        related_name='statistiques'\n    )\n    # PV",
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueCandidat",
+        "kind": 6,
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "peekOfCode": "class StatistiqueCandidat(models.Model):\n    \"\"\"\n    Cache pour les statistiques d'un candidat\n    \"\"\"\n    candidat = models.OneToOneField(\n        'pv.Candidat',\n        on_delete=models.CASCADE,\n        related_name='statistiques'\n    )\n    # Résultats nationaux",
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueTimeline",
+        "kind": 6,
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "peekOfCode": "class StatistiqueTimeline(models.Model):\n    \"\"\"\n    Cache pour les statistiques temporelles (évolution)\n    \"\"\"\n    TYPE_CHOICES = [\n        ('PV_SOUMISSIONS', 'Soumissions de PV'),\n        ('PV_VALIDATIONS', 'Validations de PV'),\n        ('INCIDENTS', 'Incidents'),\n        ('PARTICIPATION', 'Participation'),\n        ('RESULTATS', 'Résultats'),",
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiquePerformance",
+        "kind": 6,
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "peekOfCode": "class StatistiquePerformance(models.Model):\n    \"\"\"\n    Cache pour les statistiques de performance des utilisateurs\n    \"\"\"\n    user = models.OneToOneField(\n        'accounts.User',\n        on_delete=models.CASCADE,\n        related_name='statistiques_performance'\n    )\n    # Pour les superviseurs",
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "LogRefreshStatistique",
+        "kind": 6,
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "peekOfCode": "class LogRefreshStatistique(models.Model):\n    \"\"\"\n    Historique des rafraîchissements de cache\n    Permet de tracer les performances et détecter les problèmes\n    \"\"\"\n    STATUT_CHOICES = [\n        ('SUCCESS', 'Succès'),\n        ('ERROR', 'Erreur'),\n        ('TIMEOUT', 'Timeout'),\n    ]",
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "SnapshotQuotidien",
+        "kind": 6,
+        "importPath": "statistic.models",
+        "description": "statistic.models",
+        "peekOfCode": "class SnapshotQuotidien(models.Model):\n    \"\"\"\n    Snapshot des statistiques principales chaque jour\n    Permet d'analyser les tendances historiques\n    \"\"\"\n    date = models.DateField(unique=True, db_index=True)\n    # Statistiques globales\n    total_bureaux = models.IntegerField(default=0)\n    total_inscrits = models.IntegerField(default=0)\n    # PV",
+        "detail": "statistic.models",
+        "documentation": {}
+    },
+    {
+        "label": "CanViewStatistics",
+        "kind": 6,
+        "importPath": "statistic.permissions",
+        "description": "statistic.permissions",
+        "peekOfCode": "class CanViewStatistics(permissions.BasePermission):\n    \"\"\"\n    Permission pour voir les statistiques\n    Tous les utilisateurs authentifiés peuvent voir les stats de leur périmètre\n    \"\"\"\n    def has_permission(self, request, view):\n        return request.user and request.user.is_authenticated\nclass CanViewNationalStatistics(permissions.BasePermission):\n    \"\"\"\n    Permission pour voir les statistiques nationales",
+        "detail": "statistic.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "CanViewNationalStatistics",
+        "kind": 6,
+        "importPath": "statistic.permissions",
+        "description": "statistic.permissions",
+        "peekOfCode": "class CanViewNationalStatistics(permissions.BasePermission):\n    \"\"\"\n    Permission pour voir les statistiques nationales\n    Réservé aux Super Admins\n    \"\"\"\n    def has_permission(self, request, view):\n        return (\n            request.user and\n            request.user.is_authenticated and\n            request.user.role == 'SUPER_ADMIN'",
+        "detail": "statistic.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "CanRefreshCache",
+        "kind": 6,
+        "importPath": "statistic.permissions",
+        "description": "statistic.permissions",
+        "peekOfCode": "class CanRefreshCache(permissions.BasePermission):\n    \"\"\"\n    Permission pour rafraîchir le cache\n    Réservé aux Admins et Super Admins\n    \"\"\"\n    def has_permission(self, request, view):\n        return (\n            request.user and\n            request.user.is_authenticated and\n            request.user.role in ['ADMIN', 'SUPER_ADMIN']",
+        "detail": "statistic.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "CanManageCache",
+        "kind": 6,
+        "importPath": "statistic.permissions",
+        "description": "statistic.permissions",
+        "peekOfCode": "class CanManageCache(permissions.BasePermission):\n    \"\"\"\n    Permission pour gérer le cache (invalidation, suppression)\n    Réservé aux Super Admins\n    \"\"\"\n    def has_permission(self, request, view):\n        return (\n            request.user and\n            request.user.is_authenticated and\n            (request.user.role == 'SUPER_ADMIN' or request.user.is_superuser)",
+        "detail": "statistic.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "HasScopeAccess",
+        "kind": 6,
+        "importPath": "statistic.permissions",
+        "description": "statistic.permissions",
+        "peekOfCode": "class HasScopeAccess(permissions.BasePermission):\n    \"\"\"\n    Vérifie que l'utilisateur a accès au périmètre demandé\n    \"\"\"\n    def has_permission(self, request, view):\n        if not request.user or not request.user.is_authenticated:\n            return False\n        # Super Admin a accès à tout\n        if request.user.role == 'SUPER_ADMIN':\n            return True",
+        "detail": "statistic.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "RegionSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class RegionSerializer(serializers.ModelSerializer):\n    \"\"\"Serializer pour Region\"\"\"\n    class Meta:\n        model = Region\n        fields = ['id', 'code_region', 'nom_region', 'population', 'superficie']\nclass BureauVoteSerializer(serializers.ModelSerializer):\n    \"\"\"Serializer pour BureauVote\"\"\"\n    lieu_vote_nom = serializers.CharField(source='lieu_vote.nom_lv', read_only=True)\n    commune = serializers.CharField(\n        source='lieu_vote.sous_prefecture.commune.nom_commune',",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "BureauVoteSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class BureauVoteSerializer(serializers.ModelSerializer):\n    \"\"\"Serializer pour BureauVote\"\"\"\n    lieu_vote_nom = serializers.CharField(source='lieu_vote.nom_lv', read_only=True)\n    commune = serializers.CharField(\n        source='lieu_vote.sous_prefecture.commune.nom_commune',\n        read_only=True\n    )\n    class Meta:\n        model = BureauVote\n        fields = [",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "CacheStatistiqueSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class CacheStatistiqueSerializer(serializers.ModelSerializer):\n    \"\"\"Serializer pour CacheStatistique\"\"\"\n    est_valide = serializers.BooleanField(read_only=True)\n    est_expire = serializers.BooleanField(read_only=True)\n    class Meta:\n        model = CacheStatistique\n        fields = [\n            'id', 'type_entite', 'entite_id', 'type_statistique',\n            'cache_key', 'data', 'date_calcul', 'duree_calcul_ms',\n            'ttl_minutes', 'date_expiration', 'est_valide', 'est_expire',",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueRegionSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class StatistiqueRegionSerializer(serializers.ModelSerializer):\n    \"\"\"Serializer pour StatistiqueRegion\"\"\"\n    region = RegionSerializer(read_only=True)\n    region_id = serializers.UUIDField(write_only=True, required=False)\n    class Meta:\n        model = StatistiqueRegion\n        fields = '__all__'\nclass StatistiqueBureauSerializer(serializers.ModelSerializer):\n    \"\"\"Serializer pour StatistiqueBureau\"\"\"\n    bureau = BureauVoteSerializer(read_only=True)",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueBureauSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class StatistiqueBureauSerializer(serializers.ModelSerializer):\n    \"\"\"Serializer pour StatistiqueBureau\"\"\"\n    bureau = BureauVoteSerializer(read_only=True)\n    bureau_id = serializers.UUIDField(write_only=True, required=False)\n    class Meta:\n        model = StatistiqueBureau\n        fields = '__all__'\nclass StatistiqueCandidatSerializer(serializers.ModelSerializer):\n    \"\"\"Serializer pour StatistiqueCandidat\"\"\"\n    candidat_nom = serializers.CharField(source='candidat.nom_complet', read_only=True)",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueCandidatSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class StatistiqueCandidatSerializer(serializers.ModelSerializer):\n    \"\"\"Serializer pour StatistiqueCandidat\"\"\"\n    candidat_nom = serializers.CharField(source='candidat.nom_complet', read_only=True)\n    candidat_parti = serializers.CharField(source='candidat.parti_politique', read_only=True)\n    class Meta:\n        model = StatistiqueCandidat\n        fields = '__all__'\nclass StatistiqueTimelineSerializer(serializers.ModelSerializer):\n    \"\"\"Serializer pour StatistiqueTimeline\"\"\"\n    region_nom = serializers.CharField(source='region.nom_region', read_only=True, allow_null=True)",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueTimelineSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class StatistiqueTimelineSerializer(serializers.ModelSerializer):\n    \"\"\"Serializer pour StatistiqueTimeline\"\"\"\n    region_nom = serializers.CharField(source='region.nom_region', read_only=True, allow_null=True)\n    class Meta:\n        model = StatistiqueTimeline\n        fields = '__all__'\nclass StatistiquePerformanceSerializer(serializers.ModelSerializer):\n    \"\"\"Serializer pour StatistiquePerformance\"\"\"\n    user_nom = serializers.CharField(source='user.nom_complet', read_only=True)\n    user_role = serializers.CharField(source='user.role', read_only=True)",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiquePerformanceSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class StatistiquePerformanceSerializer(serializers.ModelSerializer):\n    \"\"\"Serializer pour StatistiquePerformance\"\"\"\n    user_nom = serializers.CharField(source='user.nom_complet', read_only=True)\n    user_role = serializers.CharField(source='user.role', read_only=True)\n    class Meta:\n        model = StatistiquePerformance\n        fields = '__all__'\nclass SnapshotQuotidienSerializer(serializers.ModelSerializer):\n    \"\"\"Serializer pour SnapshotQuotidien\"\"\"\n    class Meta:",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "SnapshotQuotidienSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class SnapshotQuotidienSerializer(serializers.ModelSerializer):\n    \"\"\"Serializer pour SnapshotQuotidien\"\"\"\n    class Meta:\n        model = SnapshotQuotidien\n        fields = '__all__'\n# ============================================================\n# SERIALIZERS POUR LES VUES PERSONNALISÉES\n# ============================================================\nclass StatsGeneralesSerializer(serializers.Serializer):\n    \"\"\"Serializer pour les statistiques générales\"\"\"",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "StatsGeneralesSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class StatsGeneralesSerializer(serializers.Serializer):\n    \"\"\"Serializer pour les statistiques générales\"\"\"\n    total_bureaux = serializers.IntegerField()\n    total_inscrits = serializers.IntegerField()\n    total_pv_soumis = serializers.IntegerField()\n    total_pv_valides = serializers.IntegerField()\n    taux_soumission = serializers.FloatField()\n    taux_validation = serializers.FloatField()\n    total_votants = serializers.IntegerField()\n    taux_participation = serializers.FloatField()",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "StatsParticipationSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class StatsParticipationSerializer(serializers.Serializer):\n    \"\"\"Serializer pour les statistiques de participation\"\"\"\n    total_inscrits = serializers.IntegerField()\n    total_votants = serializers.IntegerField()\n    total_exprimes = serializers.IntegerField()\n    total_nuls = serializers.IntegerField()\n    total_blancs = serializers.IntegerField()\n    taux_participation = serializers.FloatField()\n    taux_nuls = serializers.FloatField()\n    taux_blancs = serializers.FloatField()",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "StatsIncidentsSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class StatsIncidentsSerializer(serializers.Serializer):\n    \"\"\"Serializer pour les statistiques d'incidents\"\"\"\n    total = serializers.IntegerField()\n    ouverts = serializers.IntegerField()\n    en_cours = serializers.IntegerField()\n    traites = serializers.IntegerField()\n    clos = serializers.IntegerField()\n    urgents = serializers.IntegerField()\n    par_categorie = serializers.DictField()\nclass ResultatCandidatSerializer(serializers.Serializer):",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ResultatCandidatSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class ResultatCandidatSerializer(serializers.Serializer):\n    \"\"\"Serializer pour les résultats d'un candidat\"\"\"\n    candidat = serializers.CharField()\n    parti = serializers.CharField()\n    numero = serializers.IntegerField()\n    voix = serializers.IntegerField()\n    pourcentage = serializers.FloatField()\nclass StatsDashboardSerializer(serializers.Serializer):\n    \"\"\"Serializer pour le dashboard principal\"\"\"\n    stats_generales = StatsGeneralesSerializer()",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "StatsDashboardSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class StatsDashboardSerializer(serializers.Serializer):\n    \"\"\"Serializer pour le dashboard principal\"\"\"\n    stats_generales = StatsGeneralesSerializer()\n    stats_participation = StatsParticipationSerializer()\n    stats_incidents = StatsIncidentsSerializer()\n    top_candidats = ResultatCandidatSerializer(many=True)\n    evolution_soumissions = serializers.ListField()\n    alertes = serializers.ListField()\nclass StatsRegionDetailSerializer(serializers.Serializer):\n    \"\"\"Serializer détaillé pour les stats d'une région\"\"\"",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "StatsRegionDetailSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class StatsRegionDetailSerializer(serializers.Serializer):\n    \"\"\"Serializer détaillé pour les stats d'une région\"\"\"\n    region = RegionSerializer()\n    stats_bureaux = serializers.DictField()\n    stats_pv = serializers.DictField()\n    stats_participation = StatsParticipationSerializer()\n    stats_incidents = StatsIncidentsSerializer()\n    resultats_candidats = ResultatCandidatSerializer(many=True)\n    stats_par_departement = serializers.ListField()\nclass TimelinePointSerializer(serializers.Serializer):",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TimelinePointSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class TimelinePointSerializer(serializers.Serializer):\n    \"\"\"Serializer pour un point de la timeline\"\"\"\n    date = serializers.DateTimeField()\n    valeur = serializers.IntegerField()\nclass TimelineSerializer(serializers.Serializer):\n    \"\"\"Serializer pour une timeline complète\"\"\"\n    type = serializers.CharField()\n    granularite = serializers.CharField()\n    date_debut = serializers.DateTimeField()\n    date_fin = serializers.DateTimeField()",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TimelineSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class TimelineSerializer(serializers.Serializer):\n    \"\"\"Serializer pour une timeline complète\"\"\"\n    type = serializers.CharField()\n    granularite = serializers.CharField()\n    date_debut = serializers.DateTimeField()\n    date_fin = serializers.DateTimeField()\n    data_points = TimelinePointSerializer(many=True)\n    total = serializers.IntegerField()\n    moyenne = serializers.FloatField()\n    minimum = serializers.IntegerField()",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ComparaisonRegionsSerializer",
+        "kind": 6,
+        "importPath": "statistic.serializers",
+        "description": "statistic.serializers",
+        "peekOfCode": "class ComparaisonRegionsSerializer(serializers.Serializer):\n    \"\"\"Serializer pour comparer plusieurs régions\"\"\"\n    region = serializers.CharField()\n    taux_participation = serializers.FloatField()\n    taux_soumission = serializers.FloatField()\n    total_incidents = serializers.IntegerField()\n    candidat_tete = serializers.CharField()",
+        "detail": "statistic.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueService",
+        "kind": 6,
+        "importPath": "statistic.services",
+        "description": "statistic.services",
+        "peekOfCode": "class StatistiqueService:\n    \"\"\"Service central de gestion des statistiques\"\"\"\n    def __init__(self):\n        self.start_time = None\n    def _start_timer(self):\n        \"\"\"Démarre le chronomètre\"\"\"\n        self.start_time = time.time()\n    def _get_duration_ms(self):\n        \"\"\"Retourne la durée en millisecondes\"\"\"\n        if self.start_time:",
+        "detail": "statistic.services",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "statistic.services",
+        "description": "statistic.services",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass StatistiqueService:\n    \"\"\"Service central de gestion des statistiques\"\"\"\n    def __init__(self):\n        self.start_time = None\n    def _start_timer(self):\n        \"\"\"Démarre le chronomètre\"\"\"\n        self.start_time = time.time()\n    def _get_duration_ms(self):\n        \"\"\"Retourne la durée en millisecondes\"\"\"",
+        "detail": "statistic.services",
+        "documentation": {}
+    },
+    {
+        "label": "rafraichir_caches_expires",
+        "kind": 2,
+        "importPath": "statistic.tasks",
+        "description": "statistic.tasks",
+        "peekOfCode": "def rafraichir_caches_expires():\n    \"\"\"\n    Tâche périodique: rafraîchit les caches expirés\n    À exécuter toutes les 15 minutes\n    \"\"\"\n    service = StatistiqueService()\n    resultats = service.rafraichir_tous_les_caches_expires()\n    logger.info(\n        f\"Rafraîchissement caches: {resultats['succes']} succès, \"\n        f\"{resultats['erreurs']} erreurs sur {resultats['total']} total\"",
+        "detail": "statistic.tasks",
+        "documentation": {}
+    },
+    {
+        "label": "nettoyer_caches_expires",
+        "kind": 2,
+        "importPath": "statistic.tasks",
+        "description": "statistic.tasks",
+        "peekOfCode": "def nettoyer_caches_expires():\n    \"\"\"\n    Tâche quotidienne: supprime les caches très anciens\n    À exécuter une fois par jour\n    \"\"\"\n    CacheStatistique.nettoyer_expires()\n    logger.info(\"Nettoyage des caches expirés effectué\")\n@shared_task\ndef creer_snapshot_quotidien():\n    \"\"\"",
+        "detail": "statistic.tasks",
+        "documentation": {}
+    },
+    {
+        "label": "creer_snapshot_quotidien",
+        "kind": 2,
+        "importPath": "statistic.tasks",
+        "description": "statistic.tasks",
+        "peekOfCode": "def creer_snapshot_quotidien():\n    \"\"\"\n    Tâche quotidienne: crée le snapshot du jour\n    À exécuter à minuit\n    \"\"\"\n    snapshot = SnapshotQuotidien.creer_snapshot_aujourdhui()\n    logger.info(f\"Snapshot créé pour {snapshot.date}\")\n    return str(snapshot.date)\n@shared_task\ndef invalider_cache_par_pattern(pattern):",
+        "detail": "statistic.tasks",
+        "documentation": {}
+    },
+    {
+        "label": "invalider_cache_par_pattern",
+        "kind": 2,
+        "importPath": "statistic.tasks",
+        "description": "statistic.tasks",
+        "peekOfCode": "def invalider_cache_par_pattern(pattern):\n    \"\"\"\n    Tâche asynchrone: invalide les caches par pattern\n    \"\"\"\n    CacheStatistique.invalider_par_pattern(pattern)\n    logger.info(f\"Caches invalidés pour le pattern: {pattern}\")",
+        "detail": "statistic.tasks",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "statistic.tasks",
+        "description": "statistic.tasks",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n@shared_task\ndef rafraichir_caches_expires():\n    \"\"\"\n    Tâche périodique: rafraîchit les caches expirés\n    À exécuter toutes les 15 minutes\n    \"\"\"\n    service = StatistiqueService()\n    resultats = service.rafraichir_tous_les_caches_expires()\n    logger.info(",
+        "detail": "statistic.tasks",
+        "documentation": {}
+    },
+    {
+        "label": "app_name",
+        "kind": 5,
+        "importPath": "statistic.urls",
+        "description": "statistic.urls",
+        "peekOfCode": "app_name = 'statistics'\nrouter = DefaultRouter()\nrouter.register(r'cache', CacheStatistiqueViewSet, basename='cache')\nrouter.register(r'stats', StatistiqueViewSet, basename='stats')\nrouter.register(r'regions', StatistiqueRegionViewSet, basename='regions')\nrouter.register(r'bureaux', StatistiqueBureauViewSet, basename='bureaux')\nrouter.register(r'candidats', StatistiqueCandidatViewSet, basename='candidats')\nrouter.register(r'timeline', StatistiqueTimelineViewSet, basename='timeline')\nrouter.register(r'performance', StatistiquePerformanceViewSet, basename='performance')\nrouter.register(r'snapshots', SnapshotQuotidienViewSet, basename='snapshots')",
+        "detail": "statistic.urls",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "statistic.urls",
+        "description": "statistic.urls",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'cache', CacheStatistiqueViewSet, basename='cache')\nrouter.register(r'stats', StatistiqueViewSet, basename='stats')\nrouter.register(r'regions', StatistiqueRegionViewSet, basename='regions')\nrouter.register(r'bureaux', StatistiqueBureauViewSet, basename='bureaux')\nrouter.register(r'candidats', StatistiqueCandidatViewSet, basename='candidats')\nrouter.register(r'timeline', StatistiqueTimelineViewSet, basename='timeline')\nrouter.register(r'performance', StatistiquePerformanceViewSet, basename='performance')\nrouter.register(r'snapshots', SnapshotQuotidienViewSet, basename='snapshots')\nurlpatterns = [",
+        "detail": "statistic.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "statistic.urls",
+        "description": "statistic.urls",
+        "peekOfCode": "urlpatterns = [\n    path('', include(router.urls)),\n]",
+        "detail": "statistic.urls",
+        "documentation": {}
+    },
+    {
+        "label": "CacheStatistiqueViewSet",
+        "kind": 6,
+        "importPath": "statistic.viewsets",
+        "description": "statistic.viewsets",
+        "peekOfCode": "class CacheStatistiqueViewSet(viewsets.ReadOnlyModelViewSet):\n    \"\"\"\n    ViewSet pour gérer le cache des statistiques\n    \"\"\"\n    queryset = CacheStatistique.objects.all()\n    serializer_class = CacheStatistiqueSerializer\n    permission_classes = [IsAuthenticated, CanViewStatistics]\n    filter_backends = [DjangoFilterBackend]\n    filterset_class = CacheStatistiqueFilter\n    def get_queryset(self):",
+        "detail": "statistic.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueViewSet",
+        "kind": 6,
+        "importPath": "statistic.viewsets",
+        "description": "statistic.viewsets",
+        "peekOfCode": "class StatistiqueViewSet(viewsets.ViewSet):\n    \"\"\"\n    ViewSet principal pour accéder aux statistiques\n    Utilise le cache automatiquement\n    \"\"\"\n    permission_classes = [IsAuthenticated, CanViewStatistics]\n    @action(detail=False, methods=['get'])\n    def dashboard(self, request):\n        \"\"\"\n        Endpoint principal du dashboard",
+        "detail": "statistic.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueRegionViewSet",
+        "kind": 6,
+        "importPath": "statistic.viewsets",
+        "description": "statistic.viewsets",
+        "peekOfCode": "class StatistiqueRegionViewSet(viewsets.ReadOnlyModelViewSet):\n    \"\"\"ViewSet pour StatistiqueRegion\"\"\"\n    queryset = StatistiqueRegion.objects.select_related('region')\n    serializer_class = StatistiqueRegionSerializer\n    permission_classes = [IsAuthenticated, CanViewStatistics]\nclass StatistiqueBureauViewSet(viewsets.ReadOnlyModelViewSet):\n    \"\"\"ViewSet pour StatistiqueBureau\"\"\"\n    queryset = StatistiqueBureau.objects.select_related('bureau')\n    serializer_class = StatistiqueBureauSerializer\n    permission_classes = [IsAuthenticated, CanViewStatistics]",
+        "detail": "statistic.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueBureauViewSet",
+        "kind": 6,
+        "importPath": "statistic.viewsets",
+        "description": "statistic.viewsets",
+        "peekOfCode": "class StatistiqueBureauViewSet(viewsets.ReadOnlyModelViewSet):\n    \"\"\"ViewSet pour StatistiqueBureau\"\"\"\n    queryset = StatistiqueBureau.objects.select_related('bureau')\n    serializer_class = StatistiqueBureauSerializer\n    permission_classes = [IsAuthenticated, CanViewStatistics]\nclass StatistiqueCandidatViewSet(viewsets.ReadOnlyModelViewSet):\n    \"\"\"ViewSet pour StatistiqueCandidat\"\"\"\n    queryset = StatistiqueCandidat.objects.select_related('candidat')\n    serializer_class = StatistiqueCandidatSerializer\n    permission_classes = [IsAuthenticated, CanViewStatistics]",
+        "detail": "statistic.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueCandidatViewSet",
+        "kind": 6,
+        "importPath": "statistic.viewsets",
+        "description": "statistic.viewsets",
+        "peekOfCode": "class StatistiqueCandidatViewSet(viewsets.ReadOnlyModelViewSet):\n    \"\"\"ViewSet pour StatistiqueCandidat\"\"\"\n    queryset = StatistiqueCandidat.objects.select_related('candidat')\n    serializer_class = StatistiqueCandidatSerializer\n    permission_classes = [IsAuthenticated, CanViewStatistics]\n    @action(detail=False, methods=['get'])\n    def classement(self, request):\n        \"\"\"\n        Classement national des candidats\n        GET /api/statistics/candidats/classement/",
+        "detail": "statistic.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiqueTimelineViewSet",
+        "kind": 6,
+        "importPath": "statistic.viewsets",
+        "description": "statistic.viewsets",
+        "peekOfCode": "class StatistiqueTimelineViewSet(viewsets.ReadOnlyModelViewSet):\n    \"\"\"ViewSet pour StatistiqueTimeline\"\"\"\n    queryset = StatistiqueTimeline.objects.all()\n    serializer_class = StatistiqueTimelineSerializer\n    permission_classes = [IsAuthenticated, CanViewStatistics]\n    filter_backends = [DjangoFilterBackend]\n    filterset_class = StatistiqueTimelineFilter\nclass StatistiquePerformanceViewSet(viewsets.ReadOnlyModelViewSet):\n    \"\"\"ViewSet pour StatistiquePerformance\"\"\"\n    queryset = StatistiquePerformance.objects.select_related('user')",
+        "detail": "statistic.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "StatistiquePerformanceViewSet",
+        "kind": 6,
+        "importPath": "statistic.viewsets",
+        "description": "statistic.viewsets",
+        "peekOfCode": "class StatistiquePerformanceViewSet(viewsets.ReadOnlyModelViewSet):\n    \"\"\"ViewSet pour StatistiquePerformance\"\"\"\n    queryset = StatistiquePerformance.objects.select_related('user')\n    serializer_class = StatistiquePerformanceSerializer\n    permission_classes = [IsAuthenticated, CanViewStatistics]\n    @action(detail=False, methods=['get'])\n    def leaderboard(self, request):\n        \"\"\"\n        Classement des utilisateurs par performance\n        GET /api/statistics/performance/leaderboard/?role=SUPERVISEUR",
+        "detail": "statistic.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "SnapshotQuotidienViewSet",
+        "kind": 6,
+        "importPath": "statistic.viewsets",
+        "description": "statistic.viewsets",
+        "peekOfCode": "class SnapshotQuotidienViewSet(viewsets.ReadOnlyModelViewSet):\n    \"\"\"ViewSet pour SnapshotQuotidien\"\"\"\n    queryset = SnapshotQuotidien.objects.all()\n    serializer_class = SnapshotQuotidienSerializer\n    permission_classes = [IsAuthenticated, CanViewNationalStatistics]\n    filter_backends = [DjangoFilterBackend]\n    filterset_class = SnapshotQuotidienFilter\n    @action(detail=False, methods=['get'])\n    def tendances(self, request):\n        \"\"\"",
+        "detail": "statistic.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "manage",
+        "description": "manage",
+        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'election_app.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
+        "detail": "manage",
+        "documentation": {}
+    }
+]
