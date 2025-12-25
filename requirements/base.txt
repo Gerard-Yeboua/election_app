@@ -1,0 +1,45 @@
+# Django
+Django==4.2.8
+django-environ==0.11.2
+
+# Database
+psycopg2-binary==2.9.9
+
+# REST API
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.3.1
+django-filter==23.5
+django-cors-headers==4.3.1
+drf-yasg==1.21.7
+
+# Cloudinary
+cloudinary==1.37.0
+django-cloudinary-storage==0.3.0
+
+# Celery & Redis
+celery==5.3.4
+redis==5.0.1
+django-redis==5.4.0
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2023.3
+Pillow==10.1.0
+
+# Excel/CSV
+openpyxl==3.1.2
+pandas==2.1.4
+django-import-export==3.3.5
+
+# Forms
+django-crispy-forms==2.1
+crispy-tailwind==1.0.3
+
+# Supabase
+supabase==2.3.0
+
+# Monitoring & Logging
+sentry-sdk==1.39.1
+
+# Security
+python-decouple==3.8

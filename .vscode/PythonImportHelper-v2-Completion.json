@@ -96,6 +96,14 @@
         "documentation": {}
     },
     {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
         "label": "UserAdmin",
         "importPath": "django.contrib.auth.admin",
         "description": "django.contrib.auth.admin",
@@ -697,6 +705,14 @@
         "documentation": {}
     },
     {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
         "label": "json",
         "kind": 6,
         "isExtraImport": true,
@@ -806,6 +822,22 @@
         "documentation": {}
     },
     {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
         "label": "reverse",
         "importPath": "django.urls",
         "description": "django.urls",
@@ -827,6 +859,70 @@
         "description": "django.urls",
         "isExtraImport": true,
         "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "static",
+        "importPath": "django.conf.urls.static",
+        "description": "django.conf.urls.static",
+        "isExtraImport": true,
+        "detail": "django.conf.urls.static",
+        "documentation": {}
+    },
+    {
+        "label": "permissions",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "permissions",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "viewsets",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "get_schema_view",
+        "importPath": "drf_yasg.views",
+        "description": "drf_yasg.views",
+        "isExtraImport": true,
+        "detail": "drf_yasg.views",
+        "documentation": {}
+    },
+    {
+        "label": "openapi",
+        "importPath": "drf_yasg",
+        "description": "drf_yasg",
+        "isExtraImport": true,
+        "detail": "drf_yasg",
         "documentation": {}
     },
     {
@@ -863,6 +959,30 @@
     },
     {
         "label": "BureauVote",
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "isExtraImport": true,
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "Region",
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "isExtraImport": true,
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "Departement",
+        "importPath": "geography.models",
+        "description": "geography.models",
+        "isExtraImport": true,
+        "detail": "geography.models",
+        "documentation": {}
+    },
+    {
+        "label": "Commune",
         "importPath": "geography.models",
         "description": "geography.models",
         "isExtraImport": true,
@@ -940,6 +1060,71 @@
         "importPath": "cloudinary.models",
         "description": "cloudinary.models",
         "detail": "cloudinary.models",
+        "documentation": {}
+    },
+    {
+        "label": "django",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django",
+        "description": "django",
+        "detail": "django",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_model",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "Candidat",
+        "importPath": "pv.models",
+        "description": "pv.models",
+        "isExtraImport": true,
+        "detail": "pv.models",
+        "documentation": {}
+    },
+    {
+        "label": "Candidat",
+        "importPath": "pv.models",
+        "description": "pv.models",
+        "isExtraImport": true,
+        "detail": "pv.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProcesVerbal",
+        "importPath": "pv.models",
+        "description": "pv.models",
+        "isExtraImport": true,
+        "detail": "pv.models",
+        "documentation": {}
+    },
+    {
+        "label": "Candidat",
+        "importPath": "pv.models",
+        "description": "pv.models",
+        "isExtraImport": true,
+        "detail": "pv.models",
+        "documentation": {}
+    },
+    {
+        "label": "ResultatCandidat",
+        "importPath": "pv.models",
+        "description": "pv.models",
+        "isExtraImport": true,
+        "detail": "pv.models",
+        "documentation": {}
+    },
+    {
+        "label": "Candidat",
+        "importPath": "pv.models",
+        "description": "pv.models",
+        "isExtraImport": true,
+        "detail": "pv.models",
         "documentation": {}
     },
     {
@@ -1180,78 +1365,6 @@
         "description": "statistic.managers",
         "isExtraImport": true,
         "detail": "statistic.managers",
-        "documentation": {}
-    },
-    {
-        "label": "permissions",
-        "importPath": "rest_framework",
-        "description": "rest_framework",
-        "isExtraImport": true,
-        "detail": "rest_framework",
-        "documentation": {}
-    },
-    {
-        "label": "serializers",
-        "importPath": "rest_framework",
-        "description": "rest_framework",
-        "isExtraImport": true,
-        "detail": "rest_framework",
-        "documentation": {}
-    },
-    {
-        "label": "viewsets",
-        "importPath": "rest_framework",
-        "description": "rest_framework",
-        "isExtraImport": true,
-        "detail": "rest_framework",
-        "documentation": {}
-    },
-    {
-        "label": "status",
-        "importPath": "rest_framework",
-        "description": "rest_framework",
-        "isExtraImport": true,
-        "detail": "rest_framework",
-        "documentation": {}
-    },
-    {
-        "label": "Candidat",
-        "importPath": "pv.models",
-        "description": "pv.models",
-        "isExtraImport": true,
-        "detail": "pv.models",
-        "documentation": {}
-    },
-    {
-        "label": "ProcesVerbal",
-        "importPath": "pv.models",
-        "description": "pv.models",
-        "isExtraImport": true,
-        "detail": "pv.models",
-        "documentation": {}
-    },
-    {
-        "label": "Candidat",
-        "importPath": "pv.models",
-        "description": "pv.models",
-        "isExtraImport": true,
-        "detail": "pv.models",
-        "documentation": {}
-    },
-    {
-        "label": "ResultatCandidat",
-        "importPath": "pv.models",
-        "description": "pv.models",
-        "isExtraImport": true,
-        "detail": "pv.models",
-        "documentation": {}
-    },
-    {
-        "label": "Candidat",
-        "importPath": "pv.models",
-        "description": "pv.models",
-        "isExtraImport": true,
-        "detail": "pv.models",
         "documentation": {}
     },
     {
@@ -1553,6 +1666,15 @@
         "documentation": {}
     },
     {
+        "label": "multiprocessing",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "multiprocessing",
+        "description": "multiprocessing",
+        "detail": "multiprocessing",
+        "documentation": {}
+    },
+    {
         "label": "sys",
         "kind": 6,
         "isExtraImport": true,
@@ -1715,6 +1837,222 @@
         "documentation": {}
     },
     {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "election_app.development",
+        "description": "election_app.development",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = ['*']\n# Database pour dev (peut utiliser SQLite)\n# DATABASES = {\n#     'default': {\n#         'ENGINE': 'django.db.backends.sqlite3',\n#         'NAME': BASE_DIR / 'db.sqlite3',\n#     }\n# }\n# Email backend pour dev",
+        "detail": "election_app.development",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "election_app.development",
+        "description": "election_app.development",
+        "peekOfCode": "ALLOWED_HOSTS = ['*']\n# Database pour dev (peut utiliser SQLite)\n# DATABASES = {\n#     'default': {\n#         'ENGINE': 'django.db.backends.sqlite3',\n#         'NAME': BASE_DIR / 'db.sqlite3',\n#     }\n# }\n# Email backend pour dev\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'",
+        "detail": "election_app.development",
+        "documentation": {}
+    },
+    {
+        "label": "EMAIL_BACKEND",
+        "kind": 5,
+        "importPath": "election_app.development",
+        "description": "election_app.development",
+        "peekOfCode": "EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'\n# Debug Toolbar\nINSTALLED_APPS += ['debug_toolbar']\nMIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']\nINTERNAL_IPS = ['127.0.0.1', 'localhost']\n# CORS pour dev\nCORS_ALLOW_ALL_ORIGINS = True\n# Cache pour dev (dummy)\n# CACHES = {\n#     'default': {",
+        "detail": "election_app.development",
+        "documentation": {}
+    },
+    {
+        "label": "INTERNAL_IPS",
+        "kind": 5,
+        "importPath": "election_app.development",
+        "description": "election_app.development",
+        "peekOfCode": "INTERNAL_IPS = ['127.0.0.1', 'localhost']\n# CORS pour dev\nCORS_ALLOW_ALL_ORIGINS = True\n# Cache pour dev (dummy)\n# CACHES = {\n#     'default': {\n#         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',\n#     }\n# }",
+        "detail": "election_app.development",
+        "documentation": {}
+    },
+    {
+        "label": "CORS_ALLOW_ALL_ORIGINS",
+        "kind": 5,
+        "importPath": "election_app.development",
+        "description": "election_app.development",
+        "peekOfCode": "CORS_ALLOW_ALL_ORIGINS = True\n# Cache pour dev (dummy)\n# CACHES = {\n#     'default': {\n#         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',\n#     }\n# }",
+        "detail": "election_app.development",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "DEBUG = False\n# Sécurité renforcée\nSECURE_SSL_REDIRECT = True\nSECURE_HSTS_SECONDS = 31536000\nSECURE_HSTS_INCLUDE_SUBDOMAINS = True\nSECURE_HSTS_PRELOAD = True\nSECURE_CONTENT_TYPE_NOSNIFF = True\nSECURE_BROWSER_XSS_FILTER = True\nX_FRAME_OPTIONS = 'DENY'\nCSRF_COOKIE_SECURE = True",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "SECURE_SSL_REDIRECT",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "SECURE_SSL_REDIRECT = True\nSECURE_HSTS_SECONDS = 31536000\nSECURE_HSTS_INCLUDE_SUBDOMAINS = True\nSECURE_HSTS_PRELOAD = True\nSECURE_CONTENT_TYPE_NOSNIFF = True\nSECURE_BROWSER_XSS_FILTER = True\nX_FRAME_OPTIONS = 'DENY'\nCSRF_COOKIE_SECURE = True\nSESSION_COOKIE_SECURE = True\n# Logging pour production",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "SECURE_HSTS_SECONDS",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "SECURE_HSTS_SECONDS = 31536000\nSECURE_HSTS_INCLUDE_SUBDOMAINS = True\nSECURE_HSTS_PRELOAD = True\nSECURE_CONTENT_TYPE_NOSNIFF = True\nSECURE_BROWSER_XSS_FILTER = True\nX_FRAME_OPTIONS = 'DENY'\nCSRF_COOKIE_SECURE = True\nSESSION_COOKIE_SECURE = True\n# Logging pour production\nLOGGING['handlers']['file']['filename'] = '/var/log/electoral_pv/django.log'",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "SECURE_HSTS_INCLUDE_SUBDOMAINS",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "SECURE_HSTS_INCLUDE_SUBDOMAINS = True\nSECURE_HSTS_PRELOAD = True\nSECURE_CONTENT_TYPE_NOSNIFF = True\nSECURE_BROWSER_XSS_FILTER = True\nX_FRAME_OPTIONS = 'DENY'\nCSRF_COOKIE_SECURE = True\nSESSION_COOKIE_SECURE = True\n# Logging pour production\nLOGGING['handlers']['file']['filename'] = '/var/log/electoral_pv/django.log'\n# Admins",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "SECURE_HSTS_PRELOAD",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "SECURE_HSTS_PRELOAD = True\nSECURE_CONTENT_TYPE_NOSNIFF = True\nSECURE_BROWSER_XSS_FILTER = True\nX_FRAME_OPTIONS = 'DENY'\nCSRF_COOKIE_SECURE = True\nSESSION_COOKIE_SECURE = True\n# Logging pour production\nLOGGING['handlers']['file']['filename'] = '/var/log/electoral_pv/django.log'\n# Admins\nADMINS = [",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "SECURE_CONTENT_TYPE_NOSNIFF",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "SECURE_CONTENT_TYPE_NOSNIFF = True\nSECURE_BROWSER_XSS_FILTER = True\nX_FRAME_OPTIONS = 'DENY'\nCSRF_COOKIE_SECURE = True\nSESSION_COOKIE_SECURE = True\n# Logging pour production\nLOGGING['handlers']['file']['filename'] = '/var/log/electoral_pv/django.log'\n# Admins\nADMINS = [\n    ('Admin', os.environ.get('ADMIN_EMAIL', 'admin@electoral-pv.com')),",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "SECURE_BROWSER_XSS_FILTER",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "SECURE_BROWSER_XSS_FILTER = True\nX_FRAME_OPTIONS = 'DENY'\nCSRF_COOKIE_SECURE = True\nSESSION_COOKIE_SECURE = True\n# Logging pour production\nLOGGING['handlers']['file']['filename'] = '/var/log/electoral_pv/django.log'\n# Admins\nADMINS = [\n    ('Admin', os.environ.get('ADMIN_EMAIL', 'admin@electoral-pv.com')),\n]",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "X_FRAME_OPTIONS",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "X_FRAME_OPTIONS = 'DENY'\nCSRF_COOKIE_SECURE = True\nSESSION_COOKIE_SECURE = True\n# Logging pour production\nLOGGING['handlers']['file']['filename'] = '/var/log/electoral_pv/django.log'\n# Admins\nADMINS = [\n    ('Admin', os.environ.get('ADMIN_EMAIL', 'admin@electoral-pv.com')),\n]\nMANAGERS = ADMINS",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "CSRF_COOKIE_SECURE",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "CSRF_COOKIE_SECURE = True\nSESSION_COOKIE_SECURE = True\n# Logging pour production\nLOGGING['handlers']['file']['filename'] = '/var/log/electoral_pv/django.log'\n# Admins\nADMINS = [\n    ('Admin', os.environ.get('ADMIN_EMAIL', 'admin@electoral-pv.com')),\n]\nMANAGERS = ADMINS\n# Email pour production",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "SESSION_COOKIE_SECURE",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "SESSION_COOKIE_SECURE = True\n# Logging pour production\nLOGGING['handlers']['file']['filename'] = '/var/log/electoral_pv/django.log'\n# Admins\nADMINS = [\n    ('Admin', os.environ.get('ADMIN_EMAIL', 'admin@electoral-pv.com')),\n]\nMANAGERS = ADMINS\n# Email pour production\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "LOGGING['handlers']['file']['filename']",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "LOGGING['handlers']['file']['filename'] = '/var/log/electoral_pv/django.log'\n# Admins\nADMINS = [\n    ('Admin', os.environ.get('ADMIN_EMAIL', 'admin@electoral-pv.com')),\n]\nMANAGERS = ADMINS\n# Email pour production\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.sendgrid.net')\nEMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'apikey')",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "ADMINS",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "ADMINS = [\n    ('Admin', os.environ.get('ADMIN_EMAIL', 'admin@electoral-pv.com')),\n]\nMANAGERS = ADMINS\n# Email pour production\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.sendgrid.net')\nEMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'apikey')\nEMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')\nEMAIL_PORT = 587",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "MANAGERS",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "MANAGERS = ADMINS\n# Email pour production\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.sendgrid.net')\nEMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'apikey')\nEMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')\nEMAIL_PORT = 587\nEMAIL_USE_TLS = True",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "EMAIL_BACKEND",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.sendgrid.net')\nEMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'apikey')\nEMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')\nEMAIL_PORT = 587\nEMAIL_USE_TLS = True",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "EMAIL_HOST",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.sendgrid.net')\nEMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'apikey')\nEMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')\nEMAIL_PORT = 587\nEMAIL_USE_TLS = True",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "EMAIL_HOST_USER",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'apikey')\nEMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')\nEMAIL_PORT = 587\nEMAIL_USE_TLS = True",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "EMAIL_HOST_PASSWORD",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')\nEMAIL_PORT = 587\nEMAIL_USE_TLS = True",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "EMAIL_PORT",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "EMAIL_PORT = 587\nEMAIL_USE_TLS = True",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
+        "label": "EMAIL_USE_TLS",
+        "kind": 5,
+        "importPath": "election_app.production",
+        "description": "election_app.production",
+        "peekOfCode": "EMAIL_USE_TLS = True",
+        "detail": "election_app.production",
+        "documentation": {}
+    },
+    {
         "label": "BASE_DIR",
         "kind": 5,
         "importPath": "election_app.settings",
@@ -1746,7 +2084,7 @@
         "kind": 5,
         "importPath": "election_app.settings",
         "description": "election_app.settings",
-        "peekOfCode": "ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    # Third party",
+        "peekOfCode": "ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',",
         "detail": "election_app.settings",
         "documentation": {}
     },
@@ -1755,7 +2093,7 @@
         "kind": 5,
         "importPath": "election_app.settings",
         "description": "election_app.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    # Third party\n    'cloudinary',\n    'cloudinary_storage',",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',\n    'rest_framework_simplejwt',\n    'django_filters',",
         "detail": "election_app.settings",
         "documentation": {}
     },
@@ -1764,7 +2102,7 @@
         "kind": 5,
         "importPath": "election_app.settings",
         "description": "election_app.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'election_app.urls'",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'whitenoise.middleware.WhiteNoiseMiddleware',  # Pour les fichiers statiques\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'corsheaders.middleware.CorsMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',",
         "detail": "election_app.settings",
         "documentation": {}
     },
@@ -1872,7 +2210,7 @@
         "kind": 5,
         "importPath": "election_app.settings",
         "description": "election_app.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\n# Static files (CSS, JavaScript, Images)\nSTATIC_URL = '/static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'",
         "detail": "election_app.settings",
         "documentation": {}
     },
@@ -1881,7 +2219,7 @@
         "kind": 5,
         "importPath": "election_app.settings",
         "description": "election_app.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\n# Static files (CSS, JavaScript, Images)\nSTATIC_URL = '/static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS = [BASE_DIR / 'static']",
         "detail": "election_app.settings",
         "documentation": {}
     },
@@ -1890,7 +2228,7 @@
         "kind": 5,
         "importPath": "election_app.settings",
         "description": "election_app.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\n# Static files (CSS, JavaScript, Images)\nSTATIC_URL = '/static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS = [BASE_DIR / 'static']\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'",
         "detail": "election_app.settings",
         "documentation": {}
     },
@@ -1899,7 +2237,7 @@
         "kind": 5,
         "importPath": "election_app.settings",
         "description": "election_app.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/6.0/howto/static-files/\nSTATIC_URL = 'static/'\n# Static files (CSS, JavaScript, Images)\nSTATIC_URL = '/static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS = [BASE_DIR / 'static']\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'\n# Media files",
         "detail": "election_app.settings",
         "documentation": {}
     },
@@ -1908,8 +2246,368 @@
         "kind": 5,
         "importPath": "election_app.settings",
         "description": "election_app.settings",
-        "peekOfCode": "STATIC_URL = 'static/'",
+        "peekOfCode": "STATIC_URL = 'static/'\n# Static files (CSS, JavaScript, Images)\nSTATIC_URL = '/static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS = [BASE_DIR / 'static']\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'\n# Media files\nMEDIA_URL = '/media/'\nMEDIA_ROOT = BASE_DIR / 'media'\n# Default primary key field type",
         "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "STATIC_URL = '/static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS = [BASE_DIR / 'static']\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'\n# Media files\nMEDIA_URL = '/media/'\nMEDIA_ROOT = BASE_DIR / 'media'\n# Default primary key field type\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n# Custom User Model",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_ROOT",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "STATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS = [BASE_DIR / 'static']\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'\n# Media files\nMEDIA_URL = '/media/'\nMEDIA_ROOT = BASE_DIR / 'media'\n# Default primary key field type\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n# Custom User Model\nAUTH_USER_MODEL = 'accounts.User'",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATICFILES_DIRS",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "STATICFILES_DIRS = [BASE_DIR / 'static']\nSTATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'\n# Media files\nMEDIA_URL = '/media/'\nMEDIA_ROOT = BASE_DIR / 'media'\n# Default primary key field type\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n# Custom User Model\nAUTH_USER_MODEL = 'accounts.User'\n# Login URLs",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATICFILES_STORAGE",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'\n# Media files\nMEDIA_URL = '/media/'\nMEDIA_ROOT = BASE_DIR / 'media'\n# Default primary key field type\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n# Custom User Model\nAUTH_USER_MODEL = 'accounts.User'\n# Login URLs\nLOGIN_URL = 'accounts:login'",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_URL",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "MEDIA_URL = '/media/'\nMEDIA_ROOT = BASE_DIR / 'media'\n# Default primary key field type\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n# Custom User Model\nAUTH_USER_MODEL = 'accounts.User'\n# Login URLs\nLOGIN_URL = 'accounts:login'\nLOGIN_REDIRECT_URL = 'dashboard:index'\nLOGOUT_REDIRECT_URL = 'accounts:login'",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "MEDIA_ROOT = BASE_DIR / 'media'\n# Default primary key field type\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n# Custom User Model\nAUTH_USER_MODEL = 'accounts.User'\n# Login URLs\nLOGIN_URL = 'accounts:login'\nLOGIN_REDIRECT_URL = 'dashboard:index'\nLOGOUT_REDIRECT_URL = 'accounts:login'\n# REST Framework",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_AUTO_FIELD",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n# Custom User Model\nAUTH_USER_MODEL = 'accounts.User'\n# Login URLs\nLOGIN_URL = 'accounts:login'\nLOGIN_REDIRECT_URL = 'dashboard:index'\nLOGOUT_REDIRECT_URL = 'accounts:login'\n# REST Framework\nREST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': [",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_USER_MODEL",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "AUTH_USER_MODEL = 'accounts.User'\n# Login URLs\nLOGIN_URL = 'accounts:login'\nLOGIN_REDIRECT_URL = 'dashboard:index'\nLOGOUT_REDIRECT_URL = 'accounts:login'\n# REST Framework\nREST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n        'rest_framework.authentication.SessionAuthentication',",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LOGIN_URL",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "LOGIN_URL = 'accounts:login'\nLOGIN_REDIRECT_URL = 'dashboard:index'\nLOGOUT_REDIRECT_URL = 'accounts:login'\n# REST Framework\nREST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n        'rest_framework.authentication.SessionAuthentication',\n    ],\n    'DEFAULT_PERMISSION_CLASSES': [",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LOGIN_REDIRECT_URL",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "LOGIN_REDIRECT_URL = 'dashboard:index'\nLOGOUT_REDIRECT_URL = 'accounts:login'\n# REST Framework\nREST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n        'rest_framework.authentication.SessionAuthentication',\n    ],\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.IsAuthenticated',",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LOGOUT_REDIRECT_URL",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "LOGOUT_REDIRECT_URL = 'accounts:login'\n# REST Framework\nREST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n        'rest_framework.authentication.SessionAuthentication',\n    ],\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.IsAuthenticated',\n    ],",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "REST_FRAMEWORK",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n        'rest_framework.authentication.SessionAuthentication',\n    ],\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.IsAuthenticated',\n    ],\n    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',\n    'PAGE_SIZE': 50,",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SIMPLE_JWT",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "SIMPLE_JWT = {\n    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),\n    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),\n    'ROTATE_REFRESH_TOKENS': True,\n    'BLACKLIST_AFTER_ROTATION': True,\n    'AUTH_HEADER_TYPES': ('Bearer',),\n}\n# CORS Settings\nCORS_ALLOWED_ORIGINS = os.environ.get(\n    'CORS_ALLOWED_ORIGINS',",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CORS_ALLOWED_ORIGINS",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "CORS_ALLOWED_ORIGINS = os.environ.get(\n    'CORS_ALLOWED_ORIGINS',\n    'http://localhost:3000,http://127.0.0.1:3000'\n).split(',')\nCORS_ALLOW_CREDENTIALS = True\n# # Cloudinary Configuration\n# CLOUDINARY_STORAGE = {\n#     'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),\n#     'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),\n#     'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CORS_ALLOW_CREDENTIALS",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "CORS_ALLOW_CREDENTIALS = True\n# # Cloudinary Configuration\n# CLOUDINARY_STORAGE = {\n#     'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),\n#     'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),\n#     'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),\n# }\nDEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'\n# Celery Configuration\nCELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'redis://localhost:6379/0')",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_FILE_STORAGE",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'\n# Celery Configuration\nCELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'redis://localhost:6379/0')\nCELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND', 'redis://localhost:6379/0')\nCELERY_ACCEPT_CONTENT = ['json']\nCELERY_TASK_SERIALIZER = 'json'\nCELERY_RESULT_SERIALIZER = 'json'\nCELERY_TIMEZONE = TIME_ZONE\nCELERY_TASK_TRACK_STARTED = True\nCELERY_TASK_TIME_LIMIT = 30 * 60  # 30 minutes",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CELERY_BROKER_URL",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'redis://localhost:6379/0')\nCELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND', 'redis://localhost:6379/0')\nCELERY_ACCEPT_CONTENT = ['json']\nCELERY_TASK_SERIALIZER = 'json'\nCELERY_RESULT_SERIALIZER = 'json'\nCELERY_TIMEZONE = TIME_ZONE\nCELERY_TASK_TRACK_STARTED = True\nCELERY_TASK_TIME_LIMIT = 30 * 60  # 30 minutes\n# Cache Configuration\nCACHES = {",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CELERY_RESULT_BACKEND",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "CELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND', 'redis://localhost:6379/0')\nCELERY_ACCEPT_CONTENT = ['json']\nCELERY_TASK_SERIALIZER = 'json'\nCELERY_RESULT_SERIALIZER = 'json'\nCELERY_TIMEZONE = TIME_ZONE\nCELERY_TASK_TRACK_STARTED = True\nCELERY_TASK_TIME_LIMIT = 30 * 60  # 30 minutes\n# Cache Configuration\nCACHES = {\n    'default': {",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CELERY_ACCEPT_CONTENT",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "CELERY_ACCEPT_CONTENT = ['json']\nCELERY_TASK_SERIALIZER = 'json'\nCELERY_RESULT_SERIALIZER = 'json'\nCELERY_TIMEZONE = TIME_ZONE\nCELERY_TASK_TRACK_STARTED = True\nCELERY_TASK_TIME_LIMIT = 30 * 60  # 30 minutes\n# Cache Configuration\nCACHES = {\n    'default': {\n        'BACKEND': 'django_redis.cache.RedisCache',",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CELERY_TASK_SERIALIZER",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "CELERY_TASK_SERIALIZER = 'json'\nCELERY_RESULT_SERIALIZER = 'json'\nCELERY_TIMEZONE = TIME_ZONE\nCELERY_TASK_TRACK_STARTED = True\nCELERY_TASK_TIME_LIMIT = 30 * 60  # 30 minutes\n# Cache Configuration\nCACHES = {\n    'default': {\n        'BACKEND': 'django_redis.cache.RedisCache',\n        'LOCATION': os.environ.get('REDIS_URL', 'redis://localhost:6379/1'),",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CELERY_RESULT_SERIALIZER",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "CELERY_RESULT_SERIALIZER = 'json'\nCELERY_TIMEZONE = TIME_ZONE\nCELERY_TASK_TRACK_STARTED = True\nCELERY_TASK_TIME_LIMIT = 30 * 60  # 30 minutes\n# Cache Configuration\nCACHES = {\n    'default': {\n        'BACKEND': 'django_redis.cache.RedisCache',\n        'LOCATION': os.environ.get('REDIS_URL', 'redis://localhost:6379/1'),\n        'OPTIONS': {",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CELERY_TIMEZONE",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "CELERY_TIMEZONE = TIME_ZONE\nCELERY_TASK_TRACK_STARTED = True\nCELERY_TASK_TIME_LIMIT = 30 * 60  # 30 minutes\n# Cache Configuration\nCACHES = {\n    'default': {\n        'BACKEND': 'django_redis.cache.RedisCache',\n        'LOCATION': os.environ.get('REDIS_URL', 'redis://localhost:6379/1'),\n        'OPTIONS': {\n            'CLIENT_CLASS': 'django_redis.client.DefaultClient',",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CELERY_TASK_TRACK_STARTED",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "CELERY_TASK_TRACK_STARTED = True\nCELERY_TASK_TIME_LIMIT = 30 * 60  # 30 minutes\n# Cache Configuration\nCACHES = {\n    'default': {\n        'BACKEND': 'django_redis.cache.RedisCache',\n        'LOCATION': os.environ.get('REDIS_URL', 'redis://localhost:6379/1'),\n        'OPTIONS': {\n            'CLIENT_CLASS': 'django_redis.client.DefaultClient',\n        },",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CELERY_TASK_TIME_LIMIT",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "CELERY_TASK_TIME_LIMIT = 30 * 60  # 30 minutes\n# Cache Configuration\nCACHES = {\n    'default': {\n        'BACKEND': 'django_redis.cache.RedisCache',\n        'LOCATION': os.environ.get('REDIS_URL', 'redis://localhost:6379/1'),\n        'OPTIONS': {\n            'CLIENT_CLASS': 'django_redis.client.DefaultClient',\n        },\n        'KEY_PREFIX': 'electoral_pv',",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CACHES",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "CACHES = {\n    'default': {\n        'BACKEND': 'django_redis.cache.RedisCache',\n        'LOCATION': os.environ.get('REDIS_URL', 'redis://localhost:6379/1'),\n        'OPTIONS': {\n            'CLIENT_CLASS': 'django_redis.client.DefaultClient',\n        },\n        'KEY_PREFIX': 'electoral_pv',\n        'TIMEOUT': 300,  # 5 minutes\n    }",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "EMAIL_BACKEND",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')\nEMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))\nEMAIL_USE_TLS = True\nEMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')\nDEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'noreply@electoral-pv.com')\n# Logging\nLOGGING = {\n    'version': 1,",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "EMAIL_HOST",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')\nEMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))\nEMAIL_USE_TLS = True\nEMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')\nDEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'noreply@electoral-pv.com')\n# Logging\nLOGGING = {\n    'version': 1,\n    'disable_existing_loggers': False,",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "EMAIL_PORT",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))\nEMAIL_USE_TLS = True\nEMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')\nDEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'noreply@electoral-pv.com')\n# Logging\nLOGGING = {\n    'version': 1,\n    'disable_existing_loggers': False,\n    'formatters': {",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "EMAIL_USE_TLS",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "EMAIL_USE_TLS = True\nEMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')\nDEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'noreply@electoral-pv.com')\n# Logging\nLOGGING = {\n    'version': 1,\n    'disable_existing_loggers': False,\n    'formatters': {\n        'verbose': {",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "EMAIL_HOST_USER",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')\nEMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')\nDEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'noreply@electoral-pv.com')\n# Logging\nLOGGING = {\n    'version': 1,\n    'disable_existing_loggers': False,\n    'formatters': {\n        'verbose': {\n            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "EMAIL_HOST_PASSWORD",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')\nDEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'noreply@electoral-pv.com')\n# Logging\nLOGGING = {\n    'version': 1,\n    'disable_existing_loggers': False,\n    'formatters': {\n        'verbose': {\n            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',\n            'style': '{',",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_FROM_EMAIL",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'noreply@electoral-pv.com')\n# Logging\nLOGGING = {\n    'version': 1,\n    'disable_existing_loggers': False,\n    'formatters': {\n        'verbose': {\n            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',\n            'style': '{',\n        },",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LOGGING",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "LOGGING = {\n    'version': 1,\n    'disable_existing_loggers': False,\n    'formatters': {\n        'verbose': {\n            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',\n            'style': '{',\n        },\n    },\n    'handlers': {",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CRISPY_ALLOWED_TEMPLATE_PACKS",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "CRISPY_ALLOWED_TEMPLATE_PACKS = \"tailwind\"\nCRISPY_TEMPLATE_PACK = \"tailwind\"\n# Session\nSESSION_COOKIE_AGE = 3600  # 1 heure\nSESSION_SAVE_EVERY_REQUEST = True\nSESSION_COOKIE_HTTPONLY = True\nSESSION_COOKIE_SECURE = not DEBUG  # True en production\n# Security Settings\nif not DEBUG:\n    SECURE_SSL_REDIRECT = True",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CRISPY_TEMPLATE_PACK",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "CRISPY_TEMPLATE_PACK = \"tailwind\"\n# Session\nSESSION_COOKIE_AGE = 3600  # 1 heure\nSESSION_SAVE_EVERY_REQUEST = True\nSESSION_COOKIE_HTTPONLY = True\nSESSION_COOKIE_SECURE = not DEBUG  # True en production\n# Security Settings\nif not DEBUG:\n    SECURE_SSL_REDIRECT = True\n    SECURE_HSTS_SECONDS = 31536000",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SESSION_COOKIE_AGE",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "SESSION_COOKIE_AGE = 3600  # 1 heure\nSESSION_SAVE_EVERY_REQUEST = True\nSESSION_COOKIE_HTTPONLY = True\nSESSION_COOKIE_SECURE = not DEBUG  # True en production\n# Security Settings\nif not DEBUG:\n    SECURE_SSL_REDIRECT = True\n    SECURE_HSTS_SECONDS = 31536000\n    SECURE_HSTS_INCLUDE_SUBDOMAINS = True\n    SECURE_HSTS_PRELOAD = True",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SESSION_SAVE_EVERY_REQUEST",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "SESSION_SAVE_EVERY_REQUEST = True\nSESSION_COOKIE_HTTPONLY = True\nSESSION_COOKIE_SECURE = not DEBUG  # True en production\n# Security Settings\nif not DEBUG:\n    SECURE_SSL_REDIRECT = True\n    SECURE_HSTS_SECONDS = 31536000\n    SECURE_HSTS_INCLUDE_SUBDOMAINS = True\n    SECURE_HSTS_PRELOAD = True\n    SECURE_CONTENT_TYPE_NOSNIFF = True",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SESSION_COOKIE_HTTPONLY",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "SESSION_COOKIE_HTTPONLY = True\nSESSION_COOKIE_SECURE = not DEBUG  # True en production\n# Security Settings\nif not DEBUG:\n    SECURE_SSL_REDIRECT = True\n    SECURE_HSTS_SECONDS = 31536000\n    SECURE_HSTS_INCLUDE_SUBDOMAINS = True\n    SECURE_HSTS_PRELOAD = True\n    SECURE_CONTENT_TYPE_NOSNIFF = True\n    SECURE_BROWSER_XSS_FILTER = True",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SESSION_COOKIE_SECURE",
+        "kind": 5,
+        "importPath": "election_app.settings",
+        "description": "election_app.settings",
+        "peekOfCode": "SESSION_COOKIE_SECURE = not DEBUG  # True en production\n# Security Settings\nif not DEBUG:\n    SECURE_SSL_REDIRECT = True\n    SECURE_HSTS_SECONDS = 31536000\n    SECURE_HSTS_INCLUDE_SUBDOMAINS = True\n    SECURE_HSTS_PRELOAD = True\n    SECURE_CONTENT_TYPE_NOSNIFF = True\n    SECURE_BROWSER_XSS_FILTER = True\n    X_FRAME_OPTIONS = 'DENY'",
+        "detail": "election_app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "schema_view",
+        "kind": 5,
+        "importPath": "election_app.urls",
+        "description": "election_app.urls",
+        "peekOfCode": "schema_view = get_schema_view(\n    openapi.Info(\n        title=\"Electoral PV API\",\n        default_version='v1',\n        description=\"API de gestion des procès-verbaux électoraux\",\n        terms_of_service=\"https://www.electoral-pv.com/terms/\",\n        contact=openapi.Contact(email=\"contact@electoral-pv.com\"),\n        license=openapi.License(name=\"Proprietary\"),\n    ),\n    public=True,",
+        "detail": "election_app.urls",
         "documentation": {}
     },
     {
@@ -1917,7 +2615,70 @@
         "kind": 5,
         "importPath": "election_app.urls",
         "description": "election_app.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n]",
+        "peekOfCode": "urlpatterns = [\n    # Admin\n    path('admin/', admin.site.urls),\n    # Apps URLs\n    path('', include('dashboard.urls')),\n    path('accounts/', include('accounts.urls')),\n    path('geography/', include('geography.urls')),\n    path('pv/', include('pv.urls')),\n    path('incidents/', include('incidents.urls')),\n    path('statistics/', include('statistic.urls')),",
+        "detail": "election_app.urls",
+        "documentation": {}
+    },
+    {
+        "label": "handler404",
+        "kind": 5,
+        "importPath": "election_app.urls",
+        "description": "election_app.urls",
+        "peekOfCode": "handler404 = 'common.views.handler404'\nhandler500 = 'common.views.handler500'\nhandler403 = 'common.views.handler403'\nhandler400 = 'common.views.handler400'\n# Admin site customization\nadmin.site.site_header = \"CEI - Administration\"\nadmin.site.site_title = \"Electoral PV Admin\"\nadmin.site.index_title = \"Gestion des Procès-Verbaux Électoraux\"",
+        "detail": "election_app.urls",
+        "documentation": {}
+    },
+    {
+        "label": "handler500",
+        "kind": 5,
+        "importPath": "election_app.urls",
+        "description": "election_app.urls",
+        "peekOfCode": "handler500 = 'common.views.handler500'\nhandler403 = 'common.views.handler403'\nhandler400 = 'common.views.handler400'\n# Admin site customization\nadmin.site.site_header = \"CEI - Administration\"\nadmin.site.site_title = \"Electoral PV Admin\"\nadmin.site.index_title = \"Gestion des Procès-Verbaux Électoraux\"",
+        "detail": "election_app.urls",
+        "documentation": {}
+    },
+    {
+        "label": "handler403",
+        "kind": 5,
+        "importPath": "election_app.urls",
+        "description": "election_app.urls",
+        "peekOfCode": "handler403 = 'common.views.handler403'\nhandler400 = 'common.views.handler400'\n# Admin site customization\nadmin.site.site_header = \"CEI - Administration\"\nadmin.site.site_title = \"Electoral PV Admin\"\nadmin.site.index_title = \"Gestion des Procès-Verbaux Électoraux\"",
+        "detail": "election_app.urls",
+        "documentation": {}
+    },
+    {
+        "label": "handler400",
+        "kind": 5,
+        "importPath": "election_app.urls",
+        "description": "election_app.urls",
+        "peekOfCode": "handler400 = 'common.views.handler400'\n# Admin site customization\nadmin.site.site_header = \"CEI - Administration\"\nadmin.site.site_title = \"Electoral PV Admin\"\nadmin.site.index_title = \"Gestion des Procès-Verbaux Électoraux\"",
+        "detail": "election_app.urls",
+        "documentation": {}
+    },
+    {
+        "label": "admin.site.site_header",
+        "kind": 5,
+        "importPath": "election_app.urls",
+        "description": "election_app.urls",
+        "peekOfCode": "admin.site.site_header = \"CEI - Administration\"\nadmin.site.site_title = \"Electoral PV Admin\"\nadmin.site.index_title = \"Gestion des Procès-Verbaux Électoraux\"",
+        "detail": "election_app.urls",
+        "documentation": {}
+    },
+    {
+        "label": "admin.site.site_title",
+        "kind": 5,
+        "importPath": "election_app.urls",
+        "description": "election_app.urls",
+        "peekOfCode": "admin.site.site_title = \"Electoral PV Admin\"\nadmin.site.index_title = \"Gestion des Procès-Verbaux Électoraux\"",
+        "detail": "election_app.urls",
+        "documentation": {}
+    },
+    {
+        "label": "admin.site.index_title",
+        "kind": 5,
+        "importPath": "election_app.urls",
+        "description": "election_app.urls",
+        "peekOfCode": "admin.site.index_title = \"Gestion des Procès-Verbaux Électoraux\"",
         "detail": "election_app.urls",
         "documentation": {}
     },
@@ -2216,6 +2977,33 @@
         "description": "pv.models",
         "peekOfCode": "class ValidationHistory(models.Model):\n    \"\"\"Historique des validations d'un PV\"\"\"\n    proces_verbal = models.ForeignKey(ProcesVerbal, on_delete=models.CASCADE, related_name='historique_validations')\n    validateur = models.ForeignKey(User, on_delete=models.PROTECT)\n    action = models.CharField(max_length=20)  # VALIDE, REJETE, CORRECTION\n    commentaire = models.TextField(blank=True, null=True)\n    date_action = models.DateTimeField(auto_now_add=True)\n    class Meta:\n        db_table = 'validation_history'\n        ordering = ['-date_action']",
         "detail": "pv.models",
+        "documentation": {}
+    },
+    {
+        "label": "create_superuser",
+        "kind": 2,
+        "importPath": "scripts.init_db",
+        "description": "scripts.init_db",
+        "peekOfCode": "def create_superuser():\n    \"\"\"Créer un superutilisateur\"\"\"\n    if not User.objects.filter(email='admin@cei.ci').exists():\n        User.objects.create_superuser(\n            email='admin@cei.ci',\n            password='Admin@123',\n            first_name='Admin',\n            last_name='CEI',\n            role='SUPER_ADMIN'\n        )",
+        "detail": "scripts.init_db",
+        "documentation": {}
+    },
+    {
+        "label": "create_test_data",
+        "kind": 2,
+        "importPath": "scripts.init_db",
+        "description": "scripts.init_db",
+        "peekOfCode": "def create_test_data():\n    \"\"\"Créer des données de test\"\"\"\n    # Créer une région\n    region, created = Region.objects.get_or_create(\n        code_region='CI-01',\n        defaults={'nom_region': 'Abidjan'}\n    )\n    if created:\n        print(\"✓ Région Abidjan créée\")\n    # Créer des candidats de test",
+        "detail": "scripts.init_db",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 5,
+        "importPath": "scripts.init_db",
+        "description": "scripts.init_db",
+        "peekOfCode": "User = get_user_model()\ndef create_superuser():\n    \"\"\"Créer un superutilisateur\"\"\"\n    if not User.objects.filter(email='admin@cei.ci').exists():\n        User.objects.create_superuser(\n            email='admin@cei.ci',\n            password='Admin@123',\n            first_name='Admin',\n            last_name='CEI',\n            role='SUPER_ADMIN'",
+        "detail": "scripts.init_db",
         "documentation": {}
     },
     {
@@ -2711,6 +3499,105 @@
         "description": "statistic.viewsets",
         "peekOfCode": "class SnapshotQuotidienViewSet(viewsets.ReadOnlyModelViewSet):\n    \"\"\"ViewSet pour SnapshotQuotidien\"\"\"\n    queryset = SnapshotQuotidien.objects.all()\n    serializer_class = SnapshotQuotidienSerializer\n    permission_classes = [IsAuthenticated, CanViewNationalStatistics]\n    filter_backends = [DjangoFilterBackend]\n    filterset_class = SnapshotQuotidienFilter\n    @action(detail=False, methods=['get'])\n    def tendances(self, request):\n        \"\"\"",
         "detail": "statistic.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "bind",
+        "kind": 5,
+        "importPath": "gunicorn_config",
+        "description": "gunicorn_config",
+        "peekOfCode": "bind = \"0.0.0.0:8000\"\nworkers = multiprocessing.cpu_count() * 2 + 1\nworker_class = \"sync\"\nworker_connections = 1000\nmax_requests = 1000\nmax_requests_jitter = 50\ntimeout = 30\nkeepalive = 2\nerrorlog = \"/var/log/gunicorn/error.log\"\naccesslog = \"/var/log/gunicorn/access.log\"",
+        "detail": "gunicorn_config",
+        "documentation": {}
+    },
+    {
+        "label": "workers",
+        "kind": 5,
+        "importPath": "gunicorn_config",
+        "description": "gunicorn_config",
+        "peekOfCode": "workers = multiprocessing.cpu_count() * 2 + 1\nworker_class = \"sync\"\nworker_connections = 1000\nmax_requests = 1000\nmax_requests_jitter = 50\ntimeout = 30\nkeepalive = 2\nerrorlog = \"/var/log/gunicorn/error.log\"\naccesslog = \"/var/log/gunicorn/access.log\"\nloglevel = \"info\"",
+        "detail": "gunicorn_config",
+        "documentation": {}
+    },
+    {
+        "label": "worker_class",
+        "kind": 5,
+        "importPath": "gunicorn_config",
+        "description": "gunicorn_config",
+        "peekOfCode": "worker_class = \"sync\"\nworker_connections = 1000\nmax_requests = 1000\nmax_requests_jitter = 50\ntimeout = 30\nkeepalive = 2\nerrorlog = \"/var/log/gunicorn/error.log\"\naccesslog = \"/var/log/gunicorn/access.log\"\nloglevel = \"info\"",
+        "detail": "gunicorn_config",
+        "documentation": {}
+    },
+    {
+        "label": "worker_connections",
+        "kind": 5,
+        "importPath": "gunicorn_config",
+        "description": "gunicorn_config",
+        "peekOfCode": "worker_connections = 1000\nmax_requests = 1000\nmax_requests_jitter = 50\ntimeout = 30\nkeepalive = 2\nerrorlog = \"/var/log/gunicorn/error.log\"\naccesslog = \"/var/log/gunicorn/access.log\"\nloglevel = \"info\"",
+        "detail": "gunicorn_config",
+        "documentation": {}
+    },
+    {
+        "label": "max_requests",
+        "kind": 5,
+        "importPath": "gunicorn_config",
+        "description": "gunicorn_config",
+        "peekOfCode": "max_requests = 1000\nmax_requests_jitter = 50\ntimeout = 30\nkeepalive = 2\nerrorlog = \"/var/log/gunicorn/error.log\"\naccesslog = \"/var/log/gunicorn/access.log\"\nloglevel = \"info\"",
+        "detail": "gunicorn_config",
+        "documentation": {}
+    },
+    {
+        "label": "max_requests_jitter",
+        "kind": 5,
+        "importPath": "gunicorn_config",
+        "description": "gunicorn_config",
+        "peekOfCode": "max_requests_jitter = 50\ntimeout = 30\nkeepalive = 2\nerrorlog = \"/var/log/gunicorn/error.log\"\naccesslog = \"/var/log/gunicorn/access.log\"\nloglevel = \"info\"",
+        "detail": "gunicorn_config",
+        "documentation": {}
+    },
+    {
+        "label": "timeout",
+        "kind": 5,
+        "importPath": "gunicorn_config",
+        "description": "gunicorn_config",
+        "peekOfCode": "timeout = 30\nkeepalive = 2\nerrorlog = \"/var/log/gunicorn/error.log\"\naccesslog = \"/var/log/gunicorn/access.log\"\nloglevel = \"info\"",
+        "detail": "gunicorn_config",
+        "documentation": {}
+    },
+    {
+        "label": "keepalive",
+        "kind": 5,
+        "importPath": "gunicorn_config",
+        "description": "gunicorn_config",
+        "peekOfCode": "keepalive = 2\nerrorlog = \"/var/log/gunicorn/error.log\"\naccesslog = \"/var/log/gunicorn/access.log\"\nloglevel = \"info\"",
+        "detail": "gunicorn_config",
+        "documentation": {}
+    },
+    {
+        "label": "errorlog",
+        "kind": 5,
+        "importPath": "gunicorn_config",
+        "description": "gunicorn_config",
+        "peekOfCode": "errorlog = \"/var/log/gunicorn/error.log\"\naccesslog = \"/var/log/gunicorn/access.log\"\nloglevel = \"info\"",
+        "detail": "gunicorn_config",
+        "documentation": {}
+    },
+    {
+        "label": "accesslog",
+        "kind": 5,
+        "importPath": "gunicorn_config",
+        "description": "gunicorn_config",
+        "peekOfCode": "accesslog = \"/var/log/gunicorn/access.log\"\nloglevel = \"info\"",
+        "detail": "gunicorn_config",
+        "documentation": {}
+    },
+    {
+        "label": "loglevel",
+        "kind": 5,
+        "importPath": "gunicorn_config",
+        "description": "gunicorn_config",
+        "peekOfCode": "loglevel = \"info\"",
+        "detail": "gunicorn_config",
         "documentation": {}
     },
     {
