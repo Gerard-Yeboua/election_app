@@ -83,7 +83,7 @@ ROOT_URLCONF = 'election_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -113,16 +113,14 @@ AUTH_USER_MODEL = 'accounts.User'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',  # ou le nom affiché sur Supabase
+        'NAME': 'election_db',
         'USER': 'postgres',
-        'PASSWORD': 'Supabase@election_PV#2025%',
-        'HOST': 'db.hgouhzyzdmqwhpalvwtp.supabase.co',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
         'PORT': '5432',
-        'OPTIONS': {
-            'sslmode': 'require',
-        },
     }
 }
+
 
 
 # Cloudinary
