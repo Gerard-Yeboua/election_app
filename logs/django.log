@@ -743,3 +743,435 @@ INFO 2025-12-26 16:49:07,557 log 10864 13276 "POST /accounts/login/ HTTP/1.1" 20
 INFO 2025-12-26 16:49:42,239 log 10864 13276 "GET /pv/ HTTP/1.1" 302 0
 INFO 2025-12-26 16:49:42,251 log 10864 13276 "GET /accounts/login/?next=/pv/ HTTP/1.1" 200 2114
 INFO 2025-12-26 16:49:54,164 log 10864 13276 "GET / HTTP/1.1" 200 12528
+INFO 2025-12-26 18:36:29,020 autoreload 23652 18388 Watching for file changes with StatReloader
+INFO 2025-12-26 18:37:02,234 autoreload 22864 21572 Watching for file changes with StatReloader
+INFO 2025-12-26 18:37:33,117 basehttp 22864 22172 "GET / HTTP/1.1" 200 12528
+WARNING 2025-12-26 18:37:33,472 log 22864 22172 Not Found: /favicon.ico
+WARNING 2025-12-26 18:37:33,472 basehttp 22864 22172 "GET /favicon.ico HTTP/1.1" 404 4006
+INFO 2025-12-26 18:38:07,152 basehttp 22864 24900 "GET / HTTP/1.1" 200 12528
+INFO 2025-12-26 18:43:22,960 basehttp 22864 17296 "GET /incidents/ HTTP/1.1" 302 0
+INFO 2025-12-26 18:43:22,967 basehttp 22864 17296 "GET /accounts/login/?next=/incidents/ HTTP/1.1" 200 2114
+WARNING 2025-12-26 18:44:09,633 log 22864 14112 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 18:44:09,635 basehttp 22864 14112 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4117
+INFO 2025-12-26 18:44:13,476 basehttp 22864 17296 "POST /accounts/login/?next=/incidents/ HTTP/1.1" 302 0
+ERROR 2025-12-26 18:44:13,737 log 22864 17296 Internal Server Error: /incidents/
+Traceback (most recent call last):
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\incidents\views.py", line 28, in incident_list
+    incidents_qs = request.user.get_incidents_accessibles().select_related(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'get_incidents_accessibles'
+ERROR 2025-12-26 18:44:13,751 basehttp 22864 17296 "GET /incidents/ HTTP/1.1" 500 86969
+WARNING 2025-12-26 18:44:13,867 log 22864 17296 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 18:44:13,868 basehttp 22864 17296 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4117
+INFO 2025-12-26 18:45:58,778 basehttp 22864 17296 "GET /accounts/login/?next=/incidents/ HTTP/1.1" 302 0
+INFO 2025-12-26 18:45:58,849 basehttp 22864 17296 "GET /dashboard/ HTTP/1.1" 200 0
+WARNING 2025-12-26 18:45:58,950 log 22864 17296 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 18:45:58,952 basehttp 22864 17296 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4117
+INFO 2025-12-26 18:45:59,900 basehttp 22864 17296 "GET / HTTP/1.1" 200 13614
+WARNING 2025-12-26 18:45:59,998 log 22864 17296 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 18:45:59,999 basehttp 22864 17296 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4117
+INFO 2025-12-26 18:46:08,037 basehttp 22864 17296 "GET /login HTTP/1.1" 301 0
+ERROR 2025-12-26 18:46:08,165 log 22864 14112 Internal Server Error: /login/
+Traceback (most recent call last):
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: registration/login.html
+ERROR 2025-12-26 18:46:08,169 basehttp 22864 14112 "GET /login/ HTTP/1.1" 500 94262
+WARNING 2025-12-26 18:46:08,266 log 22864 14112 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 18:46:08,267 basehttp 22864 14112 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4117
+INFO 2025-12-26 18:46:58,955 autoreload 22028 24024 Watching for file changes with StatReloader
+ERROR 2025-12-26 18:47:05,798 log 22028 21708 Internal Server Error: /login/
+Traceback (most recent call last):
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: registration/login.html
+ERROR 2025-12-26 18:47:05,802 basehttp 22028 21708 "GET /login/ HTTP/1.1" 500 94399
+WARNING 2025-12-26 18:47:05,891 log 22028 21708 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 18:47:05,892 basehttp 22028 21708 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4117
+INFO 2025-12-26 18:47:16,552 basehttp 22028 21708 "GET /accounts/login/?next=/incidents/ HTTP/1.1" 302 0
+INFO 2025-12-26 18:47:16,616 basehttp 22028 21708 "GET /dashboard/ HTTP/1.1" 200 0
+WARNING 2025-12-26 18:47:16,702 log 22028 21708 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 18:47:16,703 basehttp 22028 21708 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4117
+INFO 2025-12-26 18:52:23,873 autoreload 22028 24024 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\geography\views.py changed, reloading.
+INFO 2025-12-26 18:52:26,943 autoreload 20180 23900 Watching for file changes with StatReloader
+INFO 2025-12-26 18:55:33,091 autoreload 20180 23900 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\geography\urls.py changed, reloading.
+INFO 2025-12-26 18:55:36,031 autoreload 17268 21788 Watching for file changes with StatReloader
+INFO 2025-12-26 18:55:55,580 autoreload 17268 21788 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\geography\urls.py changed, reloading.
+INFO 2025-12-26 18:55:58,337 autoreload 5808 12548 Watching for file changes with StatReloader
+INFO 2025-12-26 19:13:34,805 autoreload 5808 12548 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\election_app\settings.py changed, reloading.
+INFO 2025-12-26 19:13:40,865 autoreload 24428 24552 Watching for file changes with StatReloader
+INFO 2025-12-26 19:13:47,796 autoreload 24428 24552 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\election_app\settings.py changed, reloading.
+INFO 2025-12-26 19:13:53,140 autoreload 25436 22180 Watching for file changes with StatReloader
+INFO 2025-12-26 19:13:59,176 autoreload 25436 22180 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\election_app\settings.py changed, reloading.
+INFO 2025-12-26 19:14:04,725 autoreload 3412 25312 Watching for file changes with StatReloader
+INFO 2025-12-26 19:29:52,995 autoreload 3412 25312 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\geography\views.py changed, reloading.
+INFO 2025-12-26 19:29:58,760 autoreload 25060 24768 Watching for file changes with StatReloader
+INFO 2025-12-26 19:30:27,838 autoreload 24832 23964 Watching for file changes with StatReloader
+INFO 2025-12-26 19:34:48,463 autoreload 17612 10492 Watching for file changes with StatReloader
+INFO 2025-12-26 19:40:41,876 autoreload 17612 10492 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\dashboard\views.py changed, reloading.
+INFO 2025-12-26 19:40:45,703 autoreload 9660 22328 Watching for file changes with StatReloader
+INFO 2025-12-26 19:45:18,345 autoreload 9660 22328 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\election_app\settings.py changed, reloading.
+INFO 2025-12-26 19:45:22,251 autoreload 21148 17040 Watching for file changes with StatReloader
+INFO 2025-12-26 19:48:40,045 autoreload 24664 25596 Watching for file changes with StatReloader
+INFO 2025-12-26 19:50:32,789 autoreload 24664 25596 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\election_app\settings.py changed, reloading.
+INFO 2025-12-26 19:50:36,808 autoreload 3824 24044 Watching for file changes with StatReloader
+INFO 2025-12-26 19:50:58,287 autoreload 3824 24044 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\statistics\apps.py changed, reloading.
+INFO 2025-12-26 19:51:03,682 autoreload 1524 14384 Watching for file changes with StatReloader
+INFO 2025-12-26 19:52:53,824 autoreload 1524 14384 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\statistics\urls.py changed, reloading.
+INFO 2025-12-26 19:52:59,952 autoreload 21284 7084 Watching for file changes with StatReloader
+INFO 2025-12-26 19:56:57,189 autoreload 14912 7380 Watching for file changes with StatReloader
+ERROR 2025-12-26 19:58:25,563 exception 14912 20944 Invalid HTTP_HOST header: 'df96574a1aa7.ngrok-free.app'. You may need to add 'df96574a1aa7.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'df96574a1aa7.ngrok-free.app'. You may need to add 'df96574a1aa7.ngrok-free.app' to ALLOWED_HOSTS.
+WARNING 2025-12-26 19:58:25,770 log 14912 20944 Bad Request: /
+WARNING 2025-12-26 19:58:25,773 basehttp 14912 20944 "GET / HTTP/1.1" 400 81853
+ERROR 2025-12-26 19:58:26,657 exception 14912 23044 Invalid HTTP_HOST header: 'df96574a1aa7.ngrok-free.app'. You may need to add 'df96574a1aa7.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'df96574a1aa7.ngrok-free.app'. You may need to add 'df96574a1aa7.ngrok-free.app' to ALLOWED_HOSTS.
+WARNING 2025-12-26 19:58:26,738 log 14912 23044 Bad Request: /favicon.ico
+WARNING 2025-12-26 19:58:26,741 basehttp 14912 23044 "GET /favicon.ico HTTP/1.1" 400 81544
+INFO 2025-12-26 20:03:11,025 autoreload 14912 7380 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\election_app\settings.py changed, reloading.
+INFO 2025-12-26 20:03:17,841 autoreload 16568 15560 Watching for file changes with StatReloader
+INFO 2025-12-26 20:03:49,302 basehttp 16568 11748 "GET / HTTP/1.1" 200 12528
+WARNING 2025-12-26 20:03:52,207 log 16568 11748 Not Found: /favicon.ico
+WARNING 2025-12-26 20:03:52,210 basehttp 16568 11748 "GET /favicon.ico HTTP/1.1" 404 3915
+INFO 2025-12-26 20:04:55,391 basehttp 16568 11748 "GET /incidents/ HTTP/1.1" 302 0
+INFO 2025-12-26 20:04:55,787 basehttp 16568 11748 "GET /accounts/login/?next=/incidents/ HTTP/1.1" 200 2114
+WARNING 2025-12-26 20:05:35,688 log 16568 11748 Forbidden (Origin checking failed - https://df96574a1aa7.ngrok-free.app does not match any trusted origins.): /accounts/login/
+WARNING 2025-12-26 20:05:35,691 basehttp 16568 11748 "POST /accounts/login/?next=/incidents/ HTTP/1.1" 403 2582
+INFO 2025-12-26 20:05:47,680 basehttp 16568 2660 "GET /dashboard/ HTTP/1.1" 302 0
+INFO 2025-12-26 20:05:47,691 basehttp 16568 2660 "GET /accounts/login/?next=/dashboard/ HTTP/1.1" 200 2114
+WARNING 2025-12-26 20:05:47,761 log 16568 2660 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 20:05:47,764 basehttp 16568 2660 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4013
+INFO 2025-12-26 20:06:40,029 basehttp 16568 2660 "POST /accounts/login/?next=/dashboard/ HTTP/1.1" 302 0
+ERROR 2025-12-26 20:06:40,383 log 16568 2660 Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\dashboard\views.py", line 29, in index
+    return render(request, 'dashboard/dashboard.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: dashboard/dashboard.html
+ERROR 2025-12-26 20:06:40,391 basehttp 16568 2660 "GET /dashboard/ HTTP/1.1" 500 100917
+WARNING 2025-12-26 20:06:40,578 log 16568 2660 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 20:06:40,580 basehttp 16568 2660 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4013
+INFO 2025-12-26 20:09:18,843 autoreload 16568 15560 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\election_app\settings.py changed, reloading.
+INFO 2025-12-26 20:09:24,685 autoreload 23816 11840 Watching for file changes with StatReloader
+INFO 2025-12-26 20:10:14,245 autoreload 23816 11840 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\election_app\settings.py changed, reloading.
+INFO 2025-12-26 20:10:19,794 autoreload 26028 18188 Watching for file changes with StatReloader
+WARNING 2025-12-26 20:14:19,642 log 26028 4944 Forbidden (Origin checking failed - https://df96574a1aa7.ngrok-free.app does not match any trusted origins.): /accounts/login/
+WARNING 2025-12-26 20:14:19,646 basehttp 26028 4944 "POST /accounts/login/?next=/incidents/ HTTP/1.1" 403 2582
+ERROR 2025-12-26 20:14:23,257 exception 26028 20840 Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+WARNING 2025-12-26 20:14:23,586 log 26028 20840 Bad Request: /dashboard/
+WARNING 2025-12-26 20:14:23,588 basehttp 26028 20840 "GET /dashboard/ HTTP/1.1" 400 81962
+ERROR 2025-12-26 20:14:23,625 exception 26028 25876 Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+WARNING 2025-12-26 20:14:23,826 log 26028 25876 Bad Request: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 20:14:23,828 basehttp 26028 25876 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 400 80914
+ERROR 2025-12-26 20:14:31,359 exception 26028 24636 Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+WARNING 2025-12-26 20:14:31,661 log 26028 24636 Bad Request: /
+WARNING 2025-12-26 20:14:31,662 basehttp 26028 24636 "GET / HTTP/1.1" 400 81549
+ERROR 2025-12-26 20:14:31,703 exception 26028 23900 Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+WARNING 2025-12-26 20:14:31,916 log 26028 23900 Bad Request: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 20:14:31,918 basehttp 26028 23900 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 400 80914
+INFO 2025-12-26 20:15:07,569 autoreload 26028 18188 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\election_app\settings.py changed, reloading.
+INFO 2025-12-26 20:15:13,396 autoreload 7928 20812 Watching for file changes with StatReloader
+INFO 2025-12-26 20:15:15,171 basehttp 7928 1924 "GET / HTTP/1.1" 200 13614
+WARNING 2025-12-26 20:15:15,422 log 7928 1924 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 20:15:15,424 basehttp 7928 1924 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4013
+WARNING 2025-12-26 20:15:42,970 log 7928 1924 Forbidden: /pv/
+WARNING 2025-12-26 20:15:42,971 basehttp 7928 1924 "GET /pv/ HTTP/1.1" 403 0
+WARNING 2025-12-26 20:15:48,324 log 7928 1924 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 20:15:48,326 basehttp 7928 1924 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4013
+WARNING 2025-12-26 20:15:48,478 log 7928 1924 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 20:15:48,480 basehttp 7928 1924 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4013
+ERROR 2025-12-26 20:15:51,241 log 7928 1924 Internal Server Error: /incidents/
+Traceback (most recent call last):
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\incidents\views.py", line 28, in incident_list
+    incidents_qs = request.user.get_incidents_accessibles().select_related(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'get_incidents_accessibles'
+ERROR 2025-12-26 20:15:51,266 basehttp 7928 1924 "GET /incidents/ HTTP/1.1" 500 86285
+WARNING 2025-12-26 20:15:51,503 log 7928 1924 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 20:15:51,504 basehttp 7928 1924 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4013
+INFO 2025-12-26 20:17:51,707 basehttp 7928 23864 "GET /accounts/login HTTP/1.1" 301 0
+INFO 2025-12-26 20:17:52,461 basehttp 7928 22892 "GET /accounts/login/ HTTP/1.1" 200 2114
+WARNING 2025-12-26 20:18:32,617 log 7928 22892 Forbidden (Origin checking failed - https://df96574a1aa7.ngrok-free.app does not match any trusted origins.): /accounts/login/
+WARNING 2025-12-26 20:18:32,621 basehttp 7928 22892 "POST /accounts/login/ HTTP/1.1" 403 2582
+INFO 2025-12-26 20:19:51,847 basehttp 7928 24452 "GET / HTTP/1.1" 200 12528
+INFO 2025-12-26 20:20:10,630 basehttp 7928 5500 "GET / HTTP/1.1" 200 12528
+INFO 2025-12-26 20:20:55,259 basehttp 7928 2816 "GET / HTTP/1.1" 200 12528
+WARNING 2025-12-26 20:20:57,459 log 7928 2816 Not Found: /favicon.ico
+WARNING 2025-12-26 20:20:57,462 basehttp 7928 2816 "GET /favicon.ico HTTP/1.1" 404 3915
+INFO 2025-12-26 20:21:11,945 basehttp 7928 2816 "GET /pv/ HTTP/1.1" 302 0
+INFO 2025-12-26 20:21:12,414 basehttp 7928 2816 "GET /accounts/login/?next=/pv/ HTTP/1.1" 200 2114
+INFO 2025-12-26 20:21:25,135 basehttp 7928 2816 "GET /pv/ HTTP/1.1" 302 0
+INFO 2025-12-26 20:21:25,577 basehttp 7928 2816 "GET /accounts/login/?next=/pv/ HTTP/1.1" 200 2114
+INFO 2025-12-26 20:21:31,137 basehttp 7928 2816 "GET /pv/submit/ HTTP/1.1" 302 0
+INFO 2025-12-26 20:21:31,479 basehttp 7928 2816 "GET /accounts/login/?next=/pv/submit/ HTTP/1.1" 200 2114
+INFO 2025-12-26 20:21:54,341 basehttp 7928 2816 "GET /pv/submit/ HTTP/1.1" 302 0
+INFO 2025-12-26 20:21:54,778 basehttp 7928 2816 "GET /accounts/login/?next=/pv/submit/ HTTP/1.1" 200 2114
+INFO 2025-12-26 20:36:09,139 autoreload 7928 20812 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\accounts\models.py changed, reloading.
+INFO 2025-12-26 20:36:16,348 autoreload 19688 26532 Watching for file changes with StatReloader
+INFO 2025-12-26 20:38:00,804 autoreload 19688 26532 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\accounts\models.py changed, reloading.
+INFO 2025-12-26 20:38:07,254 autoreload 25112 26428 Watching for file changes with StatReloader
+WARNING 2025-12-26 20:43:22,430 log 25112 18776 Forbidden (Origin checking failed - https://df96574a1aa7.ngrok-free.app does not match any trusted origins.): /accounts/login/
+WARNING 2025-12-26 20:43:22,435 basehttp 25112 18776 "POST /accounts/login/ HTTP/1.1" 403 2582
+ERROR 2025-12-26 20:43:32,054 log 25112 21676 Internal Server Error: /incidents/
+Traceback (most recent call last):
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\incidents\views.py", line 28, in incident_list
+    incidents_qs = request.user.get_incidents_accessibles().select_related(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'get_incidents_accessibles'
+ERROR 2025-12-26 20:43:32,074 basehttp 25112 21676 "GET /incidents/ HTTP/1.1" 500 86422
+WARNING 2025-12-26 20:43:32,241 log 25112 21676 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 20:43:32,243 basehttp 25112 21676 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4013
+ERROR 2025-12-26 20:43:33,751 log 25112 21676 Internal Server Error: /incidents/
+Traceback (most recent call last):
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\incidents\views.py", line 28, in incident_list
+    incidents_qs = request.user.get_incidents_accessibles().select_related(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'get_incidents_accessibles'
+ERROR 2025-12-26 20:43:33,771 basehttp 25112 21676 "GET /incidents/ HTTP/1.1" 500 86422
+WARNING 2025-12-26 20:43:33,941 log 25112 21676 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 20:43:33,943 basehttp 25112 21676 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4013
+INFO 2025-12-26 20:50:23,412 basehttp 25112 25032 "GET / HTTP/1.1" 200 12528
+INFO 2025-12-26 20:50:24,215 basehttp 25112 25032 "GET / HTTP/1.1" 200 12528
+INFO 2025-12-26 20:50:24,224 basehttp 25112 23896 "GET / HTTP/1.1" 200 12528
+INFO 2025-12-26 20:50:28,530 basehttp 25112 25196 "GET / HTTP/1.1" 200 12528
+WARNING 2025-12-26 20:50:32,915 log 25112 25196 Not Found: /favicon.ico
+WARNING 2025-12-26 20:50:32,917 basehttp 25112 25196 "GET /favicon.ico HTTP/1.1" 404 3915
+INFO 2025-12-26 20:50:38,125 basehttp 25112 25196 "GET /pv/submit/ HTTP/1.1" 302 0
+INFO 2025-12-26 20:50:38,471 basehttp 25112 25196 "GET /accounts/login/?next=/pv/submit/ HTTP/1.1" 200 2114
+ERROR 2025-12-26 21:18:29,820 log 25112 28140 Internal Server Error: /incidents/
+Traceback (most recent call last):
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\incidents\views.py", line 28, in incident_list
+    incidents_qs = request.user.get_incidents_accessibles().select_related(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'get_incidents_accessibles'
+ERROR 2025-12-26 21:18:29,843 basehttp 25112 28140 "GET /incidents/ HTTP/1.1" 500 86422
+WARNING 2025-12-26 21:18:30,065 log 25112 28140 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 21:18:30,067 basehttp 25112 28140 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4013
+ERROR 2025-12-26 21:19:18,919 log 25112 25704 Internal Server Error: /incidents/
+Traceback (most recent call last):
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\incidents\views.py", line 28, in incident_list
+    incidents_qs = request.user.get_incidents_accessibles().select_related(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GERARD\AppData\Roaming\Python\Python312\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'get_incidents_accessibles'
+ERROR 2025-12-26 21:19:18,939 basehttp 25112 25704 "GET /incidents/ HTTP/1.1" 500 86422
+WARNING 2025-12-26 21:19:19,133 log 25112 25704 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 21:19:19,136 basehttp 25112 25704 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4013
+INFO 2025-12-26 21:20:12,816 basehttp 25112 25704 "GET / HTTP/1.1" 200 12539
+WARNING 2025-12-26 21:20:13,025 log 25112 25704 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 21:20:13,027 basehttp 25112 25704 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4013
+WARNING 2025-12-26 21:20:18,583 log 25112 25704 Forbidden: /pv/submit/
+WARNING 2025-12-26 21:20:18,585 basehttp 25112 25704 "GET /pv/submit/ HTTP/1.1" 403 0
+WARNING 2025-12-26 21:20:23,327 log 25112 25704 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 21:20:23,331 basehttp 25112 25704 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4013
+WARNING 2025-12-26 21:20:23,509 log 25112 25704 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 21:20:23,512 basehttp 25112 25704 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4013
+WARNING 2025-12-26 21:25:03,813 log 25112 25704 Forbidden: /pv/
+WARNING 2025-12-26 21:25:03,816 basehttp 25112 25704 "GET /pv/ HTTP/1.1" 403 0
+WARNING 2025-12-26 21:25:06,819 log 25112 25704 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 21:25:06,821 basehttp 25112 25704 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4013
+WARNING 2025-12-26 21:25:06,980 log 25112 25704 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 21:25:06,981 basehttp 25112 25704 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4013
+INFO 2025-12-26 21:25:08,546 basehttp 25112 25704 "GET / HTTP/1.1" 200 12539
+WARNING 2025-12-26 21:25:08,758 log 25112 25704 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-26 21:25:08,760 basehttp 25112 25704 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4013
+INFO 2025-12-26 21:32:48,896 autoreload 25112 26428 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\statistics\urls.py changed, reloading.
+INFO 2025-12-26 21:32:55,742 autoreload 15560 21508 Watching for file changes with StatReloader
+INFO 2025-12-26 21:33:02,381 autoreload 15560 21508 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\statistics\urls.py changed, reloading.
+INFO 2025-12-26 21:33:08,574 autoreload 15512 23172 Watching for file changes with StatReloader
+INFO 2025-12-26 21:33:56,011 autoreload 15512 23172 C:\Users\GERARD\OneDrive\Tout en un clic\OneDrive\Desktop\Projet Python\election_app\statistics\urls.py changed, reloading.
+INFO 2025-12-26 21:34:02,422 autoreload 28508 7428 Watching for file changes with StatReloader

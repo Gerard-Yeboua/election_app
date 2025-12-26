@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    
+    # Third party apps
     'rest_framework',
     'rest_framework_simplejwt',
     'django_filters',
@@ -59,9 +59,9 @@ INSTALLED_APPS = [
     'geography',
     'pv',
     'incidents',
-    'dashboard',
+    'statistics',
+    # 'dashboard',
     'common',
-    'statistic',
     
 ]
 
@@ -91,9 +91,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
                 'dashboard.context_processors.sidebar_context',
             ],
         },
@@ -103,6 +100,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'election_app.wsgi.application'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
@@ -115,7 +114,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'election_db',
         'USER': 'postgres',
-        'PASSWORD': 'admin',
+        'PASSWORD': 'Election',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -328,6 +327,12 @@ SESSION_SAVE_EVERY_REQUEST = True
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SECURE = not DEBUG  # True en production
 
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'df96574a1aa7.ngrok-free.app',
+    '*.ngrok-free.app',
+]
 # Security Settings
 if not DEBUG:
     SECURE_SSL_REDIRECT = True

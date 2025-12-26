@@ -1,4 +1,4 @@
-<aside class="w-64 bg-gray-800 text-white flex-shrink-0" x-data="{ open: true }">
+{% comment %} <aside class="w-64 bg-gray-800 text-white flex-shrink-0" x-data="{ open: true }">
     <div class="p-6">
         <h3 class="text-sm font-semibold text-gray-400 uppercase mb-4">Menu Principal</h3>
         
@@ -84,6 +84,91 @@
                 <div>
                     <p class="text-sm font-medium">{{ user.get_full_name }}</p>
                     <p class="text-xs text-gray-400">{{ user.region.nom_region }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside> {% endcomment %}
+<aside class="w-64 bg-gray-800 text-white flex-shrink-0" x-data="{ open: true }">
+    <div class="p-6">
+        <!-- Badge de rôle -->
+        {% if user.role == 'BACK_OFFICE' %}
+        <div class="mb-4 px-4 py-2 bg-purple-600 rounded-lg text-center">
+            <i class="fas fa-crown mr-2"></i>
+            <span class="font-bold">BACK OFFICE</span>
+        </div>
+        {% endif %}
+        
+        <h3 class="text-sm font-semibold text-gray-400 uppercase mb-4">Menu Principal</h3>
+        
+        <nav class="space-y-2">
+            <!-- Dashboard -->
+            <a href="{% url 'dashboard' %}" 
+               class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition {% if request.resolver_match.url_name == 'dashboard' %}bg-gray-700{% endif %}">
+                <i class="fas fa-home mr-3"></i>
+                <span>Tableau de bord</span>
+            </a>
+            
+            <!-- PV -->
+            <a href="{% url 'pv:list' %}" 
+               class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition">
+                <i class="fas fa-file-alt mr-3"></i>
+                <span>Procès-Verbaux</span>
+            </a>
+            
+            <!-- Incidents -->
+            <a href="{% url 'incidents:list' %}" 
+               class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition">
+                <i class="fas fa-exclamation-triangle mr-3"></i>
+                <span>Incidents</span>
+            </a>
+            
+            <!-- Statistiques -->
+            {% if user.role in 'BACK_OFFICE,SUPER_ADMIN,ADMIN' %}
+            <a href="{% url 'statistics:dashboard' %}" 
+               class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition">
+                <i class="fas fa-chart-bar mr-3"></i>
+                <span>Statistiques</span>
+            </a>
+            {% endif %}
+            
+            <!-- Utilisateurs -->
+            {% if user.peut_creer_utilisateurs %}
+            <a href="{% url 'accounts:users' %}" 
+               class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition">
+                <i class="fas fa-users mr-3"></i>
+                <span>Utilisateurs</span>
+            </a>
+            {% endif %}
+            
+            <!-- Configuration (BACK_OFFICE uniquement) -->
+            {% if user.role == 'BACK_OFFICE' %}
+            <div class="border-t border-gray-700 my-4"></div>
+            <h3 class="text-xs font-semibold text-gray-400 uppercase mb-2 px-4">Administration</h3>
+
+            <a href="{% url 'geography:upload_data' %}" 
+            class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition">
+                <i class="fas fa-upload mr-3"></i>
+                <span>Charger les données</span>
+            </a>
+
+            <a href="{% url 'admin:index' %}" 
+            class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition">
+                <i class="fas fa-cogs mr-3"></i>
+                <span>Configuration</span>
+            </a>
+            {% endif %}
+        </nav>
+        
+        <!-- User Info Card -->
+        <div class="mt-8 p-4 bg-gray-700 rounded-lg">
+            <div class="flex items-center space-x-3">
+                <img src="https://ui-avatars.com/api/?name={{ user.get_full_name }}&background=random" 
+                     alt="Avatar" 
+                     class="h-10 w-10 rounded-full">
+                <div>
+                    <p class="text-sm font-medium">{{ user.get_full_name }}</p>
+                    <p class="text-xs text-gray-400">{{ user.perimetre_geographique }}</p>
                 </div>
             </div>
         </div>

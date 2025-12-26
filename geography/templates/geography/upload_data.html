@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+
+{% block title %}Chargement des Données Électorales{% endblock %}
+
+{% block page_header %}
+<div class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-800">
+        <i class="fas fa-upload mr-3 text-blue-600"></i>
+        Chargement des Données Électorales
+    </h1>
+    <p class="text-gray-600 mt-2">Importez les données géographiques et électorales depuis un fichier CSV</p>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    
+    <!-- Formulaire d'upload -->
+    <div class="lg:col-span-2">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-xl font-bold text-gray-800 mb-6">
+                <i class="fas fa-file-upload mr-2 text-blue-600"></i>
+                Télécharger le fichier CSV
+            </h2>
+            
+            <!-- Instructions -->
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-info-circle text-blue-500 text-xl"></i>
+                    </div>
+                    <div class="ml-3">
+                        <h3 class="text-sm font-medium text-blue-800 mb-2">Instructions</h3>
+                        <ul class="text-sm text-blue-700 list-disc list-inside space-y-1">
+                            <li>Le fichier doit être au format CSV avec séparateur TAB (tabulation)</li>
+                            <li>Colonnes requises: C.R, REGION, CODE_DEPT, LIB_DEPT, CODE_SP, LIB_SP, CODE_COM, LIB_COM, CODE_LV, LIB_LV, NBRE BV, POP ELECT</li>
+                            <li>Encodage: UTF-8</li>
+                            <li>La première ligne doit contenir les en-têtes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formulaire -->
+            <form method="post" enctype="multipart/form-data" class="space-y-6">
+                {% csrf_token %}
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Fichier CSV
+                    </label>
+                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-blue-400 transition">
+                        <div class="space-y-1 text-center">
+                            <i class="fas fa-cloud-upload-alt text-6xl text-gray-400 mb-3"></i>
+                            <div class="flex text-sm text-gray-600">
+                                <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none">
+                                    <span>Télécharger un fichier</span>
+                                    <input id="file-upload" name="csv_file" type="file" accept=".csv" class="sr-only" required onchange="displayFileName(this)">
+                                </label>
+                                <p class="pl-1">ou glisser-déposer</p>
+                            </div>
+                            <p class="text-xs text-gray-500">CSV jusqu'à 50MB</p>
+                            <p id="file-name" class="text-sm font-medium text-blue-600 mt-2"></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bouton de soumission -->
+                <div class="flex items-center justify-between pt-4 border-t border-gray-200">
+                    <button type="button" onclick="window.location.reload()" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition">
+                        <i class="fas fa-redo mr-2"></i>
+                        Annuler
+                    </button>
+                    <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold">
+                        <i class="fas fa-upload mr-2"></i>
+                        Charger les données
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Statistiques actuelles -->
+    <div class="lg:col-span-1">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-6">
+                <i class="fas fa-chart-bar mr-2 text-green-600"></i>
+                Données actuelles
+            </h2>
+            
+            <div class="space-y-4">
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <i class="fas fa-map-marked-alt text-purple-500 mr-3"></i>
+                        <span class="text-sm font-medium text-gray-700">Régions</span>
+                    </div>
+                    <span class="text-lg font-bold text-gray-900">{{ stats.regions }}</span>
+                </div>
+                
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <i class="fas fa-building text-blue-500 mr-3"></i>
+                        <span class="text-sm font-medium text-gray-700">Départements</span>
+                    </div>
+                    <span class="text-lg font-bold text-gray-900">{{ stats.departements }}</span>
+                </div>
+                
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <i class="fas fa-city text-green-500 mr-3"></i>
+                        <span class="text-sm font-medium text-gray-700">Communes</span>
+                    </div>
+                    <span class="text-lg font-bold text-gray-900">{{ stats.communes }}</span>
+                </div>
+                
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-yellow-500 mr-3"></i>
+                        <span class="text-sm font-medium text-gray-700">Sous-préfectures</span>
+                    </div>
+                    <span class="text-lg font-bold text-gray-900">{{ stats.sous_prefectures }}</span>
+                </div>
+                
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <i class="fas fa-school text-indigo-500 mr-3"></i>
+                        <span class="text-sm font-medium text-gray-700">Lieux de vote</span>
+                    </div>
+                    <span class="text-lg font-bold text-gray-900">{{ stats.lieux_vote }}</span>
+                </div>
+                
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <i class="fas fa-vote-yea text-red-500 mr-3"></i>
+                        <span class="text-sm font-medium text-gray-700">Bureaux de vote</span>
+                    </div>
+                    <span class="text-lg font-bold text-gray-900">{{ stats.bureaux_vote }}</span>
+                </div>
+            </div>
+            
+            <!-- Bouton d'export (optionnel) -->
+            <div class="mt-6 pt-6 border-t border-gray-200">
+                <a href="#" class="block w-full text-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                    <i class="fas fa-download mr-2"></i>
+                    Exporter les données
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function displayFileName(input) {
+    const fileName = input.files[0]?.name;
+    if (fileName) {
+        document.getElementById('file-name').textContent = `Fichier sélectionné: ${fileName}`;
+    }
+}
+</script>
+{% endblock %}

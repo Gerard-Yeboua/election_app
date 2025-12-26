@@ -1,202 +1,211 @@
-from django.shortcuts import render
-
-# Create your views here.
-# apps/geography/views.py
-from django.shortcuts import render, get_object_or_404
+# geography/views.py
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseForbidden
-from django.core.paginator import Paginator
-from django.db.models import Q, Count
-
-from geography.models import (
-    Region, Departement, Commune, SousPrefecture,
-    LieuVote, BureauVote
-)
+from django.contrib import messages
+from django.db import transaction
+from decimal import Decimal
+import csv
+import io
+from .models import Region, Departement, Commune, SousPrefecture, LieuVote, BureauVote
 
 
 @login_required
-def region_list(request):
-    """Liste des régions"""
-    if request.user.role not in ['ADMIN', 'SUPER_ADMIN']:
-        return HttpResponseForbidden()
+def upload_electoral_data(request):
+    """Interface d'upload des données électorales"""
     
-    regions = Region.objects.all().annotate(
-        nb_bureaux=Count('departements__communes__sous_prefectures__lieux_vote__bureaux_vote')
-    )
+    # Vérifier que l'utilisateur est BACK_OFFICE
+    if request.user.role != 'BACK_OFFICE':
+        messages.error(request, "Accès refusé. Seul le Back Office peut charger les données.")
+        return redirect('dashboard')
     
-    # Recherche
-    search = request.GET.get('search')
-    if search:
-        regions = regions.filter(
-            Q(code_region__icontains=search) |
-            Q(nom_region__icontains=search)
-        )
+    if request.method == 'POST' and request.FILES.get('csv_file'):
+        csv_file = request.FILES['csv_file']
+        
+        # Vérifier que c'est un fichier CSV
+        if not csv_file.name.endswith('.csv'):
+            messages.error(request, 'Le fichier doit être au format CSV')
+            return redirect('geography:upload_data')
+        
+        try:
+            # Lire le fichier
+            decoded_file = csv_file.read().decode('utf-8')
+            io_string = io.StringIO(decoded_file)
+            reader = csv.DictReader(io_string, delimiter='\t')
+            
+            # Dictionnaires pour éviter les doublons
+            regions = {}
+            departements = {}
+            sous_prefectures = {}
+            communes = {}
+            lieux_vote = {}
+            
+            # Compteurs
+            stats = {
+                'regions': 0,
+                'departements': 0,
+                'sous_prefectures': 0,
+                'communes': 0,
+                'lieux_vote': 0,
+                'bureaux_vote': 0,
+                'lignes_traitees': 0,
+                'erreurs': 0
+            }
+            
+            with transaction.atomic():
+                for idx, row in enumerate(reader, start=1):
+                    try:
+                        # Extraire les données
+                        cr = row['C.R'].strip()
+                        nom_region = row['REGION'].strip()
+                        code_dept = row['CODE_DEPT'].strip()
+                        lib_dept = row['LIB_DEPT'].strip()
+                        code_sp = row['CODE_SP'].strip()
+                        lib_sp = row['LIB_SP'].strip()
+                        code_com = row['CODE_COM'].strip()
+                        lib_com = row['LIB_COM'].strip()
+                        code_lv = row['CODE_LV'].strip()
+                        lib_lv = row['LIB_LV'].strip()
+                        nbre_bv = int(row['NBRE BV'].strip())
+                        pop_elect = int(row['POP ELECT'].strip().replace(' ', '').replace(',', ''))
+                        
+                        # 1. CRÉER/RÉCUPÉRER LA RÉGION
+                        code_region = f"REG-{cr.zfill(2)}"
+                        if code_region not in regions:
+                            region, created = Region.objects.get_or_create(
+                                code_region=code_region,
+                                defaults={'nom_region': nom_region}
+                            )
+                            regions[code_region] = region
+                            if created:
+                                stats['regions'] += 1
+                        else:
+                            region = regions[code_region]
+                        
+                        # 2. CRÉER/RÉCUPÉRER LE DÉPARTEMENT
+                        if code_dept not in departements:
+                            dept, created = Departement.objects.get_or_create(
+                                code_departement=code_dept,
+                                defaults={
+                                    'nom_departement': lib_dept,
+                                    'region': region
+                                }
+                            )
+                            departements[code_dept] = dept
+                            if created:
+                                stats['departements'] += 1
+                        else:
+                            dept = departements[code_dept]
+                        
+                        # 3. CRÉER/RÉCUPÉRER LA COMMUNE
+                        key_commune = f"{code_com}-{code_dept}"
+                        if key_commune not in communes:
+                            commune, created = Commune.objects.get_or_create(
+                                code_commune=code_com,
+                                departement=dept,
+                                defaults={'nom_commune': lib_com}
+                            )
+                            communes[key_commune] = commune
+                            if created:
+                                stats['communes'] += 1
+                        else:
+                            commune = communes[key_commune]
+                        
+                        # 4. CRÉER/RÉCUPÉRER LA SOUS-PRÉFECTURE
+                        if code_sp not in sous_prefectures:
+                            sp, created = SousPrefecture.objects.get_or_create(
+                                code_sous_prefecture=code_sp,
+                                defaults={
+                                    'nom_sous_prefecture': lib_sp,
+                                    'commune': commune
+                                }
+                            )
+                            sous_prefectures[code_sp] = sp
+                            if created:
+                                stats['sous_prefectures'] += 1
+                        else:
+                            sp = sous_prefectures[code_sp]
+                        
+                        # 5. CRÉER/RÉCUPÉRER LE LIEU DE VOTE
+                        if code_lv not in lieux_vote:
+                            # Générer des coordonnées fictives
+                            lat_base = 5.0 + (int(cr) * 0.5)
+                            lng_base = -4.0 - (int(code_dept) * 0.1)
+                            lat_offset = (int(code_lv) * 0.001) if code_lv.isdigit() else 0.001
+                            lng_offset = (int(code_lv) * 0.001) if code_lv.isdigit() else 0.001
+                            
+                            lv, created = LieuVote.objects.get_or_create(
+                                code_lv=code_lv,
+                                defaults={
+                                    'nom_lv': lib_lv,
+                                    'sous_prefecture': sp,
+                                    'latitude': Decimal(str(lat_base + lat_offset)),
+                                    'longitude': Decimal(str(lng_base + lng_offset)),
+                                    'type_lieu': 'ECOLE'
+                                }
+                            )
+                            lieux_vote[code_lv] = lv
+                            if created:
+                                stats['lieux_vote'] += 1
+                        else:
+                            lv = lieux_vote[code_lv]
+                        
+                        # 6. CRÉER LES BUREAUX DE VOTE
+                        inscrits_par_bv = pop_elect // nbre_bv if nbre_bv > 0 else pop_elect
+                        
+                        for bv_num in range(1, nbre_bv + 1):
+                            code_bv = f"{code_lv}-BV{bv_num:02d}"
+                            
+                            if not BureauVote.objects.filter(code_bv=code_bv).exists():
+                                bv_lat = lv.latitude + Decimal(bv_num * 0.0001)
+                                bv_lng = lv.longitude + Decimal(bv_num * 0.0001)
+                                
+                                BureauVote.objects.create(
+                                    code_bv=code_bv,
+                                    nom_bv=f"{lib_lv} - Bureau {bv_num}",
+                                    lieu_vote=lv,
+                                    sous_prefecture=sp,
+                                    commune=commune,
+                                    departement=dept,
+                                    region=region,
+                                    nombre_inscrits=inscrits_par_bv,
+                                    latitude=bv_lat,
+                                    longitude=bv_lng
+                                )
+                                stats['bureaux_vote'] += 1
+                        
+                        stats['lignes_traitees'] += 1
+                        
+                    except Exception as e:
+                        stats['erreurs'] += 1
+                        print(f"Erreur ligne {idx}: {str(e)}")
+                        continue
+            
+            # Message de succès
+            messages.success(
+                request,
+                f"✅ Chargement terminé avec succès ! "
+                f"Régions: {stats['regions']}, "
+                f"Départements: {stats['departements']}, "
+                f"Communes: {stats['communes']}, "
+                f"Sous-préfectures: {stats['sous_prefectures']}, "
+                f"Lieux de vote: {stats['lieux_vote']}, "
+                f"Bureaux de vote: {stats['bureaux_vote']}"
+            )
+            
+            return redirect('geography:upload_data')
+            
+        except Exception as e:
+            messages.error(request, f'Erreur lors du traitement du fichier: {str(e)}')
+            return redirect('geography:upload_data')
     
-    context = {
-        'regions': regions,
-        'search_query': search,
+    # Afficher les statistiques actuelles
+    stats = {
+        'regions': Region.objects.count(),
+        'departements': Departement.objects.count(),
+        'communes': Commune.objects.count(),
+        'sous_prefectures': SousPrefecture.objects.count(),
+        'lieux_vote': LieuVote.objects.count(),
+        'bureaux_vote': BureauVote.objects.count(),
     }
     
-    return render(request, 'geography/region_list.html', context)
-
-
-@login_required
-def region_detail(request, region_id):
-    """Détail d'une région"""
-    region = get_object_or_404(Region, id=region_id)
-    
-    # Vérifier les permissions
-    if request.user.role == 'ADMIN':
-        if request.user.region != region:
-            return HttpResponseForbidden()
-    
-    # Statistiques
-    stats = region.stats_bureaux
-    stats_pv = region.stats_pv
-    stats_participation = region.stats_participation
-    stats_incidents = region.stats_incidents
-    
-    # Départements
-    departements = region.departements.all().annotate(
-        nb_bureaux=Count('communes__sous_prefectures__lieux_vote__bureaux_vote')
-    )
-    
-    context = {
-        'region': region,
-        'stats': stats,
-        'stats_pv': stats_pv,
-        'stats_participation': stats_participation,
-        'stats_incidents': stats_incidents,
-        'departements': departements,
-    }
-    
-    return render(request, 'geography/region_detail.html', context)
-
-
-@login_required
-def departement_detail(request, departement_id):
-    """Détail d'un département"""
-    departement = get_object_or_404(Departement, id=departement_id)
-    
-    # Vérifier les permissions
-    if request.user.role == 'ADMIN':
-        if request.user.region != departement.region:
-            return HttpResponseForbidden()
-    
-    # Statistiques
-    stats = departement.stats_bureaux
-    
-    # Communes
-    communes = departement.communes.all()
-    
-    context = {
-        'departement': departement,
-        'stats': stats,
-        'communes': communes,
-    }
-    
-    return render(request, 'geography/departement_detail.html', context)
-
-
-@login_required
-def commune_detail(request, commune_id):
-    """Détail d'une commune"""
-    commune = get_object_or_404(Commune, id=commune_id)
-    
-    # Vérifier les permissions
-    if request.user.role == 'ADMIN':
-        if request.user.region != commune.departement.region:
-            return HttpResponseForbidden()
-    
-    # Sous-préfectures
-    sous_prefectures = commune.sous_prefectures.all()
-    
-    context = {
-        'commune': commune,
-        'sous_prefectures': sous_prefectures,
-    }
-    
-    return render(request, 'geography/commune_detail.html', context)
-
-
-@login_required
-def lieu_vote_detail(request, lieu_vote_id):
-    """Détail d'un lieu de vote"""
-    lieu_vote = get_object_or_404(LieuVote, id=lieu_vote_id)
-    
-    # Bureaux de vote
-    bureaux = lieu_vote.bureaux_vote.all()
-    
-    context = {
-        'lieu_vote': lieu_vote,
-        'bureaux': bureaux,
-    }
-    
-    return render(request, 'geography/lieu_vote_detail.html', context)
-
-
-@login_required
-def bureau_list(request):
-    """Liste des bureaux de vote"""
-    # Obtenir les bureaux accessibles
-    bureaux = request.user.get_bureaux_accessibles()
-    
-    # Filtres
-    region = request.GET.get('region')
-    search = request.GET.get('search')
-    
-    if region:
-        bureaux = bureaux.filter(
-            lieu_vote__sous_prefecture__commune__departement__region_id=region
-        )
-    
-    if search:
-        bureaux = bureaux.filter(
-            Q(code_bv__icontains=search) |
-            Q(nom_bv__icontains=search)
-        )
-    
-    # Pagination
-    paginator = Paginator(bureaux, 50)
-    page_number = request.GET.get('page')
-    bureaux_page = paginator.get_page(page_number)
-    
-    context = {
-        'bureaux': bureaux_page,
-        'regions': Region.objects.all(),
-        'search_query': search,
-    }
-    
-    return render(request, 'geography/bureau_list.html', context)
-
-
-@login_required
-def bureau_detail(request, bureau_id):
-    """Détail d'un bureau de vote"""
-    bureau = get_object_or_404(BureauVote, id=bureau_id)
-    
-    # Vérifier les permissions
-    if not request.user.peut_acceder_bureau(bureau):
-        return HttpResponseForbidden()
-    
-    # Statistiques du bureau
-    stats_pv = bureau.stats_pv
-    stats_participation = bureau.stats_participation
-    stats_incidents = bureau.stats_incidents
-    
-    # PV du bureau
-    pv_list = bureau.proces_verbaux.all().order_by('-date_soumission')[:5]
-    
-    # Incidents du bureau
-    incidents = bureau.incidents.all().order_by('-created_at')[:5]
-    
-    context = {
-        'bureau': bureau,
-        'stats_pv': stats_pv,
-        'stats_participation': stats_participation,
-        'stats_incidents': stats_incidents,
-        'pv_list': pv_list,
-        'incidents': incidents,
-    }
-    
-    return render(request, 'geography/bureau_detail.html', context)
+    return render(request, 'geography/upload_data.html', {'stats': stats})

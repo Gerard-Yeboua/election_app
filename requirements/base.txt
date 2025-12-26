@@ -1,45 +1,105 @@
-# Django
-Django==4.2.8
-django-environ==0.11.2
-
-# Database
-psycopg2-binary==2.9.9
-
-# REST API
+# Django et extensions
+Django==5.0.1
 djangorestframework==3.14.0
 djangorestframework-simplejwt==5.3.1
-django-filter==23.5
+
+# Base de données
+psycopg2-binary==2.9.9
+
+# Configuration
+python-decouple==3.8
+
+# Gestion des images
+Pillow==10.2.0
+
+# CORS
 django-cors-headers==4.3.1
-drf-yasg==1.21.7
 
-# Cloudinary
-cloudinary==1.37.0
-django-cloudinary-storage==0.3.0
+# Filtres
+django-filter==23.5
 
-# Celery & Redis
-celery==5.3.4
+# Pagination
+drf-spectacular==0.27.1
+
+# Génération de documents
+reportlab==4.0.9
+openpyxl==3.1.2
+python-docx==1.1.0
+python-pptx==0.6.23
+
+# PDF
+PyPDF2==3.0.1
+
+# Utilitaires
+python-dateutil==2.8.2
+pytz==2024.1
+
+# Variables d'environnement
+python-dotenv==1.0.1
+
+# Serveur de production (optionnel)
+gunicorn==21.2.0
+whitenoise==6.6.0
+
+# Redis (pour le cache - optionnel)
 redis==5.0.1
 django-redis==5.4.0
 
-# Utilities
-python-dateutil==2.8.2
-pytz==2023.3
-Pillow==10.1.0
+# Celery (pour les tâches asynchrones - optionnel)
+celery==5.3.6
 
-# Excel/CSV
-openpyxl==3.1.2
-pandas==2.1.4
-django-import-export==3.3.5
+# Monitoring et logging
+sentry-sdk==1.40.0
 
-# Forms
-django-crispy-forms==2.1
-crispy-tailwind==1.0.3
+# Tests
+pytest==7.4.4
+pytest-django==4.7.0
+factory-boy==3.3.0
+faker==22.6.0
 
-# Supabase
-supabase==2.3.0
+# Code quality
+black==24.1.1
+flake8==7.0.0
+isort==5.13.2
 
-# Monitoring & Logging
-sentry-sdk==1.39.1
+# Sécurité
+django-csp==3.8
+django-axes==6.1.1
+# Django et extensions
+Django==5.0.1
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.3.1
 
-# Security
+# Documentation API
+drf-yasg==1.21.7
+
+# Import/Export
+django-import-export==3.3.7
+
+# Configuration
 python-decouple==3.8
+
+# Stockage cloud
+cloudinary==1.38.0
+
+# Filtres
+django-filter==23.5
+
+# Génération de documents
+openpyxl==3.1.2
+python-dateutil==2.8.2
+pytz==2024.1
+
+# API dependencies
+packaging
+inflection
+uritemplate
+PyYAML
+coreapi
+
+# Variables d'environnement
+python-dotenv==1.0.1
+
+# Serveur de production
+gunicorn==21.2.0
+whitenoise==6.6.0

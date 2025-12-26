@@ -39,17 +39,17 @@ urlpatterns = [
     path('geography/', include('geography.urls')),
     path('pv/', include('pv.urls')),
     path('incidents/', include('incidents.urls')),
-    path('statistics/', include('statistic.urls')),
+    path('statistics/', include('statistics.urls')),
 
     # API
-    path('api/', include([
-        path('auth/', include('rest_framework.urls')),
-        # path('accounts/', include('accounts.api_urls')),
-        # path('geography/', include('geography.api_urls')),
-        # path('pv/', include('pv.api_urls')),
-        # path('incidents/', include('incidents.api_urls')),
-        # path('statistics/', include('statistic.api_urls')),
-    ])),
+    # path('api/', include([
+    #     path('auth/', include('rest_framework.urls')),
+    #     path('accounts/', include('accounts.api_urls')),
+    #     path('geography/', include('geography.api_urls')),
+    #     path('pv/', include('pv.api_urls')),
+    #     path('incidents/', include('incidents.api_urls')),
+    #     path('statistics/', include('statistics.api_urls')),
+    # ])),
 
     # API Docs
     path('api/swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),

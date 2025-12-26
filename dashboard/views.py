@@ -12,7 +12,7 @@ from pv.models import ProcesVerbal, Candidat
 from incidents.models import Incident
 from geography.models import BureauVote, Region
 from accounts.models import User, CheckIn
-from statistic.models import CacheStatistique
+from statistics.models import CacheStatistique
 
 
 @login_required
