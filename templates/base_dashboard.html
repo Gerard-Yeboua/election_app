@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Tableau de bord | SGE{% endblock %}</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Alpine.js -->
+    <script defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        @media (max-width: 640px) {
+            .container-padding {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gray-50">
+    <!-- Navigation (si vous en avez une) -->
+    <!-- <nav class="bg-white shadow-sm">
+        ...
+    </nav> -->
+
+    <!-- Main Content -->
+    <div class="min-h-screen">
+        {% include 'includes/messages.html' %}
+        
+        <div class="container-padding mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+            <!-- En-tête de page -->
+            {% block page_header %}{% endblock %}
+            
+            <!-- Contenu principal -->
+            <div class="w-full">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (optionnel) -->
+    <!-- <footer class="bg-white border-t mt-8">
+        ...
+    </footer> -->
+</body>
+</html>

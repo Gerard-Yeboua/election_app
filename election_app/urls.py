@@ -5,6 +5,8 @@ from django.conf.urls.static import static
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from django.views.generic import TemplateView
+from django.contrib.auth import views as auth_views
 
 # Swagger/OpenAPI Schema
 schema_view = get_schema_view(
@@ -23,6 +25,13 @@ schema_view = get_schema_view(
 urlpatterns = [
     # Admin
     path('admin/', admin.site.urls),
+    
+      # Auth
+    path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    
+    # Home
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),
 
     # Web Apps
     path('dashboard/', include('dashboard.urls')),

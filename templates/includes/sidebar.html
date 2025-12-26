@@ -1,0 +1,91 @@
+<aside class="w-64 bg-gray-800 text-white flex-shrink-0" x-data="{ open: true }">
+    <div class="p-6">
+        <h3 class="text-sm font-semibold text-gray-400 uppercase mb-4">Menu Principal</h3>
+        
+        <nav class="space-y-2">
+            <!-- Dashboard -->
+            <a href="{% url 'dashboard:index' %}" 
+               class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition {% if request.resolver_match.url_name == 'dashboard' %}bg-gray-700{% endif %}">
+                <i class="fas fa-home mr-3"></i>
+                <span>Tableau de bord</span>
+            </a>
+            
+            <!-- PV -->
+            <a href="{% url 'pv:list' %}" 
+               class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition">
+                <i class="fas fa-file-alt mr-3"></i>
+                <span>Procès-Verbaux</span>
+            </a>
+            
+            <!-- Incidents -->
+            <a href="{% url 'incidents:list' %}" 
+               class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition">
+                <i class="fas fa-exclamation-triangle mr-3"></i>
+                <span>Incidents</span>
+            </a>
+            
+            <!-- Statistiques -->
+            {% if user.role == 'SUPER_ADMIN' or user.role == 'ADMIN' %}
+            <a href="{% url 'statistics:dashboard' %}" 
+               class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition">
+                <i class="fas fa-chart-bar mr-3"></i>
+                <span>Statistiques</span>
+            </a>
+            {% endif %}
+            
+            <!-- Geography -->
+            {% if user.role == 'SUPER_ADMIN' %}
+            <div x-data="{ open: false }">
+                <button @click="open = !open" 
+                        class="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-gray-700 transition">
+                    <div class="flex items-center">
+                        <i class="fas fa-map-marked-alt mr-3"></i>
+                        <span>Géographie</span>
+                    </div>
+                    <i class="fas fa-chevron-down text-sm" :class="{ 'rotate-180': open }"></i>
+                </button>
+                
+                <div x-show="open" x-cloak class="ml-4 mt-2 space-y-2">
+                    <a href="{% url 'geography:regions' %}" 
+                       class="flex items-center px-4 py-2 rounded-lg hover:bg-gray-700 transition text-sm">
+                        <i class="fas fa-circle text-xs mr-3"></i>
+                        <span>Régions</span>
+                    </a>
+                    <a href="{% url 'geography:departements' %}" 
+                       class="flex items-center px-4 py-2 rounded-lg hover:bg-gray-700 transition text-sm">
+                        <i class="fas fa-circle text-xs mr-3"></i>
+                        <span>Départements</span>
+                    </a>
+                    <a href="{% url 'geography:bureaux' %}" 
+                       class="flex items-center px-4 py-2 rounded-lg hover:bg-gray-700 transition text-sm">
+                        <i class="fas fa-circle text-xs mr-3"></i>
+                        <span>Bureaux de Vote</span>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+            
+            <!-- Utilisateurs -->
+            {% if user.role == 'SUPER_ADMIN' or user.role == 'ADMIN' %}
+            <a href="{% url 'accounts:users' %}" 
+               class="flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition">
+                <i class="fas fa-users mr-3"></i>
+                <span>Utilisateurs</span>
+            </a>
+            {% endif %}
+        </nav>
+        
+        <!-- User Info Card -->
+        <div class="mt-8 p-4 bg-gray-700 rounded-lg">
+            <div class="flex items-center space-x-3">
+                <img src="https://ui-avatars.com/api/?name={{ user.get_full_name }}&background=random" 
+                     alt="Avatar" 
+                     class="h-10 w-10 rounded-full">
+                <div>
+                    <p class="text-sm font-medium">{{ user.get_full_name }}</p>
+                    <p class="text-xs text-gray-400">{{ user.region.nom_region }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
